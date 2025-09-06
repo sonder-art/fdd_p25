@@ -1,0 +1,28 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Temporales / logs
+*.log
+*.tmp
+*.swp
+*.bak
+*.old
+
+# Archivos de compilación
+*.class
+*.o
+*.out
+*.exe
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env/
+
+# Node
+node_modules/
+
