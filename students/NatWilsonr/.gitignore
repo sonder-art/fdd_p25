@@ -1,0 +1,21 @@
+# === Archivos de sistema (Linux/Mac) ===
+.DS_Store
+Thumbs.db
+
+# === Archivos temporales ===
+*.log
+*.tmp
+*.swp
+
+# === Archivos de Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# === Jupyter Notebooks ===
+.ipynb_checkpoints/
+
+# === VSCode ===
+.vscode/
+
