@@ -1,0 +1,61 @@
+Bandit – Niveles 6 a 10
+Natalia Quintana 214468 
+
+Conexión base:
+ssh banditN@bandit.labs.overthewire.org -p 2220
+# Reemplaza N por el nivel al que vas a entrar (6, 7, 8, 9, 10).
+
+Nivel 6  →  Nivel 7
+Objetivo:
+  Encontrar un archivo en TODO el sistema:
+    - tamaño exacto: 33 bytes
+    - user (owner): bandit7
+    - group: bandit6
+    - legible
+
+Comandos ejecutados:
+  find / -type f -size 33c -user bandit7 -group bandit6 2>/dev/null
+  cat RUTA/ENCONTRADA
+
+Contraseña: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+Nivel 7  →  Nivel 8
+Objetivo:
+  En el archivo data.txt, encontrar la línea que contiene la palabra "millionth".
+
+Comandos ejecutados:
+  cd ~
+  grep millionth data.txt
+
+Contraseña obtenida para bandit8:dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+Nivel 8  →  Nivel 9
+Objetivo:
+  En data.txt hay muchas líneas repetidas. La contraseña es la ÚNICA que aparece una sola vez.
+
+Comandos ejecutados:
+  cd ~
+  sort data.txt | uniq -u
+
+Contraseña: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+
+Nivel 9  →  Nivel 10
+Objetivo:
+  data.txt contiene muchos tipos de datos. La contraseña es una cadena legible
+  (human-readable) precedida por varios signos '='.
+
+Comandos ejecutados:
+  cd ~
+  strings data.txt | grep -E '=+'
+Contraseña: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+Nivel 10  →  Nivel 11
+Objetivo:
+  data.txt está codificado en Base64. Decodificar para obtener la password.
+
+Comandos ejecutados:
+  cd ~
+  cat data.txt | base64 -d
+
+Contraseña: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
