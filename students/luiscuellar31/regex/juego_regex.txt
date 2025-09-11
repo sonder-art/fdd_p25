@@ -1,0 +1,114 @@
+^.*foo.*$
+^.*ick$
+^.*fu\b
+^[a-f]{4,}$
+^.*([a-z]{3,}).*\1.*$
+^(?!.*(bb|cc|mm|pp|ss|tt|ll[aei]|ff[ai]|rra)).*$
+^(.?)(.?)(.?)(.?)(.?)(.?)(.?)(.?)(.?).?\9\8\7\6\5\4\3\2\1$
+^(?!(xx+)\1+$)xx+$
+^(?!.*[Aa][Cc][Ee][Aa][Ee])(?=.*([aeiouAEIOU]).*\1.*\1.*\1).*$
+
+1. ^.*foo.*$
+Descripción: Busca cualquier línea que contenga la palabra "foo" en cualquier posición.
+Componentes:
+	•	^ - Inicio de línea
+	•	.* - Cero o más caracteres de cualquier tipo
+	•	foo - La palabra literal "foo"
+	•	.* - Cero o más caracteres de cualquier tipo
+	•	$ - Final de línea
+
+Funcionamiento: Este patrón coincide con cualquier cadena que contenga "foo" en cualquier parte, permitiendo cualquier cantidad de caracteres antes y después.
+
+2. ^.*ick$
+Descripción: Busca cualquier línea que termine con "ick".
+Componentes:
+	•	^ - Inicio de línea
+	•	.* - Cero o más caracteres de cualquier tipo
+	•	ick - La secuencia literal "ick"
+	•	$ - Final de línea
+Funcionamiento: Coincide con cualquier cadena que termine exactamente con "ick", sin importar qué caracteres la precedan.
+
+3. ^.*fu\b
+Descripción: Busca cualquier línea que contenga "fu" seguido de un límite de palabra.
+Componentes:
+	•	^ - Inicio de línea
+	•	.* - Cero o más caracteres de cualquier tipo
+	•	fu - La secuencia literal "fu"
+	•	\b - Límite de palabra (word boundary)
+Funcionamiento: Encuentra "fu" cuando está al final de una palabra o seguido de un carácter no alfanumérico.
+
+4. ^[a-f]{4,}$
+Descripción: Busca líneas que contengan únicamente entre 4 o más caracteres hexadecimales en minúscula (a-f).
+Componentes:
+	•	^ - Inicio de línea
+	•	[a-f] - Clase de caracteres: letras de 'a' a 'f'
+	•	{4,} - Cuantificador: 4 o más ocurrencias
+	•	$ - Final de línea
+Funcionamiento: La línea completa debe consistir únicamente de 4 o más letras entre 'a' y 'f' (minúsculas).
+
+5. ^.*([a-z]{3,}).*\1.*$
+Descripción: Busca líneas que contengan una palabra de 3 o más letras minúsculas que se repita al menos una vez en la misma línea.
+Componentes:
+	•	^ - Inicio de línea
+	•	.* - Cero o más caracteres de cualquier tipo
+	•	([a-z]{3,}) - Grupo capturado: 3 o más letras minúsculas
+	•	.* - Cero o más caracteres de cualquier tipo
+	•	\1 - Referencia al primer grupo capturado (backreference)
+	•	.* - Cero o más caracteres de cualquier tipo
+	•	$ - Final de línea
+Funcionamiento: Captura una secuencia de 3+ letras minúsculas y luego busca esa misma secuencia más adelante en la línea.
+
+6. ^(?!.*(bb|cc|mm|pp|ss|tt|ll[aei]|ff[ai]|rra)).*$
+Descripción: Busca líneas que NO contengan ciertas combinaciones de letras dobles específicas.
+Componentes:
+	•	^ - Inicio de línea
+	•	(?!...) - Lookahead negativo: no debe seguir el patrón especificado
+	•	.* - Cero o más caracteres de cualquier tipo
+	•	(bb|cc|mm|pp|ss|tt|ll[aei]|ff[ai]|rra) - Alternativas prohibidas:
+	◦	bb, cc, mm, pp, ss, tt - Letras dobles específicas
+	◦	ll[aei] - "ll" seguido de 'a', 'e', o 'i'
+	◦	ff[ai] - "ff" seguido de 'a' o 'i'
+	◦	rra - La secuencia "rra"
+	•	.* - Cero o más caracteres de cualquier tipo
+	•	$ - Final de línea
+Funcionamiento: Rechaza cualquier línea que contenga las combinaciones prohibidas de letras.
+
+7. ^(.?)(.?)(.?)(.?)(.?)(.?)(.?)(.?)(.?).?\9\8\7\6\5\4\3\2\1$
+Descripción: Busca palíndromos de exactamente 9 caracteres (puede incluir un carácter central que se ignora).
+Componentes:
+	•	^ - Inicio de línea
+	•	(.?) x9 - Nueve grupos que capturan cero o un carácter cada uno
+	•	.? - Un carácter opcional en el centro
+	•	\9\8\7\6\5\4\3\2\1 - Referencias a los grupos en orden inverso
+	•	$ - Final de línea
+Funcionamiento: Captura hasta 9 caracteres y luego verifica que aparezcan en orden inverso, creando un patrón palindrómico.
+
+8. ^(?!(xx+)\1+$)xx+$
+Descripción: Busca cadenas de 'x' cuya longitud sea un número primo.
+Componentes:
+	•	^ - Inicio de línea
+	•	(?!...) - Lookahead negativo
+	•	(xx+) - Grupo que captura 2 o más 'x'
+	•	\1+ - Una o más repeticiones del grupo capturado
+	•	xx+ - Dos o más 'x' (la cadena actual debe ser de 'x')
+	•	$ - Final de línea
+Funcionamiento:
+	•	Primero verifica que la cadena consista solo de 'x' (2 o más)
+	•	El lookahead negativo rechaza cadenas donde la longitud pueda expresarse como múltiplos de un número mayor que 1
+	•	Solo acepta longitudes que sean números primos
+
+9. ^(?!.*[Aa][Cc][Ee][Aa][Ee])(?=.*([aeiouAEIOU]).*\1.*\1.*\1).*$
+Descripción: Busca líneas que contengan al menos 4 instancias de la misma vocal, pero que NO contengan la secuencia "ACEAE" en cualquier combinación de mayúsculas/minúsculas.
+Componentes:
+	•	^ - Inicio de línea
+	•	(?!.*[Aa][Cc][Ee][Aa][Ee]) - Lookahead negativo: no debe contener "ACEAE"
+	•	(?=.*([aeiouAEIOU]).*\1.*\1.*\1) - Lookahead positivo:
+	◦	([aeiouAEIOU]) - Captura cualquier vocal
+	◦	.*\1.*\1.*\1 - Debe haber 3 repeticiones más de esa vocal (4 total)
+	•	.* - Cero o más caracteres de cualquier tipo
+	•	$ - Final de línea
+Funcionamiento:
+	•	Rechaza líneas que contengan "ACEAE" en cualquier case
+	•	Requiere que al menos una vocal aparezca 4 o más veces en la línea
+	•	La vocal repetida puede estar en mayúscula o minúscula
+
