@@ -1,0 +1,64 @@
+Nivel 6->7:
+Para pasar del nivel 6 al 7 nos dicen que en el servidor de bandit hay un archivo que es propiedad del user bandit7 en el grupo bandit 6 y tiene 33 bytes de tamaño. 
+
+Para esto usamos el comando find con las siguientes banderas :
+
+find -type f -user bandit7 -group bandit6 -size 33c 
+
+-type f específica que sea un file
+
+-user bandit7 específica el usuario (bandit7)
+
+-group bandit6 específica el grupo (bandit6)
+
+-size 33c específica el tamaño del archivo en bytes
+
+Al ejecutar el comando, nos aparecen una serie de mensajes de Permission denied, de aquí tenemos que buscar algo realcionado con el usuario bandit7, para eso usamos el comando grep, solo que en esta ocasión le pasamos como parametro lo que nos dió como resultado el comando find. Luego hacemos el comando 
+
+find -type f -user bandit7 -group bandit6 -size 33c | grep bandit7
+
+Como resultado de esto nos devuelve la palabra en rojo de bandit7, la cual tiene la ruta del archivo con la contraseña. /var/lib/dpkg/info/bandit7.password
+
+Ahora solo tenemos que escribir el comando cat /var/lib/dpkg/info/bandit7.password
+
+Nos devuelve la contraseña: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+Nivel 7->8:
+
+Para este nivel solo nos dicen que la contraseña esta junto a la palabra millionth en el archivo data.txt, por lo que solo tenemos que usar la instrucción :
+
+cat data.txt | grep millionth
+
+La contraseña es dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+Nivel 8->9
+
+Para este nivel nos dicen que la contraseña está en el archivo data.txt y es la única línea que no se repite.
+
+El comando para esto es sort data.txt | uniq -u
+
+sort ordena las líneas de data.txt alafabeticamente de A a Z. Despúes uniq -u reporta las lineas únicas y omite las repetidas adyacentes.
+La contraseña es 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+Nivel 9->10
+
+Para este nivel nos dicen que la contraseña está en el archivo data.txt y que en una de las líneas human redable se encuentra la contraseña después de varios '=', para esto tenemos que usar el siguiente comando:
+
+strings data.txt | grep -P '=+\s*[a-zA-Z0-9]+'
+
+strings nos regresa las líneas human redable 
+
+después con grep traemos las líneas que tengan '='s y tengan mayúculas y minúsculas con números después del '='.
+
+La contraseña es FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+Nivel 10->11
+
+Para el nivel 10, nos dicen que la contraseña está guardad en un archivo en base64 por lo que solo tenemos que decodificarlo con la bandera -d
+
+de aquí que el comando es base64 -d data.txt
+
+La contraseña es: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+
+
