@@ -1,0 +1,31 @@
+Arindal Contreras Arellano
+208529
+
+warmup level:
+Tanto del lado derecho como del lado izquierdo tiene doble oo, pero lo que los diferencia es que las palabras del lado izquierdo tienen doble o antes de una f, por lo que la respuesta para este nivel es:
+‘foo’
+
+Anchors:
+Todas las palabras del lado izquierdo terminan en k y del lado derecho no, por lo que la respuesta del nivel es k$ o ck$ o ick$, yo usé la primera.
+
+It never ends:
+Como no podemos usar $ para buscar las palabras que terminan con fu entonces primero usé un look ahead como “fu(!?a-z)”, es decir, que después de la palabra fu no haya letras minúsculas después, pero buscando un poco más encontré la condición /b que marca los límites de una palabra, desde que inicia hasta que termina, ya que toma en cuenta los espacios que se encuentra, entonces usé “fu/b” que dice que después de la palabra fu no debe de haber ningún carácter.
+
+Ranges:
+Las palabras del lado izquierdo están formadas por letras de la a a la f y hay al menos 4 letras, mientras que las palabras del lado derecho incluyen otras letras también del abecedario, por lo que la respuesta que usé fue: “[a-f]{4}”, ya que pido una secuencia exactamente de 5 letras de la a a la f
+
+Backrefs:
+Las palabras del lado izquierdo llevan una secuencia de al menos 3 palabras  y se repite una vez más a lo largo de la palabra, mientras que del lado derecho hay al menos una palabra que contiene una secuencia de 2 letras, por lo que la respuesta es: ([a-z]{3}).*\1, ya que ([a-z]{3}) captura en un grupo una secuencia de 3 letras de la a a la z, después puede haber cualquier otro carácter menos un salto de línea y al final tiene que volverse a repetir lo que encontró el grupo 1.
+
+Abba:
+Del lado derecho las palabras contienen al menos una secuencia de 2 letras, mientras que del lado derecho sólo hay dos palabras que tienen esta secuencia, pero estas dos palabras coinciden en que tiene la palabra “fu” por lo que mi respuesta para que no excluya estas dos palabras es: “^(?!(.)+\1)|fu, ya que del grupo uno estoy permitiendo que tome cualquier carácter pero estoy pidiendo que se repita inmediatamente después, por lo que no quiero esto y para ello uso el look ahead, después para que no me excluya las dos palabras pido que lleve “fu”. Por lo tanto tiene dos opciones: que no lleven letras consecutivas o que lleve un “fu”.
+
+A man, a plan:
+Las palabras del lado izquierdo son palíndromos por lo que inician y terminan con la primera palabra, por lo tanto la respuesta va siendo ^(.).*\1$, ya que le estoy pidiendo que la primera letra, cualquiera ^(.), se repita al final *\1$, pero del lado derecho también pasa lo mismo con una palabra, pero su segunda letra es p, por lo que solo tengo que excluir esa posibilidad, siendo la respuesta: ^(.)[^p].*\1$
+
+Prime:
+Las cadenas del lado izquierdo está formada por una cantidad de x impar, por lo que siempre sobrará una x si las agrupamos de dos en dos, por lo que hay que checar que justamente no se cumpla eso, por lo que usaremos un look ahead para que no lo permita, la respuesta que usé fue: ^(?!(xx+)\1+$), ya que pido que desde el inicio de la cadena revise que no sea compuesta por grupos de xx. (xx+) hace un grupo de dos x y ese bloque se debe de repetir una o más veces hasta el final de la cadena \1+$
+
+Four:
+Las palabras del lado izquierdo contienen una vocal que se encuentra repetida al menos 4 veces pero no de forma consecutiva, sino entre una letra de diferencia, por lo que necesitamos un grupo de cualquier carácter (.) después otro carácter pero que después de ese el primer grupo se repita de nuevo (.\1) y esto pasa 3 veces máximo en todas las palabras del lado izquierdo, por lo tanto la respuesta que usé fue: (.)(.\1) {3}
+
