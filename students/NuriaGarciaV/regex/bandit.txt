@@ -1,0 +1,31 @@
+Tarea de Bandit
+
+Nivel 6
+
+El la página de Bandit aparecen las características que tenia que tener el archivo así que busque con esas características y me salieron muchísimos archivos para los cuales para todos aparecía permission denied excepto para uno, el cual abrí y en el encontré la contraseña del nivel 7
+
+
+Nivel 7
+
+Para este nivel primero abrí el documento de texto y se abrió un buen de basura, luego con un grep busque la palabra contraseña y password y no encontré nada. Luego vi en la página que la contraseña estaba a lado de la palabra milionth entonces con el grep busqué esa palabra y encontré la contraseña
+
+
+Nivel 8
+
+En la página marcaba que la contraseña era la única que no se repetía por lo que busque la única linea única, unique u
+
+
+Nivel 9
+
+En la página explicaba que la contraseña estaba seguida de una cadena de iguales ‘===’ por lo que con el grep busque las partes que tuvieran iguales juntos y encontré la contraseña
+
+
+Nivel 10
+
+primero abrí el data text y luego en la pagina decía que estaba codificado en base 64, entonces le pregunté a Chat GPT como decodificar esto y me dijo: 
+
+strings data.txt | base64 -d
+
+que buscara strings y el nombre del archivo ya que esto encuentra las secuencias legibles del archivo, lo que encuentra lo pasa a decodificar en base64
+
+The password is: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
