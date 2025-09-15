@@ -1,0 +1,60 @@
+Arindal Contreras Arellano
+208529
+
+
+Comandos que utilicé Nivel 6->7
+
+ssh -p 2220 bandit6@bandit.labs.overthewire.org
+
+pwd para ver en qué directorio estaba
+man find para ver cómo encontrar las especificaciones que mencionaba el nivel de usuario y grupo
+find / -user bandit7 -group bandit6 -size 33c que busque en todo el sistema un archivo que pertenezca al usuario bandit7 y que pertenezca al grupo bandit6
+Contraseña: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+
+Comandos que utilicé Nivel 7->8
+
+ssh -p 2220 bandit7@bandit.labs.overthewire.org
+
+pwd para ver en qué directorio estaba
+ls para que me muestre lo que contiene el directorio
+cat data.txt para leer lo que tiene dentro el archivo
+cat data.txt | grep millionth para pasar lo que contiene data.txt al siguiente comando y busque dentro del texto alguna línea que contenga la palabra “millionth”
+Contraseña: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+
+Comandos que utilicé Nivel 8->9
+
+ssh -p 2220 bandit8@bandit.labs.overthewire.org
+
+pwd para ver en qué directorio estaba
+ls para que me muestre lo que contiene el directorio
+cat data.txt para leer lo que tiene dentro el archivo
+man uniq hay que ordenar lo que se encuentra dentro ya que solo detecta repeticiones seguidas
+cat data.txt | sort | uniq -u muestra lo que contiene data.txt, lo acomoda  y muestra únicamente las líneas que aparecen una sola vez.
+Contraseña: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+
+Comandos que utilicé Nivel 9->10
+
+ssh -p 2220 bandit9@bandit.labs.overthewire.org
+
+pwd para ver en qué directorio estaba
+ls para que me muestre lo que contiene el directorio
+cat data.txt para leer lo que tiene dentro el archivo
+man strings examina un archivo y extrae solamente el texto que se puede leer
+strings data.txt y notamos que la contraseña está con =====
+strings data.txt | grep ========== muestra el texto legible y filtra las líneas que contengan signos de igual seguidos
+Contraseña: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+
+Comandos que utilicé Nivel 10->11
+
+ssh -p 2220 bandit10@bandit.labs.overthewire.org
+
+pwd para ver en qué directorio estaba
+ls para que me muestre lo que contiene el directorio
+cat data.txt para leer lo que tiene dentro el archivo
+man base64 decodifica de base64 a texto normal con -d
+echo -n "VGhlIHBhc3N3b3JkIGlzIGR0UjE3M2ZaS2IwUlJzREZTR3NnMlJXbnBOVmozcVJyCg==" | base64 -d imprime el texto en la terminal sin el salto de línea y lo decodifica a texto normal
+
