@@ -1,0 +1,23 @@
+\b(fu|tofu|snafu)\b
+\b marca inicio y fin por lo que solo elige fu, tofu o snafu
+
+ick$
+que tengan ick al final de la cadena
+
+^[a-f]+$
+marca todoas las palabras que solo tengan de la a a la f de inicio a fin de la palabra
+
+(\w{3,}).*\1
+agarra los primeros 3 caracteres y checa que tengan una repeticion
+
+^(?!.*(\w)(\w)\2\1)
+que al inicio no tenga 0 o mas caracteres y que en algun punto coincida que hay 2 digitos que inmediatamente despues esten acomodados inversamente
+
+(\w)(\w)[^r]?\2\1
+agarra 2 dijitos revisa que no tengan una r entre ellos y que despues de cualquier otra letra esten acomodados los digitos al reves
+
+^(x{2}|x{3}|x{5}|x{7}|x{11}|x{13}|x{17}|x{19}|x{23}|x{29}|x{31}|x{37}|x{41}|x{43}|x{47}|x{53}|x{59}|x{61}|x{67}|x{71})$
+solo checa que la x este repetida el numero de veces que hay en los corchetes que son numeros primos
+
+(\w)(\w)(\w)(\w)(\1\w\3)
+agarro 4 digitos y reviso que justo despues esten el digito uno, cualquier otra letra y el dijito 3
