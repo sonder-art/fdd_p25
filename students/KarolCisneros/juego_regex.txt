@@ -1,0 +1,35 @@
+Nivel 1
+Respuesta: foo 
+Pues estoy buscando coincidencias exactas con esta cadena, la cual es compartida por todas las palabras de la izquierda.
+
+Nivel 2
+Respuesta: ick$
+Todas las palabras tienen al final de la cadena el conjunto ick.
+
+NIvel 3
+Respuesta: fu(?!.)
+Usé un negative look ahead seguido de la palabra fu. Al no tener permitido usar $, la condición buscada era encontrar la palabra fu seguida de la negación de cualquier patrón.
+
+Nivel 4
+Respuesta: ^[a-f]+$
+Aquí la clave es que las palabras que quiero seleccionar están hechas sólo con letras de la "a" a la "f". Entonces, estas deben repetirse una o más veces (uso +) y también utilizo los indicadores de inicio y final de cadena para delimitar el exclusivo uso de estos caracteres en toda la cadena.
+
+Nivel 5
+Respuesta: (...).*\1
+La expresión (...) y posteriormente 1 guarda tres caracteres cualesquiera que mantiene en la memoria. Después de cualesquiera caracteres 0 o más veces, analiza la reaparición de la cadena guardada.
+
+Nivel 6
+Respuesta: ^(?!.*(.)(.)\2\1)
+Desde el inicio de la expresión, debo rechazar la cadena si contiene el siguiente patrón. Primero guardo un caracter en el espacio de memoria 1, guardo el siguiente caracter en el espacio 2, posteriormente debo verificar si a continuación viene el caracter guardado en 2 e inmediatamente el caracter guardado en 1. 
+
+Nivel 7
+Respuesta: ^(.)?(.)?(.)?(.)?(.)?(.)?.?\6\5\4\3\2\1$
+Se trata del mismo mecanismo de guardado de caracteres para su posterior analisis de coincidencia pero ahora de forma indefinida. (.)? indica el guardado opcional de un caracter, entonces el regex se va por todos los caminos posibles hasta que encuentra una coincidencia en donde los primeros n caracteres se repiten con los n últimos caracteres en orden simétrico.De igual forma, dependiendo si es una cantidad par o impar de caracteres, en medio puede o no tener un caracter aleatorio que no se buscará posteriormente, pues está al centro.
+
+Nivel 8
+Respuesta: ^(?!^(xx+)\1+$)xx+$
+La respuesta se divide en dos partes. Primero, la expresión (?!^(xx+)\1+$) buscará fallar en todas aquellas cadenas con un número compuesto de x, pues lo que hace es ir tomando cadenas de 2 o más x y ver si reaparece esa cadena 1 o más veces (si esa cadena se repite una o más veces, significa que el número de x es un producto de cantidades mayores a 1, entonces no es primo). Posteriormente, si no falla, solo busca una cadena compuesta por 2 o más x.
+
+Nivel 9
+Respuesta: (.).\1.\1.\1.*
+En este caso, las palabras con las que quiero coincidir son aquellas donde un caracter se repite de forma intermitente al menos 4 veces (donde entre cada repetición hay solo una letra). Por lo tanto, voy guardando cada caracter en memoria y voy analizando para todos los posibles recorridos si se muestra esa repetición.

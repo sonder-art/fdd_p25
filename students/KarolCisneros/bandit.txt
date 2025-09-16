@@ -1,0 +1,29 @@
+Nivel 6-7
+find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+Se usa el comando find con tales argumentos que permite buscar desde el directorio raíz un archivo que tenga usuario bandit7, grupo bandit6, con un tamaño de 33 bytes y 2>/dev/null permite manejar los errores que surjan.
+
+Nivel 7-8
+grep "millionth" data.txt
+Dicho comando permite con grep encontrar la palabra millionth en el documento data.txt, al ser grep una herramienta de búsqueda de texto.
+
+Nivel 8-9
+sort data.txt | uniq -u
+Este comando primeramente ordena el contenido del archivo data.txt, eso pasa como argumento con | a uniq, el cual elimina líneas consecutivas repetidas, y la opción -u solo muestra aquellas líneas únicas.
+
+
+Nivel 9-10
+strings data.txt | grep "====="
+El comando strings permite eliminar aquellas partes del archivo que son inteligibles. Se limpia el archivo data.txt y pasa como argumento a la herramienta de búsqueda de texto grep, la cual encuentra las cadenas precedidas por algunos signos "=".
+
+Nivel 10-11
+cat data.txt | base64 -d
+Primero se lee el documento y se pasa como argumento al comando base64 el cual con la opción -d lo decodifica, mostrando la respuesta.
+
+
+
+
+
+
+
+
+
