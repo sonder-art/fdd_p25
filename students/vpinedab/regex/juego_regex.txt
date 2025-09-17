@@ -1,0 +1,76 @@
+=======================
+Warmup
+=======================
+Para este nivel, me enfoqué en la palabra "foo", ya que todas las palabras contenían esta secuencia de letras en alguna parte. Utilicé la expresión foo
+
+=======================
+Anchors
+=======================
+En este nivel, todas las palabras terminaban con la letra "k". Por lo tanto, utilicé la expresión k$ para seleccionarlas. El símbolo $ es un ancla que indica que la coincidencia debe ocurrir al final de la cadena.
+
+=======================
+It never ends
+=======================
+El desafío aquí era seleccionar palabras que terminaran en "fu", pero sin usar el ancla $. Para lograrlo, implementé una inspección negativa por delante (negative lookahead).
+La expresión fu(?![a-z]) indica que debe haber una coincidencia con "fu" que no esté seguida por ninguna letra de la "a" a la "z" minúscula. 
+
+=======================
+Ranges
+=======================
+Para este nivel, las palabras estaban compuestas únicamente por letras del rango a-f y debían tener al menos 4 caracteres de longitud. La expresión [a-f]{4,} resuelve esto. El rango [a-f] indica que cualquier carácter dentro de los corchetes es una coincidencia, y el cuantificador {4,} especifica que el patrón anterior debe repetirse al menos 4 veces.
+
+=======================
+Backrefs
+=======================
+Aquí, el objetivo era seleccionar palabras donde las primeras tres letras se repitieran en alguna otra parte de la palabra.
+Utilicé la expresión: ^(\w{3})*\1
+- ^: Ancla que marca el inicio de la cadena.
+- (\w{3}): Un grupo de captura que coincide con las primeras tres letras de la palabra. \w coincide con cualquier carácter de palabra y {3} especifica la cantidad.
+- *: Coincide con cualquier número de caracteres (cero o más) entre las dos secuencias de letras.
+- \1: Una retroreferencia que busca una coincidencia con el contenido exacto del primer grupo de captura.
+
+=======================
+Abba
+=======================
+El patrón a evitar era: una vocal seguida de dos consonantes idénticas, y luego la misma vocal de inicio. Para seleccionar las palabras que no cumplían con este patrón, usé una inspección negativa por delante.
+La expresión ^(?!.*([aeiou])([\w])\2\1).*$ verifica que el patrón no esté presente en ninguna parte de la cadena, seleccionando así todas las que no lo tienen.
+- ^: Ancla el inicio de la cadena.
+- ?!: La inspección negativa por delante que no coincide si el patrón siguiente se encuentra.
+- .*: Permite que la búsqueda del patrón comience en cualquier lugar.([aeiou]): Primer grupo de captura para una vocal.
+- ([\w]): Segundo grupo de captura para un carácter de palabra.
+- \2\1: Retroreferencias que buscan el segundo grupo de captura (\2) seguido del primero (\1).
+- .*$: Si la inspección negativa no encuentra el patrón, coincide con toda la cadena.
+
+=======================
+A man, a plan
+=======================
+Este nivel trataba de identificar palíndromos. La expresión que utilicé fue ^(.)(.).*\2\1$
+- ^: Ancla al inicio de la cadena.
+- (.): El primer grupo de captura para el primer carácter.
+- (.): El segundo grupo de captura para el segundo carácter.
+- .*: Coincide con cualquier número de caracteres en el medio.
+- \2\1: Las retroreferencias que buscan el segundo carácter (\2) seguido del primero (\1), en ese orden.
+- $: Ancla el final de la cadena.n els palrsso,ntoncpsesímboloparaidireplabr ^,despuéshc los dossctsusqieassésuse(.*)pair e dio hay vaiso ninguncualsquiera,y ugepirpdosyluunmapalabr co ($)
+^()(.).*\2\1$
+
+=======================
+Prime
+=======================
+Este fue el nivel que más trabajo me dio porque las cadenas consistían en una serie de x cuyo número de repeticiones debía ser un número primo, pero yo no me daba cuenta.
+Para resolverlo, en lugar de identificar los números primos, opté por encontrar los números compuestos y luego negarlos. Los números compuestos se definen por tener factores que no sean 1 o ellos mismos.
+La expresión ^(?!(xx+)\1+$) es una inspección negativa por delante que busca y niega los números compuestos.
+- ^: Ancla el inicio de la cadena.
+- ?!: La inspección negativa por delante.
+- (xx+): Un grupo de captura que coincide con al menos dos x. Esto representa un factor
+- \1+: Una retroreferencia que coincide con una o más repeticiones de ese factor.
+- $: Ancla el final de la cadena.
+Esto significa que la expresión solo hará coincidencia con las cadenas que no puedan dividirse en grupos iguales (factores) de x.
+
+=======================
+Four
+=======================
+En este nivel, el patrón era una vocal que se repetía cuatro veces, con consonantes entre ellas, como en la palabra desilicification. Utilicé la expresión ^.*(.).\1.\1.\1
+- ^.*: Ancla al inicio y permite que la búsqueda comience en cualquier parte de la cadena.
+- (.): Un grupo de captura que coincide con cualquier carácter. En este caso, será la vocal repetida.
+- .: Coincide con cualquier carácter (la consonante).
+- \1.\1.\1: Retroreferencias que repiten el patrón del grupo de captura y un carácter cualquiera, tres veces más.
