@@ -1,0 +1,56 @@
+TAREA REGEX
+
+Warmup:
+  - Fórmula: foo
+  - Lo hice usando foo porque todas las palabras que queremos encontrar tienen esa serie de palabras
+    y las que queriamos omitir no lo tienen
+
+
+Anchors:
+  - Fórmula: ick$
+  - Lo hice usando ick$ porque todas las palabras que buscamos terminan con ick, y las que no buscamos 
+    pueden tener ick dentro de la palabra pero no terminan con eso
+
+It never ends:
+  - Fórmula: fu\b
+  - Esto asegura que la palabra acabe en fu sin usar el símbolo de $
+
+Ranges:
+  - Fórmula: ^[a-f]+$
+  - Con esto aseguré que las letras de las palabras tengan alguna letra de la a la f, sino lo tienen
+    se eliminan
+
+Backrefs:
+  - Fórmula: (...).*\1
+  - Agarra las priemras 3 letras, y luego busca que se repita es secuencia de 3 letras en la palabra
+    y el .* permite que haya letras intermedias entre las dos secuencias repetidas de 3 letras
+
+Abba:
+  - Fórmula: ^(?!.*(.)(.)\2\1)
+  - Lo que hice fue hacer negar a todas las palabras que tienen una cadena de aracteres que se repite,
+    pero al revés, por ejmplo abba repite ab pero al revés, entonces con esto se descaratan todos los 
+    que se repiten. Ponemos .* para que se recorra toda la palabra
+
+A man,a plan:
+  - Fórmula: ^(.)(.)\2\1$|^(.)(.).\4\3$|^(.)(.)(.).?\7\6\5$
+  - Como dice la sugerencia hagotrampa y uso varios or para los dsititnos palíndromos, en el primero
+    distingimos los de 4 letras, en el segundo los de 5 letras, y en el tercero de 6 y 7
+
+Prime:
+  - Fórmula: ^(?=x+$)(?!x$)(?!^(x{2,})\1+$).+
+  - Ese regex valida que la cadena esté compuesta solo por x, que no tenga longitud 1 y que no sea 
+    repetición de un bloque más corto, en otras palabras, solo acepta cadenas cuya longitud es primo
+
+Four:
+ - Fórmula: (.)(.)\1.*\1\2\1|(.).\3.*.\3.*.\3
+ - Es una expresión regular para identificar palabras que contienen patrones palindrómicos 
+   cortos del tipo ABA. La condición final fue que la palabra tenga al menos dos repeticiones exactas 
+   del mismo ABA o bien tres patrones distintos con la misma letra exterior
+
+
+
+
+
+
+
+
