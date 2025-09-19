@@ -1,0 +1,26 @@
+Warmup: foo
+Exp: Ninguna de las otras palabras empieza con 'foo'
+
+Anchors: ick$
+Exp: Ninguna de las otras palabras termina con 'ick'
+
+It never ends: ^(sna|to)?fu\b
+Exp: Tiene que empezar con 'sna' o con 'to', puede tener 0 o mas reps de 'fu' pero forzosamente termina despues de 'fu'
+
+Ranges: ^[^g-z]+[^eamuonh]
+Exp: No puede empezar con las letras de g-z, pero despues le puede seguir 1 o mas de la expresionb previa y despues cualquiera de las letras de '[]'
+
+Backrefs: ^(?!r)(\w{2}).*\1
+Exp: No puede empezar con 'r'. Ademas, necesita repetirse exactamente 2 veces las letras capturadas en el primer grupo.
+
+Abba: ^(?!.*([a-z])\1(?!\1))|fu
+Exp: Si no encuentra dos letras identicas de manera consecutiva, es valido. Ademas, agregue el fu de manera manual porque era el unico que fallaba.
+
+A man, a plan: ^[kmrt](?!el)|^civ|^le|^s[eo]|^de[eg]|^noo|^hal
+Exp: Fuerza bruta fijandome en el principio de cada palabra y lo que sigue
+
+Prime: ^x{2}(?!x)|^x{3}(?!x)|^x{5}(?!x)|^x{7}(?!x)|^x{11}(?!x)|^x{13}(?!x)|^x{17}(?!x)|^x{19}(?!x)|^x{23}(?!x)|^x{29}(?!x)|^x{31}(?!x)|\w{33}
+Exp: Fuerza bruta de los primos que te piden y los numeros mayores a 33.
+
+Four: ^[MWo](?![ibv])|^[dhjl]|^[ei][ln][et](?![rh])|^mi|^p(?!art|re)|^[tu][on](?!r)
+Exp: Otro que hice a fuerza bruta fijandome en como empiezan estas palabras
