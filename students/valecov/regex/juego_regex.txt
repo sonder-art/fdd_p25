@@ -1,0 +1,37 @@
+Juego Regex
+
+1. Warmup
+Solución: foo
+Explicación: Todas las palabras de la columna de la izquierda tienen foo entonces escribiendo directamente foo funciona
+
+2. Anchors
+Solución: ck$
+Explicación: Las palabras terminan en ck entonces se pone ck y $ que indica que es al final de la palabra
+
+3.It never ends 
+Solución: fu(?!.)
+Explicación: como las palabras terminan en fu pero no se puede usar $ use el negative look ahead para que después del fu no haya nada
+
+4. Ranges
+Solución: ^[abcdef]+$
+Explicación: Todas las palabras son con abcdef únicamente entonces se usa conjunto que de inicio^ a fin $ todas las letras están en el conjunto +
+
+5. Backrefs
+Solución: ([a-z]{3}).*\1
+Explicación: como las primeras tres letras de la palabra se vuelven a repetir después entonces se usa el conjunto de todas las letras y se guarda la secuencia de 3 caracteres y luego con .*\1 se busca que vuelva a aparecer en el texto
+
+6. Abba
+Solución: ^(?!.*(.)(.)\2\1)
+Explicación: Las palabras que no se quieren tienen un patrón como espejo que tienen dos letras y luego se repiten pero en orden al revés. Usa un negative look ahead en el que las primeras dos letras se guardan en grupos (.) y luego se llaman esos grupos en el orden inverso \2\1
+
+7. A man, a plan
+Solución: ^(.)(.).*\2\1$
+Explicación: Es como el pasado pero ahorita las que si estan permitidas tienen ese mismo patrón como de espejo al principio y al final de a palabra entonces se busca eso al inicio y al final, y en medio se permite lo que sea
+
+8.
+Solución:^(?!(xx+)\1+$)xx+$
+Explicación:Se necesita que la cadena tenga un numero primo de x entonces lo que se hace es que se busca que se niega la expresión que busca que sea par con el negative look ahead y un grupo de dos o mas x y que se repita y al final se agrega xx+ para que se tengan mínimo dos x porque x 2 es el primer numero primo.
+
+9. Four
+Solución: ^.*(.).\1.\1.\1
+Explicación: En este las palabras tienen la misma vocal 4 veces entonces se guarda esa vocal en un grupo y luego se checa que se repita con algún texto en medio

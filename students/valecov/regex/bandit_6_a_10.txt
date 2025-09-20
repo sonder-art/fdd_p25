@@ -1,0 +1,26 @@
+Bandit
+
+Nivel 6 a 7 
+Contraseña: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+Comando: find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null -exec cat {} \;
+Explicación: filtras con lo que piden y te devuelve una dirección que la ultima parte del comando ejecuta
+
+Nivel 7 a 8
+Contraseña: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+Comando: grep -oP 'millionth\K.*' data.txt
+Explicación: -o se usa para que ponga el texto que coincide y no la linea completa, P para activar las expresiones compatibles con Perl. \K se usa para que solo ponga lo que va después de ese texto
+
+Nivel 8 a 9
+Contraseña: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+Comando: sort data.txt | uniq -u
+Explicación: El -u  de uniq elimina los duplicados y el sort los ordena
+
+Nivel 9 a 10
+Contraseña: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+Comando: strings data.txt | grep '===='
+Explicación: Uso strings para sacar lo legible y ya luego grep con los iguales
+
+Nivel 10 a 11
+Contraseña: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+Comando: base64 -d data.txt
+Explicación: el -d significa decide entonces con eso pasas el archivo de base64 a string
