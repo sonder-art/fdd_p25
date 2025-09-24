@@ -1,0 +1,21 @@
+- Que es Docker (para que sirve)?
+En palabras de clase: Docker es un sistema operativo chiquito.
+Como lo terminé de entender es que Docker es como una maleta para un fin largo, tipo me permite empaquetar todo lo que mi mascota (la aplicación) necesita (librerías, pandas, dependencias, etc) y llevarlo a todas partes (a cualquier compu) sin preocuparme de qué cosas tengan o no en el lugar donde se va a quedar, es decir, sin preocuparme de en qué compu se va a ejecutar mi app. 
+-> POR ESO, garantiza que una aplicación SIEMPRE se va a comportar de la misma manera, sin importar la compu/el servidor.
+
+- Que es el Dockerfile?
+Palabras de clase: lo que define al manejador.
+Yo lo entendí como el set de instrucciones que describe cómo utilizar cada cosa que empaqué para mi mascota (ósea escribo las instrucciones necesarias para "armar" la aplicación)
+-> Ejemplo: "Empieza con una base de Ubuntu, instala Python, copia mi código, ejecuta este comando".
+
+- Que es Docker Image?
+Palabras de clase: una clase no instanciada
+Yo lo entendí como el resultado de ejecutar el tal Dockerfile, PERO que como tal se queda "congelado". Contiene todo: el sistema operativo base, dependencias, código de mi app, configuraciones. Es la imagen que la niñera le toma a mi mascota una vez que ya esta bien instalada. 
+-> Es solo de lectura, los cambios que realicemos en el Container NO se van a ver reflejados aquí 
+
+- Que es un Docker Container?
+Palabras de clase: una clase instanciada
+Yo lo entendí así, esto ya es el contenedor como tal, una instancia en ejecución de la Imagen. Cuando corremos la imagen, Docker la convierte en un contenedor (nace este man por así decirlo). Y aquí es donde también cobre vida mi aplicación, puesto que queda encendida y funcionando. 
+
+- Comparación entre todos?
+Entonces, Docker es una plataforma que permite que las aplicaciones se ejecuten igual en cualquier computadora. El Dockerfile son las instrucciones que indican cómo construir la aplicación. Con esas instrucciones se crea una Docker Image, que es el paquete completo y estático con todo lo necesario. Cuando esa imagen se ejecuta, se convierte en un Docker Container, que es la aplicación viva y corriendo. En resumen: el Dockerfile describe, la imagen empaqueta y el contenedor ejecuta.
