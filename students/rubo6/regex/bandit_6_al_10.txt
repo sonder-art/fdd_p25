@@ -1,0 +1,61 @@
+Nivel 0: Bandit0
+contraseña ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+nivel 1:
+comando: Para leer un archivo que se llama "-": cat ./-
+contraseña: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+nivel 2:
+comando: Para leer el archivo "--spaces in this filename--": cat "./--spaces in this filaname--"
+contraseña: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+nivel 3:
+Comando: para leer un archivo en un directorio oculto: ls -la -> cat ...Hiding-From-You
+contraseña: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+nivel 4:
+comando que encuentra y lee el archivo: find . -type f -exec file {} \; | grep -i text | cut -d: -f1 | xargs cat
+contraseña: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+nivel 5:
+comando para encontrar el archivo: cd inhere
+find . -type f ! -executable -size 1033c -exec sh -c 'file -- "$1" | grep -qi text && printf "%s\0" "$1"' _ {} \; | xargs -0 -r cat
+1. Busca archivos que no sean ejecutables y que tegas exactamente 1033 bytes.
+2. Para cada archivo encontrado ejecuta un scrip que usa file para identificar el tipo ->text. SI es text entonces imprime el nombre del archivo terminado en null, permite manejar nombres con saltos d elinea o espacios.
+3. Después toma los nombre nulos y hace que cat lo lea
+contraseña:  HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+nivel 6:
+Comando para encontrar el archivooooo aaaaa que asocoo de niveeeel:
+Es una busqueda global despues de un cd ~:
+find / -type f -user bandit7 -group bandit6 -size 33c -print -exec cat {} \; 2>/dev/null
+Busca desde la raiz, filtra para solo los archivos, pone la propiedad por el usuario bandit7 y perteneciente al grupo bandit 6; filtra para archivos con exactos 33 bytes, después muestra la ruta encontrada y oculta los mensajes de permiso denegado para que se vea más bonito.
+contraseña: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+nivel 7:
+Comando para encontrar la contraseña dentro del archivo:
+tr -s '[:space:]' '\n' < data.txt \
+  | sed 's/^[[:punct:]]*//; s/[[:punct:]]*$//' \
+  | awk 'tolower($0)=="millionth"{ getline; print; exit }'
+Convierte separadores en saltos d elinea. Recorta signos de puntuación al inicio/fin de cada palabra. Y Busca millionth y muestra la siguiente palabra
+contraseña: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+Nivel 8:
+Comando: sort data.txt | uniq -c | awk '$1==1 { $1=""; sub(/^ +/,""); print }'
+Agrupa lineas idénticas y antepone el conteo; filtra el conteo 1 y remueve el número quedando sólo una línea.
+COntraseña: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+NIvel 9: 
+Comando: strings data.txt | grep -Eo '={2,}[[:print:]]+' | sed 's/^=\{2,\}//'
+Saca las cadenas legibles, Filtra las que emiezan con dos o más = y solo imprime esa parte y finalmente elimina los = iniciales dejando sólo el texto legible y la contraseña.
+contraseña: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+Nivel 10: Se pasó de lanza Over The Wire xd
+Primero, crear un directorio temporal: cd /tmp
+Creo directorio único para mí y entro: mkdir rubo6; cd rubo6
+copio el data.txt: cp /home/bandit10/data.txt .
+Decodifico el archivo: base64 -d data.txt > decoded
+Compruebo el tipo de archivo con file: file decoded
+Leo: cat decoded
+Contraseña: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
