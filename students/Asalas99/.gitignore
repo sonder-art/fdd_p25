@@ -1,0 +1,39 @@
+# Archivos del sistema operativo (evita problemas entre Mac/Windows/Linux)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Archivos de IDEs y editores (evita conflictos entre diferentes editores)
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Archivos temporales que pueden causar conflictos
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+
+# Logs que pueden crecer y causar problemas
+*.log
+
+# Archivos de configuración local/personal
+.env
+.env.local
+config.local.*
+
+# Archivos que pueden generar conflictos de merge
+*.orig
+
