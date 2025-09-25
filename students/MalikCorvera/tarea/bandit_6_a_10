@@ -1,0 +1,23 @@
+Password nvl 5-6: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+
+Password nvl 6-7: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+Solución: Se pude inferir que la contraseña del siguiente nivel estaba en un archivo de tamaño específico, con propietario y grupo específicos.
+Así se utilizó: find / -user bandit7 -group bandit6 -size 33c 2>/dev/null para encontrar el documento encontrado en  /var/lib/dpkg/info/bandit7.password
+y posteriomente utilizamos cat /var/lib/dpkg/info/bandit7.password para leer el documento.
+
+Password nvl 7-8: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+Solución: grep millionth data.txt para encontrar el documento que tenga la palabra millionth, conciendo que La línea que contiene "millionth" 
+es la que contiene la contraseña para el siguiente nivel.
+
+Password nvl 8-9: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+Solución: Como la línea solo aparece una vez en el documento data.txt, utilizamos: sort data.txt | uniq -u para identificar líneas únicas.
+
+Password nvl 9-10: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+Solución: strings data.txt | grep '==' | base64 -d, al utilizar strings eliminamos datos binarios, grep '==' para localizar la cadena con formato base64,
+y conseguimos la contraseña con la cadena con base64 -d.
+
+Password nvl 10-11: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+Solución: cat data.txt | tr -d '\n' | base64 -d para leer el archivo completamente decodificado en base 64, con tr -d 'n' para tomar en cuenta los saltos de lineas
+
+

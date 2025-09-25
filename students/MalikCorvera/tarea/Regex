@@ -1,0 +1,4 @@
+Nivel 1: foo
+Nivel 2: \b\w*(?:s|st|pr)?ick\b
+Nivel 3: fu\b
+Nivel 4: ^[a-f]+$

@@ -1,0 +1,11 @@
+
+Que es Docker (para que sirve)? 
+    Plataforma que permite ejecutar aplicaciones en entornos aislados y portables llamados contenedores
+Que es el Dockerfile?
+    Archivo de texto con instrucciones para construir una imagen de Docker.
+Que es Docker Image?
+    Paquete inmutable con la aplicación y sus dependencias, creado a partir de un Dockerfile.
+Que es un Docker Container?
+    Instancia en ejecución de una imagen de Docker.
+Comparación entre todos? 
+    Dockerfile → Image → Container
