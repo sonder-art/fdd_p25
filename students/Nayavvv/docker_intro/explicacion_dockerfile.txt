@@ -1,0 +1,16 @@
+EXPLICACION DOCKER
+
+¿Qué es Docker?
+Docker es un plataforma en la que puedes dirigir distintas aplicaciones por medio de contenedores que incluyen lo necesario para hacer que estas aplicaciones funcionen de una manera más simple.
+
+¿Qué es el Docker File? 
+El Docker File es el archivo en el que inscribes las instrucciones o la plantilla, define lo que tendrás la imagen
+
+¿Qué es el Docker Image? 
+Es el resultado de ejecutar el docker file que contiene lo necesario para que pueda funcionar la aplicación: sistema base, código, librerías, configuraciones. 
+
+¿Qué es un Docker Container? 
+La imagen de docker ya en ejecución. Representa a la aplicación ya en funcionamiento 
+
+Comparación
+Son cosas distintas pero complementarias, necesitas el file para poder construir la imagen y  el contenedor para poder ponerla en ejecución.
