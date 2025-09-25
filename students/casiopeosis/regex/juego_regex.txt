@@ -1,0 +1,37 @@
+Lvl 1.
+ANSW: 'foo'
+REASON: se buscaron cadenas en común
+
+Lvl 2.
+ANSW: 'ick$'
+REASON: todas las palabras de la izq. terminan exclusivamente con 'ick'
+
+Lvl 3.
+ANSW: 'fu(?!.)'
+REASON: no podía usar '$' enotnces se usa la negación '(?!.' i.e. no puede haber un caracter después.
+
+Lvl 4.
+ANSW: ^[a-f]+$
+REASON: buscamos palabras que inicien con letras de a-f, además de eso, se repite varias veces sin incluir ninguna otra letra.
+
+Lvl 5.
+ANSW: (...).*\1
+REASON: este lowkey me lo pasaron, resulta que existen repeticiones de patrones y se usa (...).*\n para contar aquellas repeticiones.
+
+Lvl 6.
+ANSW: ^(?!.*(.)(.)\2\1)
+REASON: se busca ignorar la cadena si hay un patrón econtrado después (de forma espejo, se guarda en memoria el primer caracter, luego el segundo y se busca si sigue este último y después el primero guardado (eg. lemme !)
+
+Lvl 7.
+ANSW: ^(.)?(.)?(.)?(.)?(.)?(.)?.?\6\5\4\3\2\1$
+REASON: misma lógica que el nivel anterior, se busca seleccionar palíndromos, para ello usamos la información que se nos proporciona al respecto de la longitud de las palabras (máx 6)
+
+Lvl 8.
+ANSW: ^(?!^(xx+)\1+$)xx+$
+REASON: también me ayudaron en esta. La lógica es: (?!^(xx+)\1+$) buscano seleccionar las cadenas con un número compuesto de x's tomando cadenas de 2+ y checa si esa cadena se repite. Si no se logran seleccionar strings así, entonces se busca una cadena que esté formada por 2+ x's.
+
+Lvl 9.
+ANSW: (.).\1.\1.\1.*
+REASON: Las palabras que buscamos conincidir son aquellas en donde se repiten caracteres de forma intermitente 4+ veces (.) <- guardamos en memoria .\ x4 <- 4 veces ese caracter.
+ 
+ANSW: 

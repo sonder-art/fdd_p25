@@ -1,0 +1,14 @@
+¿Qué es?
+Docker es un contenedor que reutiliza propiedades del software/OS que permite la ejecución de otros programas o sistemas de una forma más ligera.
+
+¿Qué es un dockerfile?
+Es el 'ADN' del contenedor, contiene plain text que detalla como crear una imagen via build
+
+¿Qué es un dockerimage?
+Es la creación/construccion del contenedor con base en las instrucciones detalladas del dockerifle.
+
+¿Qué es el container?
+el runtime de la imagen, es algo efímero que se crea mediante un ‘run’. 
+
+Cualquier cambio hecho en un contenedor será en vano, para cambiar las cosas de forma definitiva es necesario el cambiar el Dockerfile. De la misma manera, al hacer alguna modificación en el Dockerfile, esta no se verá reflejada en la Imagen ni en el Contenedor pues estos pertenecen a una construcción de imagen anterior, basada en la versión previa del Dockerfile.
+En pocas palabras, file es la idea, image es su manifestación y container es lo que permite darle un uso.
