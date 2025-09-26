@@ -1,0 +1,9 @@
+primer nivel: el regex aplicado fue "foo" que aplicaba para filtar las palabras
+segundo nivel: el regex aplicado fue ck$ que implica todas las palabras que al final de la linea tienen "ck" que aplicaba para filtrar las palabras que terminaban con ck quitando las que no
+tercer nivel: el regex aplicado fue "\b" que implica todas las palabras donde el limite de palabra es fu, ya que no nos permite usar $ es pertinente usar \b.
+cuarto nivel: el regex aplicado fue "^[a-f]+$" ya que este indica que tanto el inicio de la palabra tanto como el final de la misma tienen que llevar letras en el rango de a hasta f, filtrando las que no pertenecen.
+quinto nivel: el regex aplicado fue "^([A-Za-z]{3}).*\1" ya que este indica que las tres primeras letras se vuelven a repetir en el mismo orden dentro de la misma palabra una o mas veces.
+sexto nivel: el regex aplicado fue "^(?!.*([A-Za-z])([A-Za-z])\2\1)" ya que este indica que no se pueden usar palabras donde dos letras se repitan en orden inverso despues de estas dos primeras, aplicandolo en todas las partes de la palabra
+septimo nivel:
+octavo nivel: el regex aplicado fue "^(?!(..+)\1+$)" donde pide cadenas donde sean primas y el numero entre parentesis tambien sea primo
+noveno nivel: el regex aplicado fue "(?=.*([a-z]).\1.*\1.\1)" donde exige dos palindromos de tres con la misma letra en el exterior
