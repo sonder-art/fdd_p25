@@ -1,0 +1,11 @@
+warmup- foo, la palabra debia de contener foo
+anchors- ick$, lapalabra tenia que acabar con ick usamos $ para asegurarnos que es el final de la palabra
+it never ends- fu\b, no podíamos usar $ y la palabra tenia que acabar en fu
+entonces nos aseguramos usando \b que siginifica que no hay nada ya de texto despues
+Ranges- ^[a-f]+$- la palabra tenía que iniciar y acabar con al menos una letra 
+que fuera de [a-f]
+Backrefs- (...).*\1, la palabra tenía que repetir el mismo conjunto de tres letras (...) al menos una vez de nuevo en la palabra, podia haver cualquier letra enlo que se repetian los dos conjutnso
+Abba- ^(?!(.)+\1)|.u- necesitabamos porhibir que hubieran letras repetidas en algun momento en la palabra menos cuando la palabra tenía fu 
+A man a plan- ^(.)[^p].*\1$- nos aseguramos que con la misma letra con la que inciiaba la palabra ⁽.) tenia que acabar \1$
+Prime- ^(?!(.+.)\1+$), la cadena no podía ser partida en subcadenas de longitudes mayores a uno, asi aseguramos que la longitud de la cadena fuera prima 
+Four- (.)(.\1){3}, se tenía que repetir el mismo patron de una letra seguida de una diferente por tres veces 
