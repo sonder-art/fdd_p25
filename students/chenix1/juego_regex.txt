@@ -1,0 +1,16 @@
+primer nivel:
+foo, todas las palbras que califican lo comparten.
+
+segundo nivel:
+ck$, todas las palabras terminan en ck.
+
+tercer nivel:
+fu\b, todas tienen fu en el limite de la palabra.
+
+cuarto nivel:
+^[a-f]{4}, todas las letras de las validas estan entre la a-f, de las no validas hay un par que cumpe esta condicion pero no mas de 4 veces.
+
+quinto nivel:
+([a-z]{3,}).*\1
+todas las palabras validas tienen una subcadena de 3 letras que se repite
+
