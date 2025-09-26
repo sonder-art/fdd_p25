@@ -1,0 +1,58 @@
+Alonso Zamanillo 214797
+
+Nivel 6 -> 7 de Bandit
+
+primero uso pwd para identificar mi ubicacion
+Luego use el comando file para buscar /. (raiz)
+-user bandit7 para el dueno
+-group bandit6 para el grupo
+-size 33c para el tamano
+
+De ahi veo muchos permission denieds, pero una ruta es buena (/var/lib/dpkg/info/bandit7.password), uso cat y la ruta y me regresa
+
+Password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+Nivel 7 -> 8 de Bandit
+
+uso ls -la para ver que hay
+abro data.txt, es enorme, no puedo buscas manual
+uso grep millionth data.txt (pista)
+encuentro clave
+
+Password:dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+Nivel 8 -> 9 de Bandit
+
+uso ls -la para ver que hay
+Viendo recomendaciones de comandos veo sort, uso sort --help y leo
+Mismo proceso con uniq (uniq --help)
+veo Uniq -u que solo printea unique lines
+hago uniq -u data.txt, no funciona, busco google y veo que uniq solo jala con arreglados
+sort data.txt | uniq -u, consigo contrasena
+
+Password: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+Nivel 9 -> 10 de Bandit
+
+ls -la como siempre
+
+cat data.txt a ver si se ve, falla
+strings data.txt
+veo comandos recomendados, strings es el primero que no reconozco
+strings --help
+uso strings data.txt, busco con mis ojos un ==== seguido por password
+
+password: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+
+Nivel 9 -> 10 de Bandit
+ls -la como siempre
+uso cat data.txt, no encuentro nada util
+de las instrucciones leo base64 --help
+veo base64 -d sirve para decodear base 64
+lo uso (base64 -d data.txt)
+obtengo password
+
+password:dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+

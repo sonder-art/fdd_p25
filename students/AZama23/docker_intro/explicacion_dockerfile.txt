@@ -1,0 +1,25 @@
+AZamanillo 214797
+¿Qué es Docker y para qué sirve?
+
+Docker es una herramienta que busca resolver el problema de un programa que funciona en una maquina pero en otra no, Esto lo hace usando un entorno virtual donde se utilizan las configuraciones, dependencias y programas de tu aplicacion de forma independiente a tu equipo local.
+
+¿Qué es el Dockerfile?
+
+El Dockerfile es un archivo de texto que contiene las instrucciones de tu aplicacion, es digamos las instrucciones para armar un mueble (Primero ensamblar pieza a y pieza b, luego agregar pieza c, etc). Una vez completo este dockerfile te permite crear una imagen, la cual explicare a continuacion.
+
+¿Qué es una Docker Image (Imagen de Docker)?
+
+La docker image es digamos ya el plano, en vez de estar siguiendo instrucciones y cambiandolas este ya esta armado y no se puede cambiar, este ejecutable debe se forma a partir de un dockerfile, donde ya se tienen todas las instrucciones a seguir para armar la aplicacion
+
+¿Qué es un Docker Container (Contenedor de Docker)
+
+El docker container es una instanciacion efimera de la imagen, este se forma cuando quieres utilizar la aplicacion creada y una vez termina se destruye, esto permite tener varias instancias de la misma imagen y manejar tantas instancias como necesites.
+
+Comparacion mediante ejemplo
+
+Imaginemos que somos un chef en un restaurante, esto es lo que representa el dockerfile, dockerimage y docker container en un entorno mas "Familiar"
+DockerFile- Es lo equivalente a la receta de un platillo, debe contener una serie de instrucciones a seguir para hacerlo, mas no esta activamente haciendose nada
+
+DockerImage- En esta parte, ya tienes todo listo y emplatado, pero esta en la cocina, es decir, todavia no se esta usando, aunque ya esta listo para "Servirse" en cualquier momento
+
+DockerContainer- Es ya el plato servido en la mesa del comensal, se creo para que se consuma y una vez acabe su funcion desaparece, puedes tener tantos platillos servidos como haya comensales que los ordenen.

@@ -1,0 +1,26 @@
+Alonso Zamanillo 214797
+Nivel 1:
+
+Viendo las diferentes opciones se observa que todas las aceptadas tienen foo y ninguna de las prohibidas cuenta con esas 3 letras
+
+respuesta: foo
+
+Nivel 2:
+
+Analogamente se puede notar que todas las aceptadas acaban en ck, mientras que ninguna de las prohibidas tiene esos 2 caracteres en el final.
+
+respuesta: ck$
+
+Nivel 3:
+
+Se nota que todas las aceptadas acaban con fu, pero no puedo usar $ asi que utilizo \b para identificar el limite final de la palabra
+
+Respuesta: u\b NOTA: La idea era fu, resulta que jala solo con u
+
+Nivel 4:
+
+Usando como pista el nombre del nivel (Ranges) asumo que se debe usar los corchetes[], noto que todas las claves aceptadas tienen al menos 4 letras a la a-f por lo que use ranges y luego {} para notar cantidad
+
+Respuesta: [a-f]{4}
+
+
