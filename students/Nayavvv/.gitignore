@@ -1,0 +1,10 @@
+# Archivos de sistema Mac
+.DS_Store
+
+# Archivos temporales de editores
+*~
+
+# Caches de Python
+__pycache__/
+*.pyc
+

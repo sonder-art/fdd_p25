@@ -1,0 +1,37 @@
+Francisco Pérez Trofimoff 214552
+
+Bandit 6-10
+
+6- 7
+find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+- buscamos el file con el path que tenemos, resulta /var/lib/dpkg/info/bandit7.password
+cat /var/lib/dpkg/info/bandit7.password
+- copiamos el contenido del file ya encontrado
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj 
+
+7- 8  
+buscar el texto dentro de tanto texto sin orden
+ORDENAR sort data.txt, regresa en alfabetico busca manual
+Filtrar con string y grep 
+strings data.txt | grep millionth
+Strings data.txt te da todos los strings legibles del data.txt sin origen
+Agregando el | grep palabra es un ctrl f y te  ese renglon
+dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+8- 9 UNIQUE
+sort data.txt | uniq -u 
+Ordenas y filtras por el unique, funcion uno, filename | filtro
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+9- 10
+Usamos grep para encontrar las lineas que contienen el “=”
+Como en pasos anteriores, buscamos con grep en data.txt, en los strings
+Strings data.txt | grep “=”
+FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+10- 11 (no se que hice pero funciono)
+el -d es para decodear, creo que el primer paso regresa lo que esta en base 64 de data.txt
+Base 64 data-txt
+Base64 -d data.txt
+dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+

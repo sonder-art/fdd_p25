@@ -1,0 +1,45 @@
+00021360 - Natalia Wilson
+¿Cómo resolví los primeros niveles del juego de Regex? 
+*Nat Nota: Incluí las comillas en mis respuestas para diferenciar los comandos de palabras normales, pero no las escribí en la terminal del juego. 
+
+- Warmup: 
+Me di cuenta que todas las palabras con las que teníamos que hacer match tenían que contener la palabra 'foo', sin importar su posición, entonces bastó con escribir 'foo'.
+
+-Anchors:
+Todas las palabras con las que teníamos que hacer match terminaban en 'ick', así que revisando las notas de clase fue suficiente con poner 'ick$' para indicar que necesitabamos que esa parte de la expresión estuviera al final de la palabra. 
+
+-It never ends:
+Este nivel me frustó muchísimo, me tomó buen rato encontrar una alternativa para '$' y darme cuenta que el juego no te tomara como buena una respuesta si dejas espacios en blanco de más. Al final encontré que el comando '\b' era el indicado, puesto que nos permite delimitar la frontera de la palabra. 
+
+-Ranges:
+Este nivel casi me derrota, me costó muchísimo entender qué sintaxis tenía que utilizar para que fuera una expresión válida. Originalmente pensé que bastaba con una negación del rango de [m-z], pero no era lo que me pedían, puesto que así nada más buscaba una sola letra en ese rango. Después, cambié mi estrategia, e intenté el comando [a-f]$, buscaba las palabras que terminaran con una letra de la 'a' a la 'f', pero eso no terminó funcionando porque permitía hacer match con palabras que tuvieran dentro de ellas letras fuera de ese rango. Así fue como llegué a ^[a-f]$, el cual efectivamente se aseguraba que toda la palabra estuviera hecha solo con letras entre a-f. Lo único malo fue que aún así no funcionó, por lo que tuve que recurrir a ChatGPT para que ayudara a saber qué estaba pasando. Resulta que no capté que necesitaba agregar un '+' antes del $, puesto que no incluirlo me limitaba a palabras de exactamente una sola letra. 
+
+-Backrefs:
+Antes que nada me tardé muchísimo tiempo en darme cuenta cuál era el patrón con el que iba a hacer match, hasta que caí en cuenta que se repetían secuencias de letras dentro de la misma palabra. El verdadero desafío fue escribir un comando que tomara en cuenta las primeras 3 letras de la palabra y buscara que aparecieran otra vez. Recurrí a ChatGPT, puesto que mis notas de clase y la información en internet no me dejaban claro cómo escribir este comando, aunque cabe recalcar que yo terminé de refinar el comando, porque inclusive el chat no me pudo ayudar al 100. Básicamente, al final llegamos a un entendemiento sobre que buscabamos bloques de X tamaño con letras entre a-z, después buscabamos cualquier cosa y al final nos aseguramos que se repita esa mismo bloque -> ([a-z]{2,}).*\1 y yo lo cambié a '([a-z]{3}).*\1', porque sino terminaba haciendo match con palanras que no queríamos incluir. 
+
+-Abba: 
+Este nivel me engañó varias veces, puesto que mi intución fue errónea múltiples veces. Al principió asumí que teníamos que capturar una sola letra y verificar que esa misma letra apareciera otra vez más adelante en la palabra, para lo que había utilizado el comando ([a-z]).*\1. Sim embargo, eso no así match con 2 de las palabras con las que tenía que hacer match y ahí fue cuando me di cuenta que teníamos que hacer un approach de negación. La siguiente idea fue que tenía que aceptar palabras que no tuvieran ninguna letra duplicada de forma consecutiva, pero eso no resultó funcionar porque en los matches si tenían palabras con dobles consecutivas. 
+En este punto volví a recurrir a ChatGPT porque ya no sabía qué hacer... chat también estuvo bastante confundido. Pero después de varias instrucciones de mi parte, llegamos al comando final: '^(?!.*([a-z])([a-z])\2\1)[a-z]+$', el cual en desglose hace lo siguiente: 
+	-([a-z])([a-z]) captura dos letras cualesquiera A y B.
+	-\2\1 exige B seguido de A.
+	-.* busca ese bloque en cualquier posición.
+	-El (?! … ) lo prohíbe.
+	-[a-z]+ acepta la palabra completa (minúsculas).
+
+-A man, a plan:
+Después del nivel anterior este nivel me resultó mil veces más sencillo de plantear... más NO de resolver (libérenme). Aquí ocupaba hacer match con las palabras que se podían leer igual al derecho y al revés (palíndromos). Mi idea original fue checar las 3 letras iniciales y obligar a que esas mismas 3 estuvierna al final '^([a-z]{3}).*\1$'.... obviamente no funcionó puesto que solo hizo match con una sola palabra. Chat fue tan amable de corregirlo, y el me dijo que la respuesta correcta era: ^([a-z]?)([a-z]?)([a-z]?)([a-z]?)([a-z]?)([a-z]?)[a-z]?\6\5\4\3\2\1$
+
+-Prime
+Este nivel resultó mucho más claro desde un inicio. Básicamente queríamos checar longitudes de cadenas conformadas por X que no fueran pares. Yo aporté los elementos individuales, y Chat me ayudó a terminar de darle sentido a todo. 
+^(?!x$)(?!(xx+?)\1+$)x+$
+Donde: 
+- x+$ obliga a que toda la cadena sea solo x.
+- (?!x$) descarta la longitud 1.
+- (?!(xx+?)\1+$) bloquea las longitudes compuestas: si la cadena puede escribirse como repeticiones de un bloque de al menos 2 x (por eso xx+?), entonces es compuesta y no debe pasar.
+
+
+-Four:
+Aquí me tardé más entendiendo la lógica que formulando una respuesta. Básicamente teníamos que encontrar un modelo que checara que una letra de la palabra se repitiera otras 3 veces. Entonces, siguiendo las lógicas pasadas lo mejor fue primero tomar una letra cualquiera y después ir saltando de letra en letra checando si al final habíamos visto esa misma letra original repetida 3 veces. (.)(.\1){3}
+- (.) toma una letra cualquiera
+- (.\1) aquí saltamos cualquier otra letra random, pero tiene que estar seguida por la letra que captamos originalmente. 
+- {3} este repite la instrucción previa 3 veces. 

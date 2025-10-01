@@ -1,0 +1,16 @@
+Nivel 7->8
+        Use grep para buscar la palabra millionth y asi aparecio la constrasenia.
+
+Nivel 8->9
+        El uniq te da las lineas que no se repiten pero seguidas, entonces primero haces sort, y luego
+        ya usas el uniq. Pero falta el -u, porque sin el, te deja una sola linea de cada cosa, con el -u
+        ensenia las lineas que solo aparecen una vez.
+
+Nivel9->10
+        Usas strings antes del txt para que te de las cadenas legibles y solo filtras con
+        | grep "=" , asi te da las cadenas que tengan el signo de "=", y pues uno tenia la contrasenia.
+
+Nivel 10->11
+        solo usas base64 -d, asi lo decodificas y te da la contrasenia.
+
+bandit11: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

@@ -1,0 +1,46 @@
+bandit_6_a_10.txt
+
+Bandit Nivel 6:
+find /home /var -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+- Busca archivos normales (-type f) de 33 bytes (-size 33c)
+- Que pertenezcan al usuario bandit7 y grupo bandit6
+- 2>/dev/null oculta errores de permisos
+
+Archivo encontrado: /var/lib/dpkg/info/bandit7.password
+IFS= read -r pass < /var/lib/dpkg/info/bandit7.password && echo "$pass"
+- Lee el contenido del archivo y lo guarda en la variable pass
+
+Contraseña: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+
+Nivel 7:
+ls -la
+cat data.txt | grep 'millionth'
+- grep busca la línea que contiene la palabra "millionth"
+
+Contraseña: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+ssh bandit8@bandit.labs.overthewire.org -p 2220
+
+Nivel 8:
+sort data.txt | uniq -u
+- sort ordena el archivo
+- uniq -u muestra solo las líneas únicas (no repetidas)
+
+Contraseña: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+ssh bandit9@bandit.labs.overthewire.org -p 2220
+
+Nivel 9:
+strings data.txt | grep -E '=='
+- strings extrae texto legible de archivos binarios
+- grep -E busca líneas que contengan "==", típico en contraseñas codificadas
+
+Contraseña: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+ssh bandit10@bandit.labs.overthewire.org -p 2220
+
+Nivel 10:
+base64 -d data.txt | head
+- base64 -d decodifica el archivo
+- head muestra las primeras líneas del resultado
+
+Contraseña: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+

@@ -1,0 +1,17 @@
+¿Qué es Docker y para qué sirve?
+Docker es una plataforma que permite crear, ejecutar y administrar aplicaciones dentro de contenedores. Su objetivo es que el software siempre se ejecute igual sin importar en qué computadora o servidor esté instalado, evitando problemas de compatibilidad.
+
+¿Qué es el Dockerfile?
+Es un archivo de texto con instrucciones que indican cómo construir una imagen de Docker. Allí se definen cosas como el sistema operativo base, qué programas instalar y qué comandos ejecutar. Es como una "receta" para crear una imagen.
+
+¿Qué es una Docker Image?
+Es el resultado de un Dockerfile. Una imagen es como una fotografía del entorno que queremos usar: tiene todo lo necesario para ejecutar una aplicación (sistema, librerías y dependencias). Las imágenes son inmutables.
+
+¿Qué es un Docker Container?
+Un contenedor es una instancia en ejecución de una imagen. Mientras la imagen es el plano, el contenedor es la casa construida y funcionando. Un contenedor se puede iniciar, detener o eliminar sin afectar la imagen original.
+
+Comparación:
+- Dockerfile → la receta para hacer un pastel (instrucciones).
+- Docker Image → el pastel ya horneado (listo para usar).
+- Docker Container → la reunión para cortar el pastel  (en uso pero puede parar la reunión y que nadie coma pastel).
+- Docker → la cocina completa que permite preparar, almacenar y usar esas recetas.

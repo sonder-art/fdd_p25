@@ -1,0 +1,78 @@
+# Regex Golf - Alastex
+
+# Version 1 - Intuitiva y facil de leer:
+
+# Warmup
+foo
+# Busca toda instancia de 'foo'
+
+# Anchors
+ick$
+# Busca todo lo que acaba en 'ick'
+
+#It never ends
+fu\b
+# Busca todo lo que sea 'fu' y luego un word boundary (espacio, nueva linea etc)
+
+# Ranges
+^[abcdef]+$
+# Desde el inicio hasta el final de la palabra, busca que las letras estén en el grupo de las palabras [abcdef]
+
+# Backrefs
+(...).*\1
+# Captura un grupo de tres letras, despues acepta 0 o muchas otras letras, y despues detecta que vuelva a aparecer el grupo capturado 1
+
+# Abba
+^(?!.*(.)(.)\2\1)
+# Desde el inicio de la palabra, permite 0 o muchos caracteres, luego captura el un caracter 'A', inmediatamente despues captura el segundo caracter 'B', y checa que NO se repita inmediatamente despues el segundo grupo (B), luego (A)
+
+# A man, a plan
+^(.)(.).*\2\1$
+# Captura la letra 1 en el grupo 1, luego la letra 2 en el grupo 2, permite 0 o varios caracteres y luego revisa que la penultima letra sea la del grupo 2, y la ultima letra sea la del grupo 1
+
+# Prime
+^(?!(..+)\1+$)
+# Este es el más complejo, por mucho. Hace lo siguiente: Captura un grupo de 2 o más caracteres, y luego checa que ese grupo NO se repita 1 o más veces. Esto se traduce a: Que el numero total de elementos no sea divisible entre ningun numero mayor a 2.
+
+# Four
+.*(.).\1.\1.\1
+# Permite 0 o varios caracteres antes de capturar uno en el gupo 1, despues checa que haya un caracter, luego el grupo 1, un caracter, grupo 1, caracter, grupo 1. 
+
+
+# Version 2 - Más compleja, pero más corta:
+
+# Warmup
+foo
+# Mismo que version 1
+
+# Anchors
+k$
+# Los que acaban en 'k'
+
+# It never ends
+u\b
+# Los que tienen un word boundary despues de 'u'
+
+# Ranges
+^[a-f]+$
+# Mismo que version 1, solo que se agrupa en vez de [abcdef] como [a-f], o sease, de la 'a' a la 'f'
+
+# Backrefs
+(...).*\1
+# Mismo que versión 1
+
+# Abba
+^(?!.*(.)\1)|fu
+# Checa que no haya dos letras repetidas, o tambien acepta palabras que tengan 'fu'
+
+# A man, a plan
+^(.)(.).*\2\1$
+# Mismo que versi[on 1
+
+# Prime
+^(?!(..+)\1+$)
+# Mismo que version 1
+
+# Four
+(.)(.\1){3}
+# Misma logica que version 1, notación más compacta para exigir un caracter seguido del grupo 1 3 veces seguidas.

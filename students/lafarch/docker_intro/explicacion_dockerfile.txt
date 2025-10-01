@@ -1,0 +1,32 @@
+###  ¿Qué es Docker (para qué sirve)?
+
+Docker es una tecnología que permite **empaquetar aplicaciones** junto con todo lo que necesitan para funcionar (dependencias, librerías, configuraciones) en una unidad llamada **contenedor**. Esto asegura que la app se ejecute igual en cualquier entorno: tu laptop, un servidor, o la nube. Es la solución al clásico problema de “funciona en mi máquina”.
+
+---
+
+###  ¿Qué es el Dockerfile?
+
+Un `Dockerfile` es un archivo de texto que contiene **instrucciones paso a paso** para construir una imagen Docker. Es como una receta que le dice a Docker qué sistema base usar, qué archivos copiar, qué comandos ejecutar, y cómo configurar el entorno. Es el punto de partida para crear imágenes reproducibles y automatizadas.
+
+---
+
+###  ¿Qué es una Docker Image?
+
+Una **imagen Docker** es el resultado de ejecutar un `Dockerfile`. Es un **paquete inmutable** que contiene todo lo necesario para correr una aplicación: sistema base, código, dependencias, configuraciones. No se ejecuta por sí sola, pero sirve como plantilla para crear contenedores.
+
+---
+
+###  ¿Qué es un Docker Container?
+
+Un **contenedor Docker** es una **instancia en tiempo de ejecución** de una imagen. Es como si tomaras una imagen y la encendieras: ahora está viva, ejecutando procesos, aislada del resto del sistema. Puedes tener múltiples contenedores corriendo desde la misma imagen.
+
+---
+
+### 🔍 Comparación entre todos
+
+| Concepto         | ¿Qué es?                                      | ¿Qué hace?                                      | ¿Mutable? | ¿Se ejecuta? |
+|------------------|-----------------------------------------------|--------------------------------------------------|-----------|--------------|
+| Docker           | Tecnología de contenedores                    | Empaqueta y ejecuta apps de forma portátil       | —         | —            |
+| Dockerfile       | Archivo de texto con instrucciones            | Define cómo construir una imagen                 | Sí        | No           |
+| Docker Image     | Resultado del Dockerfile                      | Plantilla lista para crear contenedores          | No        | No           |
+| Docker Container | Instancia activa de una imagen                | Ejecuta la app en un entorno aislado             | Sí        | Sí           |

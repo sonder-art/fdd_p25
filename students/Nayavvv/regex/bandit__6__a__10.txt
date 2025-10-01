@@ -1,0 +1,54 @@
+BANDIT 
+NIVEL 6->7 
+Nos conectamos con ssh bandit6@bandit.labs.overthewire.org -p 2220
+Y la contraseña del nivel anterior: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+Nos dice que la contraseña se encuentra en algún lado del servidor con la propiedades de que espropiedad del 
+user 7, grupo 6 y que su tamaño es de 33 bytes 
+
+Ejecutamos: -user bandit7 -group bandit6 -size 33c 2>/dev/null
+Y le damos cat al archivo que nos arrojo 
+Contraseña: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+NIVEL 7-> 8
+Nos conectamos con ssh bandit7@bandit.labs.overthewire.org -p 2220
+Y la contraseña que obtuvimos del nivel anterior
+
+Ejecute ls primero solo para ver que había pero solo estaba el archivo data.txt
+
+De ahi ejecute grep "millionth" data.txt y de ahi obtuve la contraseña 
+
+Contraseña: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+Nivel 8-> 9:
+Nos conectamos con ssh bandit8@bandit.labs.overthewire.org -p 2220
+Y la contraseña que obtuvimos del nivel anterior
+
+Nos dicen que la contraseña es la única linea que solo aparece una vez
+Primero intente ejecutar por separado el sort y el uniq pero se tardaba mucho tiempo. 
+Asi que al final ejecute: sort data.txt | uniq -u
+Contraseña: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+
+Nivel 9->10
+Nos conectamos con ssh bandit9@bandit.labs.overthewire.org -p 2220
+Y la contraseña que obtuvimos del nivel anterior
+
+Nos dice que la contraseña es human readable y que antes tiene varios signos de igual 
+
+Primero pongo strings data.txt para obtener los strings en el texto, la verdad que al no ser muchos y solo 
+la contraseña tener varios signos de igual la vi rápido, pero decidí aun asi usar el grep y signos de igual 
+para que me mostrara que había después 
+
+Contraseña: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+
+Nivel 10 ->11
+Nos conectamos con ssh bandit10@bandit.labs.overthewire.org -p 2220
+Y la contraseña que obtuvimos del nivel anterior
+Nos dicen que la contraseña esta en data.txt que contiene data encoded en base64 
+
+Ejecute:  cat data.txt | base64 -d
+Que hizo que leyera el archivo y decodificara (-d) la parte que estaba en base64
+
+Contraseña: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr 

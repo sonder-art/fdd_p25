@@ -1,0 +1,18 @@
+JUEGO DE REGEX 
+
+	1.	foo (todas las palabras que contuvieran foo) 
+	2.	ick$ (Todas las palabras que terminan con ick) 
+	3.	fu\b (Todas las palabras que terminan con fu sin usar $)
+	4.	^[a - f] +$ (que la cadena de inicio a fin sea de letras que están entre la a y la f)
+	5.	^([a-z]{3}).*\1 (si las tres primeras letras de la palabra reaparecen en esta 
+posteriormente) 
+	6.	^(?!.*(.)(.)\2\1)[a-z]+$ (La palabra no puede tener dos letras seguidas que se repitan justo 
+al revés después)
+	7.	(.)(.)[^r]?\2\1 (cadenas cuyas dos letras iniciales se repitan de manera inversa al final 
+sin importar que caracteres haya o no en el medio) 
+	8.	
+^(x{2}|x{3}|x{5}|x{7}|x{11}|x{13}|x{17}|x{19}|x{23}|x{29}|x{31}|x{37}|x{41}|x{43}|x{47}|x{53}|x{59}|x{61}|x{67}|x{71})$ 
+(las x se repetían solo un numero de veces que quieres, en esta caso los números primos)
+	9.	(.)(.)(.)(.)(\1.\3) (agrupa cuatro letras donde justo después de este grupo se repite la 
+primera letra seguida de una letra aleatoria y después la tercera)
+
