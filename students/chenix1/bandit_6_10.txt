@@ -1,0 +1,30 @@
+nivel 6                                                                                                  
+primero uso:                                                                                             
+find / -user bandit7 -group bandit6 -size33c                                                             
+asi busco dentro de la raiz algun archivo que cumpla todas las propiedades. Me salen muchos permission de
+nied pero encunrto una ruta buena. Abro el archivo de esa ruta y asi encuentro la contrasenya.           
+cat /var/lib/dpkg/info/bandit7.password                                                                  
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+nivel 7
+use para buscar la palabra: 
+grep "millionth" data.txt 
+el resultado fue la palabra y la contrasenya
+dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+nivel 8
+uso sort y un pipe a uniq
+sort data.txt | uniq -u
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+el sort ordena de manera alfabetica, esencialmente juntando las repetidas y uniq -u fitra las lineas que no tienen duplicados.
+
+nivel9
+use: strings data.txt
+luego con un scroll encontre la contrasenya. de manera mas efectiva hubiera hecho un pipe a un grep con '='
+FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+nivel 10
+use primero cat data.txt para ver como era
+luego use para decodificar y regresar al original: base64 --decode data.txt 
+The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+

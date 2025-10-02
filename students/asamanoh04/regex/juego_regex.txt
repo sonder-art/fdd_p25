@@ -1,0 +1,45 @@
+Warmup
+        todas las palabras del lado izquierdo tienen "foo" en ese orden, entonces = foo
+
+Anchors
+        todas acaban en ck entonces = ck$ . porque el signo de peso es que es al final de la palabra
+
+It never ends
+        En este acaban en fu entonces haces = fu\b . \b es que ya no hay mas despues de esa palabra
+
+Ranges
+        Este me costo mas. pero lo que hice fue decir que tiene que tener letras entre a-f y minio 4 letras seguidas
+        de esas = [a-f]{4}
+
+Backrefs
+        Me costo bsatante y me ayude en internet. pero la solucion es = (...).*\1 . Esto es pprque en (...) agarras 3
+        caracteres juntos primero los primeros 3, luego el .* agarra todo el texto que sobra y con \1 busca que se
+        parezca a los (...) que agarro. Si no coinciden se regresa un caracter y compara y asi hasta que encuentre.
+
+Abba
+        Tambien me ayude. ^(?!(.)+\1)|ef . ^ es porque tiene que empezar a buscar desde el principio de la palabra.
+        Luego (?!(.)+\1) hace que agarre un grupo de letras con el (.)+ hasta que quede solo la ultima, y despues
+        el \1 va comparando solo la ultima del grupo con la que sigue, si coincide el ?1 lo va a negar. Esto es casi
+        la solucion pero hay dos palabras que tienen dos letras repetidas, entonces con |ef hacemos que
+        la solucion tambien agarren palabras que contienen ef.
+
+A man a plan
+        ^(.)[^p].*\1$  . Intente hacer de alguna manera generalizar los palindrome pero no pude. Entonces es encontrar
+        las palabras que empiecen y acaben con la misma letra. Por eso se usa el ^ para que empiece por el principio
+        luego agarra el primer caracter(.), despues el .* agarra cualquier caracter la cantidad que sea, para
+        al final comparar con la letra que agarro al principio con la del final $. Asi funcionaria pero hay dos que
+        cumplen esto en la columna derecha, por eso solo no dejas que la segunda letra sea p.
+
+Prime
+        ^(?!(xx+?)\1+$) . Me costo demasiado, lo saque de internet, pero ya lo entendi perfecto. El lado izquierdo
+        son los numeros primos. Lo que hace es empezar por el principio ^ y luego elije cadenas de x, de minimo
+        longitud 2 y hasta lo que pueda agarrar y con el \1+ lo repite hasta que acabe la cadena. Empieza con
+        longitud 2 y va creciendo hasta que lo logre. Si lo logra lo rechaza con ?!, si no lo encuentra es que
+        es primo y no se puede escribir NxM y entonces lo deja pasar.
+
+Four
+        (.)(.\1){3} . (.) agarra solo un caracter, luego (.\1) agarra el siguiente caracter y el \1
+        lo empieza a comparar con el primer caracter hasta el final 3 veces. si lo encuentra 3 veces para, si no
+        se sigue con el siguiente (.) y vuelve a comparar hasta el final y asi. Tienen que estar los 4 caracteres
+        seguidos con un salto.
+

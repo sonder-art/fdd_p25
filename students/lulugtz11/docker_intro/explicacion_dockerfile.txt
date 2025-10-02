@@ -1,0 +1,17 @@
+--¿Qué es Docker?--
+Docker es una plataforma que posibilita la ejecución de aplicaciones en contenedores, los cuales son más livianos que las máquinas virtuales debido a que utilizan el núcleo del sistema operativo. Esto garantiza que la aplicación opere de la misma manera en desarrollo, pruebas y producción . Asimismo, permite la optimización de recursos en servidores, el despliegue veloz y la generación de entornos que puedan ser reproducidos.
+
+---¿Qué es un Dockerfile?---
+Un Dockerfile es un archivo de texto que contiene las indicaciones requeridas para generar una imagen de Docker. Opera como una receta que señala cuál sistema base se empleará (por ejemplo, Alpine o Ubuntu), qué dependencias hay que instalar, qué archivos copiar al contenedor, los comandos a llevar a cabo durante la creación de la imagen y el comando a ejecutar al arrancar el contenedor.
+
+---¿Qué es una Docker Image?---
+Una imagen de Docker es un paquete inmutable que se genera a partir de un Dockerfile y que incluye todo lo requerido para poner en marcha una aplicación, como el sistema base, las librerías, el código y las configuraciones. Después de ser construida, se puede implementar y ejecutar en cualquier sistema con Docker, garantiza que la aplicación funcione igual en todos los entornos.
+
+---¿Qué es un Docker Container?---
+Un contenedor Docker es la instancia en funcionamiento de una imagen Docker; es el lugar donde vive y opera la aplicación, con procesos activos y datos almacenados temporalmente. Aunque puede comunicarse con el sistema anfitrión y otros contenedores si se establecen redes, está aislado de ellos.
+
+---Comparación general---
+Primero está el Dockerfile, donde defines los pasos necesarios como el sistema base, las dependencias, los archivos y los comandos que tu aplicación necesita para funcionar.
+Cuando procesas ese Dockerfile, se genera una imagen de Docker, la cual es un paquete inmutable que contiene todo lo requerido para poner en marcha la aplicación. Esta imagen no cambia y puede compartirse y ejecutarse en cualquier computadora con Docker, asegurando que siempre funcione igual.
+Por último, al ejecutar la imagen, se genera un contenedor de Docker, que es como un pastel recién hecho según la receta. El contenedor es la aplicación viva y en funcionamiento, con sus procedimientos y datos en memoria, operando de forma aislada pero con la opción de establecer comunicación con otros contenedores si se configuran redes.
+En pocas palabras, el contenedor es la instancia activa que realiza el trabajo real, la imagen es el producto preparado que se puede utilizar repetidamente, y el Dockerfile establece cómo se construye el entorno.

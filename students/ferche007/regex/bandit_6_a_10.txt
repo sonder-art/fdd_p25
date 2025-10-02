@@ -1,0 +1,21 @@
+Bandit 6: find / -user bandit7 -group bandit6 -size 33c usamos este comando para encontrar el archivo con esas especificaciones, luego nos aparecen muchso 
+errores pero tenemos que entonces encontrar el directorio que nos aparezca algo de password y por ultimo leer el directorio bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password y encontramos la contraseña morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+Banit 7: aqui solo tenemos que abrir el archivo data.txt y usar grep para encontrar la palabra milliont bandit7@bandit:~$ 
+bandit7@bandit:~$ ls 
+data.txt
+bandit7@bandit:~$ cat data.txt | grep millionth
+millionth	dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+Bandit 8: aqui tenemos que encontrar la linea dentro de data.txt que sea unica
+con uniq - u podemos encontrar esa linea cat data.txt | sort | uniq -u
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+Bandit 9: en este nivel se nso pide encontrar las lineas human redable que las podemos caracterizar con string que tienen ==== antes, es decir con un string al archivo data.txt obtenemos las lienas human redable y luego con un grep ==== nos dará las lineas que tienen ==== antes bandit9@bandit:~$ strings data.txt | grep ====
+========== the
+========== password
+Q========== is%
+>u`9J========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+de esta forma encontramos la contraseña
+Bandit 10: Por último tenemos un string dentro de data.txt que esta en base 64 por lo que con el comando base64 con la flag -d podemos leer el string bandit10@bandit:~$ cat data.txt
+VGhlIHBhc3N3b3JkIGlzIGR0UjE3M2ZaS2IwUlJzREZTR3NnMlJXbnBOVmozcVJyCg==
+bandit10@bandit:~$ cat data.txt | base64 -d
+The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+y eso es todo 

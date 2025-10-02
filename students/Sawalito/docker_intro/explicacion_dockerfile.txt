@@ -1,0 +1,20 @@
+Preguntas de la tarea de Dockerfile
+
+1.- Qué es Docker?
+Docker es una plataforma que nos permite empaquetar una aplicación con todo lo que necesita para funcionar, ya sean librerías,código,configuraciones, etc. Todo esto lo guarda en un tipo de "caja" estandarizada llamada contenedor.
+
+2.- Qué es el Dockerfile?
+
+Es un archivo como una receta de cocina. Contiene las instrucciones paso a paso para construir lo que se necesita.
+
+3.-Qué es Docker Image?
+
+Es el resultado de seguir la receta del Dockerfile. Es una plantilla o un molde de la apliación, lista para usarse, pero inactiva.
+
+4.-Qué es un Docker Container?
+
+Es una instancia en ejecución de una imagen.Cómo las clases y las instancias de las clases. Estos containers se pueden crear, iniciar, detern y eliminar (tantos como se quiera). Es una aplicación funcionando de verdad, pero de forma aislada.
+
+5.-Comparación entre todos
+
+El DOckerfile a diferencia de la Imagen y el Contenedor es que el Dockerfile es un archivo e instrucciones, código estático y su función es definir el entorno, igual define la imagen. Por otro lado la Imagen es una plantilla estática y su función es empaquetar la apliación y sus dependencias, también se construye a partir de un Dockerfile y se usa para crear contenedores. Finalmente, el Container es una instancia de ejecución de una imagen, este es dinámico, pues está en ejecución y su función es ejecutar la aplicación de forma aislada; se puede crear, iniciar, detener y destruir.

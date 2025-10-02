@@ -1,0 +1,43 @@
+Bandit 0 -> 1
+ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5I
+
+Bandit 1 -> 2
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+Bandit 2 -> 3
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+Bandit 3 -> 4
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+Bandit 4 -> 5
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+Bandit 5 -> 6
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+Bandit 6 -> 7
+pwd para ver mi ubicación, despues uso file para buscar /. (raiz), donde busco:
+ - el dueño user bandit7
+ - group bandit6 para el grupo
+ - tamano con size 33c
+Me regresa permission denied en varios pero una ruta es buena. Uso cat y me da:
+
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+Bandit 7 -> 8
+primero hago ls -la para que hay, despues abro data.txt, como es muy grande uso grep millionth data.txt(pista) y ahi me da la clave:
+
+dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+Bandit 8 -> 9
+primero veo que hay con ls -la, uso sort --help y uniq --help, veo que sirve nada mas con arreglos, por lo que hago sort data.txt | uniq -u y me da:
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+Bandit 9 -> 10
+primero ls -la, intento cat y no sirve, strings --help, uso strings data.txt, busco ==== seguido por password y sale:
+FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+Bandit 10 -> 11
+ls -la, de lo que esta en las instrucciones veo base64 --help, veo que base64 -d sirve para decodear base 64, lo que me da la clave:
+dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

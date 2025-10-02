@@ -1,0 +1,85 @@
+Passwords so far:
+
+To access any specific level, input 
+ssh -p 2220 bandit0@bandit.labs.overthewire.org
+Which is saying, use a Secure SHell connect to bandit.labs.overthewire.org
+with the user bandit0, via the port 2220
+
+Bandit 0 -> 1
+Just open the readme with 'cat readme'
+ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5I
+
+Bandit 1 -> 2
+Read the '-' file via absolute path 'cat ./-'
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+Bandit 2 -> 3
+Read the file with spaces, there are many ways to do this, 
+I did it via autocomplete with absolute path,
+but quotation marks are also an option.
+cat ./--spaces\ in\ this\ filename--
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+Bandit 3 -> 4
+Go into the inhere folder with 'cd inhere' then list all
+items and hidden items with 'ls -a -l' as the file is 
+hidden, finally read said file with 'cat ...Hiding-From-You' 
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+Bandit 4 -> 5
+Manually check each file, via absolute path since the files are named weirdly
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+Bandit 5 -> 6
+God that was awful, manually check each file with the commands of navigating
+each folder, then execute 'ls -l -a -h' to find a file with exactly 1033 bytes of
+storage, since that was the clue. Finally read it with 'cat ./.filename2'
+
+Nevermind, that actually wasn't that bad, the reality is I just needed the flag
+of -R to list all subfiles inside all the directories, and either manually find
+the one that satisfies all the criteria, or, much better:
+
+Use the command 'find -type f -size 1033c ! -executable'
+Which basically says, find all files that are type 'file', with a size of 1033c (bytes)
+and finally, that are non executable. This shows only one file, or rather, it's path, and
+then finally read it.
+
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+Bandit 6 -> 7
+
+Use the command 'find / -type f -user bandit7 -group bandit6 -size 33c' 
+to find a file whose user is 'bandit7', it's group is 'bandit6' and has size
+33c (bytes)
+
+Then just use cat /var/lib/dpkg/info/bandit7.password to read the output
+
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+Bandit 7 -> 8
+
+Use grep (which is a kind of regex) to find the line which has 'millionth'
+
+dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+Bandit 8 -> 9
+
+sort data.txt | uniq -u
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+Bandit 9 -> 10
+
+Use the command 'strings data.txt | grep ===' to find strings followed by
+===, the strings part is needed to convert the file onto readable text
+FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+Bandit 10 -> 11
+
+Use the command 'base64 data.txt -d' to decrypt the text file from base64
+The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+Bandit 11 -> 12
+
+Bandit 12 -> 13
+
+Bandit 13 -> 14

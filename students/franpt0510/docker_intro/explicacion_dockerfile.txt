@@ -1,0 +1,10 @@
+214552
+DOCKER
+
+Docker: Es una plataforma que permite que tus programas corran en "contenedores". Las puedes crear y creer asi para que funcionen en cualquier compu que tenga nube sin problemas locales.
+
+Dockerfile: Es donde absas tu app, describes las partes clave como el idioma que usaras, que sistema base, que instalar, y como ejecutar/copiar etc. 
+
+Docker Image: La imagen es un paquete que contiene tu app
+
+Docker Container: Es donde la docker image funciona. Es "una instancia en ejecucion", corre aislado del resto del sistema y tiene todo lo que necesita tu aplicacion
