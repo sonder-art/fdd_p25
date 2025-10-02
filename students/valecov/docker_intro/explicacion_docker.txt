@@ -1,0 +1,19 @@
+Explicación dockerfile
+
+Que es Docker (para que sirve)?
+Docker es una plataforma que permite crear, probar y ejecutar aplicaciones en contenedores. Los contenedores son entornos que incluyen lo necesario para que la aplicación funcione igual en cualquier computadora.
+
+
+Que es el Dockerfile?
+Un Dockerfile es un archivo de texto donde se escriben instrucciones para construir una Docker Image.Tiene los comandos que se tienen que usar, los archivos que se tienen que instalar, indicaciones del sistema base, etc. 
+
+
+Que es Docker Image?
+Es un archivo que es inmutable que se obtiene de la interpretación de un dockerfile. Se va construyendo en capas. Si se necesita cambiar algo se tiene que generar una nueva versión de la imagen. Permite crear muchos contenedores idénticos a partir de ella.
+
+
+Que es un Docker Container?
+Es una instancia de ejecución del docker image. Un entorno donde se ejecuta la aplicación. 
+
+Comparación entre todos?
+Docker es el ecosistema en general que permite que se puedan usar todos los demás elementos. El dockerfile es lo primero en el flujo que contiene las instrucciones para ejecutar el docker image. El docker image es la plantilla inmutable que es reutilizable  y tiene lo necesario para que la aplicación se pueda correr en donde sea. El docker container es cuando ya se ejecuta la aplicación.

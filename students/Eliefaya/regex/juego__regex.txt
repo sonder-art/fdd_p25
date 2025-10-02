@@ -1,0 +1,31 @@
+Juego de Regex — explicación de niveles (1–6)
+
+Nivel 1 — coincidencia exacta
+- Regex de ejemplo: ^Four$
+- Por qué: ^ y $ anclan inicio/fin; coincide exactamente la palabra “Four”.
+
+Nivel 2 — clases de caracteres y repeticiones
+- Ejemplos: ^[aeiou]  (empieza con vocal),  [0-9]+  (uno o más dígitos)
+- Uso de [] para conjuntos y + para “uno o más”.
+
+Nivel 3 — opcionalidad y cuantificadores
+- Ejemplo: colou?r  (acepta color/colour)
+- ? = opcional; {m,n} = repeticiones controladas.
+
+Nivel 4 — grupos y alternancia
+- Ejemplo: ^(A man, a plan|Prime|Four)$
+- (a|b) permite alternativas; los paréntesis agrupan.
+
+Nivel 5 — límites de palabra y anclas
+- Ejemplo: \bword\b  (palabra completa)
+- \b asegura límites de palabra.
+
+Nivel 6 — lookarounds (si el nivel lo requiere)
+- Ejemplos: (?<=@)\w+  (lo que está después de @),  \w+(?=@)
+- No consumen texto; sólo verifican contexto.
+
+Notas:
+- Usar ^ y $ si piden coincidencia de línea completa.
+- Probar expresiones en un tester o con grep -E/-P.
+- Documentar: regex usada, por qué funciona y ejemplo.
+≈

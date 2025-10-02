@@ -1,0 +1,34 @@
+Bandit 
+
+Level 6:
+find /home /var -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+	-> /var/lib/dpkg/info/bandit7.password
+IFS= read -r pass < /var/lib/dpkg/info/bandit7.password && echo "$pass"
+	-> Password
+Password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+
+Level 7:
+ls -la
+cat data.txt
+grep 'millionth' data.txt
+Password: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+ssh bandit8@bandit.labs.overthewire.org -p 2220
+
+Level 8:
+sort data.txt | uniq -u
+Password: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+ssh bandit9@bandit.labs.overthewire.org -p 2220
+
+Level 9:
+strings data.txt | grep -E '=='
+Password: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+ssh bandit10@bandit.labs.overthewire.org -p 2220
+
+Level 10:
+base64 -d data.txt | head
+Password: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

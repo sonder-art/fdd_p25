@@ -1,0 +1,35 @@
+Lourdes Gutiérrez 207706 
+TAREA BANDIT 
+
+Nivel 6—>7
+Objetivo: encontrar un archivo propiedad del usario bandit7, grupo bandit6 y tamaño 33 bytes 
+Comando usado: find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+Para localizar archivos con ciertos criterios usamos find. 
+-user bandit7 busca el usuario propietario 
+-group bandit6 busca el grupo propietario 
+-size 33c es para el tamaño de bytes donde c=bytes 
+Evito mensajes de error con 2>/dev/null. 
+Cuando encuentro el archivo, uso cat para ver el contenido, i.e. la contraseña. 
+
+Nivel 7—>8 
+Objetivo: Encontrar dentro de un archivo llamado data.txt la línea que contiene la palabra millionth
+Comando usado: grep millionth data.txt
+Para localizar palabras en un archivo usamos grep, seguido de la palabra buscada y como el archivo es conocido podemos escribirlo. 
+Regresa la contraseña del siguiente nivel
+
+Nivel 8—>9
+Objetivo: en un archivo llamaddo data.txt, encontrar la única línea que aparece una sola vez
+Comando usado: sort data.txt | uniq -u
+Primero podemos odenar las líneas repetidas con sort. Después podemos usar uniq -u ara mostrar solo las líneas únicas. 
+Regresa la contraseña 
+
+Nivel 9—>10
+Objetivo: en un archivo llamado data.txt que es binario, la contraseña está junto a “=“
+Comando usado: strings data.txt | grep -E '={3,}'
+Sabía que el archivo contenía caracteres binarios, así que usé strings para filtrar solo el texto legible. 
+Luego, con grep -E '={3,}', busqué cualquier secuencia de tres o más símbolos '=' donde se encontraría la contraseña.
+ 
+Nivel 10—>11
+Objetivo: la contraseña se encuentra un archivo llamado data.txt que tiene texto codificado en Base64
+Comando usado: base64 -d data.txt
+Reconocí que el archivo estaba en Base64 y lo decodifiqué con base64 -d y el nombre del archivo

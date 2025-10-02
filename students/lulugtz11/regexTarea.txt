@@ -1,0 +1,81 @@
+Lourdes Gutiérrez 207706 
+TAREA REGEX 
+
+Warmup: el objetivo era encontrar todas las palabras que contienen la secuencia “foo”. 
+El patrón usado fue ^.*foo.*$
+^ asegura que el patrón empiece desde el inicio de la cadena.
+.* antes de foo permite que haya cualquier cantidad de caracteres.
+foo secuencia que buscamos 
+.* después de foo permite texto extra al final.
+$ para que el patrón llegue hasta el final de la cadena.
+
+Anchors:el objetivo era encontrar todas las palabras que terminen con la secuencia “ick”
+El patrón usado fue ^.*ick$
+^ asegura que el patrón empiece desde el inicio de la cadena.
+.* antes de ick permite que haya cualquier cantidad de caracteres.
+ick secuencia que buscamos 
+$ para que la termine exactamente en ick 
+
+It never ends: el objetivo era identificar palabras que terminen en “fu”, sin coincidir con palabras que solo comienzan con fu o que contienen fu en medio, sin usar $ 
+El patrón usado fue ^.*fu\b
+^ asegura que el patrón empiece desde el inicio de la cadena.
+.* antes de fu permite que haya cualquier cantidad de caracteres.
+fu secuencia que buscamos 
+\b  Asegura que después de fu no haya más letras es decir, "fu" debe estar al final de la palabra o seguido de un carácter no alfabético.
+
+Ranges: el objetivo era encontrar palabras que tuvieras letras de  a-f y al menos 4 caracteres. 
+El patrón usado fue ^[a-f]{4,}$
+^ asegura que el patrón empiece desde el inicio de la cadena.
+[a-f] define una clase de caracteres, aceptando a, b, c, d, e o f
+{4,} debe de haber al menos 4 caracteres, la coma indica que pueden haber más de 4 
+$ para que el patrón llegue hasta el final de la cadena
+
+Backrefs:el objetivo era encontrar palabras que tuvieran una secuenciade 3 letras consecutivas que se repitieran en algún otro lugar de la palabra
+El patrón usado fue ^.*([a-z]{3,}).*\1.*$
+^ asegura que el patrón empiece desde el inicio de la cadena.
+.* antes de la secuencia buscada permite que haya cualquier cantidad de caracteres antes.
+([a-z]{3,}) es un grupo, guarda una secuencia de 3 letras o más en minúsculas 
+.* después del grupo permite que haya texto entre la primera y la segunda aparición de la secuencia.
+\1 para que la misma secuencia que ya capturamos vuelva a aparecer en algún lugar posterior 
+.* permite texto adicional después de la segunda aparición.
+$ para que el patrón llegue hasta el final de la cadena
+
+Abba: el objetivo era aceptar solo palabras que no contienen un subcadena palíndroma de 4 caracteres. EJ no debe aceptar que la cadena tenga: abba, otto, osso
+El patrón usado fue ^(?!.*(.)(.)\2\1).*
+^ asegura que el patrón empiece desde el inicio de la cadena.
+(?! ... ) es un lockahed negativo, asegura que lo que está dentro noo debe cumplirse 
+.* antes de la secuencia buscada permite que haya cualquier cantidad de caracteres antes.
+(.)(.) captura un solo carácter y lo guarda como el grupo 1. El segundo (.) captura el siguiente carácter y lo guarda como Grupo 2
+\2\1  después de los primeros dos caracteres encontrados, la expresión espera encontrarlos otra vez pero en orden inverso  
+
+A man a plan:el objetivo era encontrar solo palabras que son palíndromos. EJ deben coincidir palabras como civic, level, rotator, tenet
+El patrón usado fue ^(.)(.)?(.)?(.)?(.)?.?\5\4\3\2\1$ 
+^ asegura que el patrón empiece desde el inicio de la cadena.
+Cada (.)? captura un carácter y lo guarda como grupo, pero el signo de interrogación indica que es opcional, permitiendo palabras más cortas o más largas.
+.? representa el carácter central en caso de que la palabra tenga una longitud impar, este puede aparecer una sola vez o no estar presente.
+\5\4\3\2\1 valida que la segunda mitad de la palabra sea el reflejo exacto de la primera mitad, asegurando la simetría que define un palíndromo.
+$ asegura que el patrón llegue hasta el final de la cadena.
+ 
+Prime: el objetivo era aceptar cadenas cuya longitud sea un número primon. Las cadenas están formadas por el carácter x.
+El patrón usado fue:. ^(?!(xx+)\1+$)xx+$
+^ asegura que el patrón empiece desde el inicio de la cadena.
+(xx+) captura un grupo de al menos dos letras x seguidas. 
+\1+ verifica si ese bloque se repite varias veces seguidas. Si esto pasa, significa que la longitud de la cadena no es un número primo.
+(?! ... ) es un lookahead negativo que prohíbe que la cadena esté formada por bloques repetidos. Si encuentra bloques repetidos, la cadena no coincide.
+xx+ asegura que la cadena tenga al menos dos x, porque el número 1 no es primo.
+$ asegura que el patrón termine justo al final de la cadena.
+
+Four: el objetivo era aceptar palabras que tuvieran al menos cuatro repeticiones de la misma vocal en cualquier lugar de la palabra. Además, no se pueden palabras que contengan la secuencia acae
+El patrón usado fue ^(?!.*[Aa][Cc][Ee][Aa][Ee])(?=.*([aeiouAEIOU]).*\1.*\1.*\1).*$
+^ asegura que el patrón empiece desde el inicio de la palabra.
+(?!.[Aa][Cc][Ee][Aa][Ee]) es un lookahead negativo que revisa si la palabra contiene la secuencia acae en cualquier parte. Si la encuentra, la palabra queda descartada.
+(?=.([aeiouAEIOU]).\1.\1.\1) es un lookahead positivo que busca una vocal y exige ver esa misma vocal tres veces más después, para que en total aparezca cuatro veces en la palabra.
+.* permite que haya cualquier cantidad de caracteres antes, entre y después de las vocales.
+$ asegura que la coincidencia llegue hasta el final de la palabra.
+
+
+
+
+
+
+

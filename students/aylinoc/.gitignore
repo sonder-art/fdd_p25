@@ -1,0 +1,9 @@
+
+#archivos de editores
+.vscode/
+.idea/
+
+# Archivos de compilación / distribución
+/build
+/dist
+

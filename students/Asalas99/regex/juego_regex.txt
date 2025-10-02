@@ -1,0 +1,8 @@
+Foo todas las palabras que tienen foo
+ick$ las palabras que terminan en ick 
+fu\b las palabras que terminan en fu pero no acepta el $
+^[a-f]+$ solo acepta palabras que tengan de a hasta f 
+(\w{3})\w*\1 palabras con patrones de 3 que se repiten 
+^(?!.*(.)(.)\2\1) evitar palíndromo de 4 letras (.) lo guarda como grupo y luego llama al grupo
+No pude pasar el de palíndromos
+  

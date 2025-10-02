@@ -1,0 +1,12 @@
+Thumbs.db  
+
+*.log
+*.tmp
+*.swp
+
+*.out
+*.o
+*.exe
+
+.env
+

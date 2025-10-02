@@ -1,0 +1,30 @@
+Nivel 5—>6:
+pwd- Para ver en qué directorio me encontraba: en Home
+cd- Para dirigirme al directorio inhere
+ls   - Como estaba en el directorio inhere, vi que archivos se encontraban en ese directorio
+find . -type f -size 1033c -exec file --mime {} + | grep 'text'- Busque que archivos eran solo legibles por humanos, de tamaño 1033 bytes y no ejecutables y me salio que era el “.file2” en el directorio “maybehere07”.
+cd maybehere07- Me dirijo a directorio maybehere07
+cat .file2 - Imprima la contraseña
+Contraseña: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+Nivel 6—>7:
+find / -user bandit7 -group bandit6 -size 33c -type f 2>/dev/null -print- Para encontrar la ruta de archivos con esas características
+cat /var/lib/dpkg/info/bandit7.password- Una vez encontrada la ruta se imprime la contraseña.
+Contraseña: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+Nivel 7—>8:
+grep “millionth” data.txt- Busca en el archivo la línea que contenga la palabra millionth y me da la contaseña
+Contraseña:dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+Nivel 8—>9:
+sort data.txt | uniq -c | grep -E "^[[:space:]]*1 " - Te da la linea que solo se repite una vez en el archivo data.txt
+Contraseña: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+Nivel 9—>10:
+strings data.txt | grep -E "^=+"- Busca las cadenas de texto human readable y después busca las que inicien con múltiples ”=”
+Contraseña: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+Nivel 10—>11:
+base64 -d data.txt- Decodifica el archivo data.txt y su contenido de base64 
+Contraseña: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+

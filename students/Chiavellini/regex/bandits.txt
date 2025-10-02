@@ -1,0 +1,19 @@
+nivel 6:
+sol: find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+desc: Busca un archivo en todo el server con dueño bandit7, grupo bandit6 y exactamente 33 bytes. El 2>/dev/null oculta los errores de permisos.
+
+nivel 7:
+sol: cat data.txt | grep millionth
+desc: La password está en data.txt al lado de la palabra "millionth", así que grep la encuentra.
+
+nivel 8:
+sol: cat data.txt | sort | uniq -u
+desc: Busca la línea que aparece solo una vez. Sort ordena las líneas y uniq -u muestra solo las únicas (no repetidas).
+
+nivel 9; 
+sol: cat data.txt | strings | grep =
+desc: El archivo tiene datos binarios, strings extrae solo el texto legible y grep busca las líneas con "=" que le siguen al password.
+
+nivel 10:
+sol: cat data.txt | base64 -d
+desc: El archivo está codificado en base64, así que -d lo decodifica y muestra la password en texto.

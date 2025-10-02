@@ -1,0 +1,15 @@
+#Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Cachés de Python
+__pycache__/
+*.pyc
+
+# Archivos de datos
+*.csv
+

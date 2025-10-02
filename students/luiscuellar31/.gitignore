@@ -1,0 +1,13 @@
+# Evitar archivos de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icono en directorios
+Icon?
+
+# Archivos temporales de macOS
+._*
+.Spotlight-V100
+.Trashes
+

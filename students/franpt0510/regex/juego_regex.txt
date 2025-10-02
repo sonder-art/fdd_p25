@@ -1,0 +1,21 @@
+Francisco Pérez Trofimoff 214552
+
+Juego Regex
+
+1. Foo (era lo que tenian en comun las que queria)
+2. ick$ (busque como hacer regex de sufijos), con $ termina la linea
+3. fu\b (palabras que acaban con "fu" pero puede ser fu una palabra)
+4. ^[a-d]+$ (con notas) ^inicio string, 
+ - - rango, 
+ - + una o mas veces (pq si no se incluye solo el primero) 
+ - $ para el fin
+5. ([a-z]{3,}).*\1 primero, 
+ - rango de letras de MINIMO 3 caracteres (pq los q se repiten son de min 3, 
+ - luego lo q hace el .* es q pueda haber lo q sea entre las reps, luego el backref para repetirlo.
+6. ^(?!.*(.)(.)\2\1) empezamos con el ?1 en lo primero dentro del backref para que sea EVITAR, no permitir. luego, 
+ - otra vez el .* (lo q sea antes)
+ - (.) una letra, (.) otra
+ - \2\1 hace los backrefs en orden inverso, para q si tenias ab, ahora ba
+ 
+ 
+

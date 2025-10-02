@@ -1,0 +1,19 @@
+# Ignorar archivos del sistema
+.DS_Store
+
+# Ignorar archivos de Python (si los usas)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de logs
+*.log
+
+# Archivos de entorno virtual (si los usas)
+venv/
+.env
+
+# Archivos temporales de editores
+*.swp
+*.swo

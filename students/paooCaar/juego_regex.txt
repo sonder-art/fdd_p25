@@ -1,0 +1,49 @@
+Soluciones al juego de Regex_ Ana Paola Carmona Méndez
+Warmup
+	•	Expresión: foo 
+	•	Explicación: Busca cualquier palabra que contenga la secuencia de caracteres foo en cualquier posición. 
+Anchors
+	•	Expresión: ick$ 
+	•	Explicación: El símbolo $ indica el final de la palabra, por lo que esta expresión selecciona palabras que terminan en ick. 
+It never ends
+	•	Expresión: \b 
+	•	Explicación: \b marca una frontera de palabra, permitiendo que se identifique dónde termina sin necesidad de usar $. 
+Ranges
+	•	Expresión: ^[a-f]+$ 
+	•	Explicación:
+	◦	^[a-f] indica que la palabra debe empezar con una letra entre a y f. 
+	◦	+ obliga a que sean una o más letras dentro de ese rango. 
+	◦	$ asegura que toda la palabra esté formada únicamente por letras de a a f. 
+Backrefs
+	•	Expresión: ([a-z]{3}).*\1 
+	•	Explicación:
+	◦	([a-z]{3}) captura un bloque de tres letras consecutivas. 
+	◦	.* permite cualquier cantidad de caracteres después. 
+	◦	\1 asegura que ese mismo bloque de tres letras se repita más adelante en la palabra. 
+Abba
+	•	Expresión: ^(?!.*([a-z])([a-z])\2\1)[a-z]+$ 
+	•	Explicación:
+	◦	([a-z])([a-z]) captura dos letras cualesquiera A y B. 
+	◦	\2\1 representa la secuencia inversa (BA). 
+	◦	.* busca ese bloque en cualquier parte de la palabra. 
+	◦	(?! … ) niega la coincidencia si se encuentra la secuencia ABBA. 
+	◦	[a-z]+ acepta la palabra completa en minúsculas. 
+A man, a plan
+	•	Expresión: ^([a-z]?)([a-z]?)([a-z]?)([a-z]?)([a-z]?)([a-z]?)[a-z]?\6\5\4\3\2\1$ 
+	•	Explicación:
+	◦	Cada grupo ([a-z]?) captura una letra opcional. 
+	◦	Al final, la secuencia \6\5\4\3\2\1 obliga a que las letras se repitan en orden inverso. 
+	◦	Esto garantiza que la palabra sea un palíndromo. 
+Prime
+	•	Expresión: ^(?!x$)(?!(xx+?)\1+$)x+$ 
+	•	Explicación:
+	◦	x+$ obliga a que toda la cadena esté formada solo por la letra x. 
+	◦	(?!x$) excluye la longitud 1. 
+	◦	(?!(xx+?)\1+$) descarta cadenas que puedan formarse como repeticiones de un bloque de x (es decir, longitudes compuestas). 
+	◦	El resultado son solo longitudes de x que corresponden a números primos. 
+Four
+	•	Expresión: (.)(.*\1){3} 
+	•	Explicación:
+	◦	(.) captura una letra cualquiera. 
+	◦	(.*\1) busca cualquier secuencia de letras seguida por la misma letra capturada originalmente. 
+	◦	{3} repite esta instrucción tres veces, garantizando que la letra inicial aparezca un total de cuatro veces en la palabra.

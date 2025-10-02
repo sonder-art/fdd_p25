@@ -205,4 +205,11 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-.DS_Store
+
+
+# Archivos específicos que quiero ignorar dentro de mi carpeta de estudiante
+students/KarolCisneros/contraseñas.txt
+
+# Carpetas completas que quiero ignorar dentro de mi carpeta de estudiante
+students/KarolCisneros/temp/
+

@@ -1,0 +1,40 @@
+juego_regex.txt
+
+Juego de Regex — explicación de niveles (1–6)
+
+Nivel 1 — coincidencia exacta
+Regex: ^Four$
+- ^ y $ anclan el inicio y fin de línea
+- Coincide exactamente con la palabra "Four"
+
+Nivel 2 — clases de caracteres y repeticiones
+Regex: ^[aeiou], [0-9]+
+- ^[aeiou] → empieza con vocal
+- [0-9]+ → uno o más dígitos
+- [] define conjuntos, + indica “uno o más”
+
+Nivel 3 — opcionalidad y cuantificadores
+Regex: colou?r
+- ? → letra "u" es opcional (color/colour)
+- {m,n} → controla número de repeticiones
+
+Nivel 4 — grupos y alternancia
+Regex: ^(A man, a plan|Prime|Four)$
+- (a|b) → alternancia entre opciones
+- () → agrupa las opciones
+
+Nivel 5 — límites de palabra y anclas
+Regex: \bword\b
+- \b → asegura que sea una palabra completa
+
+Nivel 6 — lookarounds (si aplica)
+Regex: (?<=@)\w+, \w+(?=@)
+- (?<=@) → lo que está después de "@"
+- (?=@) → lo que está antes de "@"
+- No consumen texto, solo verifican contexto
+
+Notas:
+- Usa ^ y $ si se requiere coincidencia de línea completa
+- Prueba las expresiones en un tester o con grep -E/-P
+- Documenta: regex usada, por qué funciona y ejemplo
+

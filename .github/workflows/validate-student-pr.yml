@@ -1,0 +1,86 @@
+name: Validate Student PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Skip if repo owner is the PR author
+        if: ${{ github.actor == 'uumami' }}
+        run: |
+          echo "🚨 Repo owner detected (uumami). Skipping validation."
+
+      - name: Checkout repository
+        if: ${{ github.actor != 'uumami' }}
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history to ensure merge-base works
+
+      - name: Get list of changed files
+        if: ${{ github.actor != 'uumami' }}
+        id: changes
+        run: |
+          # Fetch the base branch to ensure we have the reference
+          git fetch origin ${{ github.base_ref }} --depth=1
+          
+          # Try different methods to get changed files, handling edge cases
+          if git merge-base origin/${{ github.base_ref }} HEAD >/dev/null 2>&1; then
+            # Normal case: branches have common history
+            CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          else
+            # Fallback: compare against base branch directly (for disconnected histories)
+            echo "⚠️  No common history found, comparing against base branch directly"
+            CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }} HEAD)
+          fi
+          
+          # If still no files, try using GitHub's built-in files API approach
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "⚠️  No files detected via git diff, using git log approach"
+            CHANGED_FILES=$(git log --name-only --pretty=format: HEAD ^origin/${{ github.base_ref }} | sort -u | grep -v '^$' || true)
+          fi
+          
+          echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
+          echo "📁 Files changed in this PR:"
+          if [ -n "$CHANGED_FILES" ]; then
+            echo "$CHANGED_FILES" | sed 's/^/  - /'
+          else
+            echo "  - (No files detected)"
+          fi
+
+      - name: Validate changes are only in student folder
+        if: ${{ github.actor != 'uumami' }}
+        run: |
+          echo "🔍 Validating file locations for student: ${{ github.actor }}"
+          INVALID_COUNT=0
+          VALID_COUNT=0
+          
+          for file in $CHANGED_FILES; do
+            if [[ ! "$file" =~ ^students/${{ github.actor }}/ ]]; then
+              echo "❌ Invalid change detected: $file"
+              ((INVALID_COUNT++))
+            else
+              echo "✅ Valid change: $file"
+              ((VALID_COUNT++))
+            fi
+          done
+          
+          if [ $INVALID_COUNT -gt 0 ]; then
+            echo ""
+            echo "❌ Found $INVALID_COUNT invalid file(s) outside your student folder."
+            echo "💡 You may only modify files inside students/${{ github.actor }}/"
+            exit 1
+          fi
+          
+          echo ""
+          echo "✅ All $VALID_COUNT file(s) are in the correct location."
+
+      - name: Report success
+        if: ${{ github.actor != 'uumami' }}
+        run: |
+          echo "🎉 Validation completed successfully!"
+          echo "✅ All changes are valid (only inside students/${{ github.actor }}/)"
+          echo "📊 Ready for professor review."

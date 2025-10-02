@@ -1,0 +1,54 @@
+Tarea Regex
+
+Warmup
+
+Me di cuenta que todas las palabras tenían la secuencia foo
+Fórmula: .*foo
+
+
+Anchors
+
+Me di cuenta que todas las palabras tenían la secuencia de ick, entonces puse: .*ick, pero me seguida saliendo una palabra que no tenia que salir y fue cuando vi que todas las palabras terminaban en ick, entones le puse un $ para marcar que fuera el final de la palabra 
+Fórmula: .*ick$
+
+
+It never ends
+
+Me di cuenta que aplicaba lo mismo que el nivel pasado así que puse .*fu$ pero me marco que $ no se podia utilizar en este nivel. Me di cuenta que fu estaba sola o al final de las palabras, por lo que puse \b para que sea el limite de la palabras. que no haya caracteres después de la secuencia de fu
+Fórmula: .*fu\b
+
+
+Range
+
+Le fui probando hasta encontrar unos rangos que cubrieran todas las palabras necesitadas y que no cubriera las que no
+Fórmula: (bed|ba|de|aff|ad|ace|eed)
+
+
+Backrefs
+
+Este nivel ya me costó mas trabajo, por lo que le pedi a chat GPT que me hiciera una lista de todos los caracteres que se utilizaban en regex para poder ir viendo lo que me funcionaba. Me di cuenta que todas las palabras tenían la misma vocal más de una vez, pero me salían palabras que no me debían de salir y luego me di cuenta que habían caracteres de tres que se iban repitiendo.  
+Fórmula; (...).*\1
+
+
+Abba
+
+Con la lista de chat GPT fui completando hasta encontrar lo que necesitaba. Logré encontrar esta frase en donde es que la en el inicio de linea no este el primer carácter repetido mas de una vez o que haya cualquier carácter y luego una u
+Fórmula: ^(?!(.)+\1)|.u 
+
+
+A man, a plan
+
+Para este nivel primero me di cuenta que las palabras empezaban y terminaban con la misma letra por lo que utilicé ^(.).*\1$, pero me seguía saliendo una palabra que empezaba con s y terminaba con s, y lo único que hice fue agregarle que el segundo carácter sea cualquier excepto p, después del primer carácter no puede haber una p
+Fórmula: ^(.)[^p].*\1$,
+
+
+Prime
+
+Me di cuenta que las cadenas correctas eran las que tuvieran numero impar de x’s excepto la primera que eran dos, no debían de pasar las secuencias que fueran par, por lo que hice lo siguiente: ^(?!(..+)\1+$) que agarre el primer grupo de dos caracteres y que no haya repeticiones de esa pareja, en los impares habra x que sobran por lo que no va a cumplir la condición en cambio las cadenas par si lo cumplirán, por eso puse la negación 
+Fórmula: ^(?!(..+)\1+$)
+
+
+Four
+
+Me di cuenta que todas las palabras tenían la misma vocal repetida 4 veces en la palabra, después de varios intentos me di cuenta que entre la primera y la cuarta vocal igual había 5 caracteres en medio, por lo que hice lo siguiente
+Fórmula: ([aeio]).{5}\1

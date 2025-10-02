@@ -1,0 +1,42 @@
+Bandit 6->7:
+
+find /  -user bandit7 -group bandit6 -size 33c
+
+Busca el archivo que cumpla las 3 condiciones.
+
+Password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+Bandit 7->8:
+
+cat 'data.txt' | grep -P 'millionth'
+
+Esta junto a millionth, entonces nada mas necesito encontrar esa cadena.
+
+Password: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+Bandit 8->9:
+
+sort data.txt | uniq -u
+
+Dice que la linea es la unica en el archivo que no se repite.
+
+Password: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+Bandit 9->10:
+
+strings data.txt | grep -P '===='
+
+Dice que hay muchos '=' antes.
+
+Password: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+Bandit 10->11:
+
+echo "VGhlIHBhc3N3b3JkIGlzIGR0UjE3M2ZaS2IwUlJzREZTR3NnMlJXbnBOVmozcVJyCg==" | base64 -d
+
+Obtienes el contenido de data.txt, como esta encodeado lo decodeas con base64 -d.
+
+Password: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+
+

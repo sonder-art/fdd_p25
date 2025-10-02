@@ -1,0 +1,82 @@
+000213620, Nat Wilson
+
+-Nivel 6:
+Introduje la contraseña después de conectarme. 
+Confirmé mi ubicación 'pwd'
+Cheque qué archivos se encontraban ahí, incluyendo los ocultos 'ls -a'
+Me di cuenta que necesitabamos más detalles 'ls -la'
+Al ver que la información de los archivos no nos decía mucho decidí utilizar find directamente. 
+Para encontrar el archivo con autor "bandit7": 'find / -user bandit7'
+Esto me devolvió un mensaje de "Permission denied", así que refiné mis criterios de búsqueda del comando. 
+-> find / -user bandit7 -group bandit6
+Esto también regresó "Permission denied", así que nuevamente refiné mis criterios de búsqueda del comando. 
+-> find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+Y esto, al cumplir con todas las características que especificaban en la página del nivel 6, por fin me devolvió la ruta del archivo con la siguiente contraseña. 
+Utilicé 'cat <ruta_del_archivo>' para leer su contenido. 
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+'exit' -> nueva conexión -> contraseña 
+
+-Nivel 7:
+Confirmé mi ubicación 'pwd'
+Cheque qué archivos se encontraban ahí, incluyendo los ocultos 'ls -a'
+Con eso bastó, momento de leer el contenido de "data.txt"
+'cat data' -> resultó ser un ataque de palabras, tocó buscar la palabra "millionth"
+Me imaginé que 'sort data.txt' me iba a ayudar a ordenar el contenido del archivo, y efectivamente sí fue así, la cosa es que eso en realidad no me ayudó a localizar lo que buscaba. 
+'uniq data.txt' resultó ser útil para quitar duplicados pero aún así no fue suficiente puesto que el archivo tenía demasiadas cosas escritas. 
+Ahí recurrí a una búsqueda de google y descubrí que "man" me hubiera dado la descripción de cada comando, así que aproveché para regresar a la terminal y buscar 'man grep', puesto que ese nombre no me daba ninguna hint sobre su uso, y me di cuenta que había llegado a lo que necesitaba.
+-> grep 'grep "millionth" data.txt' -> tenemos la contraseña
+
+bandit7@bandit:~$ grep "millionth" data.txt
+millionth	dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+'exit' -> nueva conexión -> contraseña 
+
+-Nivel 8:
+Confirmé mi ubicación 'pwd'
+Cheque qué archivos se encontraban ahí, incluyendo los ocultos 'ls -a'
+Con eso bastó, momento de leer el contenido de "data.txt"
+'cat data' -> una vez más resultó ser un ataque de palabras, tocó buscar la línea de palabras que ocurre una única vez. 
+Intenté utilizar 'uniq data.txt' pero no sirvió como pensé que iba a pasar, así que consulté 'man uniq' para ver porqué no había funcionado.
+-> Me di cuenta que para que eliminé las líneas repetidas, las mismas tienen que estar adyacentes las unas de las otras y necesitamos agregar '-u' para que únicamente me muestre las lineas que sobran (después de filtrar sus repetidos)
+Así que, 'sort data.txt' -> 'uniq -u data.txt' 
+PERO, esto NO resultó como esperaba. Fui a preguntarle a chat porqué no había funcionado, y me aclaró que ambos comando tienen que ir en la misma instrucción, porque sino 'uniq' ignora el resultado de 'sort'.
+Utilizamos los buenos condicionales: 'sort data.txt | uniq -u' -> llegamos a la contraseña
+
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+'exit' -> nueva conexión -> contraseña 
+
+-Nivel 9:
+Confirmé mi ubicación 'pwd'
+Cheque qué archivos se encontraban ahí, incluyendo los ocultos 'ls -a'
+Con eso bastó, momento de leer el contenido de "data.txt"
+'cat data' -> un bombardeo de caractéres raros
+La primera hint en la página del nivel era 'strings', así que un 'man strings' después me reveló que con eso podría identificar las palabras legibles para humanos
+'strings data.txt' -> efectivamente me regresó cosas legibles, y de hecho inmediatamente pude encontrar la contraseña. Sin embargo, si el archivo hubiera tenido miles de estas líneas entonces no hubiera podido terminar aquí (justo como en los niveles pasados), así que tocó seguir macheteando.
+Ocupé los condicionales para buscar los "===" después de filtrar las líneas legibles por humanos.
+'strings data.txt | grep "==="' -> tenemos la constraseña
+
+========== theg
+========== password
+========== is
+========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+'exit' -> nueva conexión -> contraseña 
+
+-Nivel 10:
+Confirmé mi ubicación 'pwd'
+Cheque qué archivos se encontraban ahí, incluyendo los ocultos 'ls -a'
+Con eso bastó, momento de leer el contenido de "data.txt"
+'cat data' -> bandit10@bandit:~$ cat data.txt
+VGhlIHBhc3N3b3JkIGlzIGR0UjE3M2ZaS2IwUlJzREZTR3NnMlJXbnBOVmozcVJyCg== 
+Encontré los caractéres con en base64 ....
+Antes de preguntarle a Chat, hice 'man base64' y eso bastó para resolver mis problemas. 
+' cat data.txt | base64 -d ' -> tenemos contraseña
+
+The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+'exit' -> nueva conexión -> contraseña 
+
+-Nivel 11:
+( aquí retomaremos la conexión la próxima vez)

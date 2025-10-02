@@ -1,0 +1,48 @@
+ssh -p 2220 bandit10@bandit.labs.overthewire.org
+Nivel 7:
+Buscar dentro de un archivo 
+Uso grep la palabra y el nombre del archivo 
+Asi:
+bandit7@bandit:~$ grep millionth data.txt
+millionth	dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+Nivel 8:
+Buscamos el que no esta repetido 
+-> sort archivo | uniq -u
+
+sort archivo → ordena las líneas.
+uniq -u → muestra solo las líneas únicas (que aparecen una sola vez).
+
+Queda así: 
+bandit8@bandit:~$ sort data.txt | uniq -u
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM 
+
+Nivel 9 {usamos regex}:
+Queremos los que un humano pueda leer entonces usamos strings 
+Pero también queremos los que van después de el =
+
+(?<= … )
+
+Esto se llama lookbehind positivo.
+
+Significa: “encuentra algo solo si está precedido por lo que hay entre paréntesis”.
+ 
+Entonces queda:
+bandit9@bandit:~$ strings data.txt | grep -P '(?<==).+'
+========== theg
+VQ=97
+[m=K1x
+========== password
+LU=W
+========== is
+=v$,
+h{=,rw_c
+=}%q
+=D!7
+YU=<
+5=fq
+vJ=ho
+========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+=AdD
+Nivel 10:
+Consultamos el archivo data.txt y como esta en código ponemos "base64" y -d par descodificar
+The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

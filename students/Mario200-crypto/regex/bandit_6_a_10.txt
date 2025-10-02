@@ -1,0 +1,42 @@
+EJERCICIOS BANDIT
+
+Bandit del 6:
+- Comando:  find / -type f -user bandit7 -group bandit6 -size 33c -exec cat {} \; 2>/dev/null
+-/ → busca desde la raíz (todo el sistema).
+-type f → solo archivos.
+-user bandit7 → dueño usuario.
+-group bandit6 → dueño grupo.
+-size 33c → tamaño en bytes (la c = bytes).
+-exec cat {} \; → por cada hallazgo, ejecuta cat para imprimirlo.
+2>/dev/null → oculta errores de “Permiso denegado”.
+
+Password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+Bandit del 7: 
+- Comando: grep millionth data.txt
+- Utilizando el grep nos da toda la info que esta en la línea de millionth (la contraseña
+  está ahí)
+
+Password: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+Bandit del  8:
+- Comando: sort data.txt | uniq -u
+- Ordenamos los datos repetidos para que después puedan ser descartados por el comando 
+  unique -u que imprime solo las que aprecen exactamente una vez nadamás
+
+Password: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+Bandit del 9:
+- Comando:  strings data.txt | grep -E '={3,}'
+- Con strings da todos los strigns en el texto y con lo otro buscamos las líneas que 
+  tengan 3 o más iguales en su texto
+
+Password: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+Bandit del 10:
+- Comando:  base64 -d data.txt
+- Este comando decodifica los mensajes
+
+Password: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+

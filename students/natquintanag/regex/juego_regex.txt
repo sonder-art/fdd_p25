@@ -1,0 +1,40 @@
+Juego de Regex - Natalia Quintana 214468
+
+Nivel 1 
+- Objetivo: Hacer match a todas las palabras que contienen la subcadena "foo" y a ninguna que 
+no la contenga.
+- Regex usada: foo
+Es una coincidencia literal. Las palabras válida contienen “foo”, y ninguna del lado derecho 
+la contiene.
+
+Nivel 2 
+- Objetivo: Coincidir solo las palabras que TERMINAN con “ick”.
+- Regex usada:  ick$
+"$" ancla el fin de palabra/línea. Esto incluye palabras que terminen con ick y excluye los 
+que  tienen más caracteres después de “ick”.
+
+Nivel 3
+- Regex usada:  fu\b
+- Por qué funciona: “\b” marca límite de palabra. Así, “fu” si viene seguido 
+de más letras no hace match.
+
+Nivel 4
+- Objetivo: Aceptar palabras compuestas EXCLUSIVAMENTE por letras entre “a” y “f”.
+- Regex usada:  ^[a-f]+$
+Obliga a que TODA la palabra (de principio a fin) esté formada 
+únicamente por letras a, b, c, d, e o f.
+
+Nivel 5 – Backrefs
+- Objetivo: Aceptar palabras que contengan un trigram (tres letras seguidas) que reaparece más 
+adelante.
+- Regex: ^(?=.*([a-z]{3}).*\1)[a-z]+$
+Con el lookahead verifico que exista algún trigram repetido en la palabra. Las 
+anclas ^…$ y [a-z]+ limitan todo a letras minúsculas.
+
+Nivel 6 – Abba
+- Objetivo: Aceptar palabras que NO contengan el patrón ABBA (palíndromo de 4 letras).
+- Regex: ^(?!.*([a-z])([a-z])\2\1)[a-z]+$
+El lookahead negativo impide que aparezca cualquier bloque ABBA en la palabra. 
+No se prohíben dobles simples (AA/LL).
+
+

@@ -1,0 +1,71 @@
+En este documento explico paso a paso las soluciones del juego de regex.
+
+1.-Para el primer nivel, hay qeu notar que todas las palabras que debemos encontrar son de la forma __foo__, por lo que la expresión regular que se usa para matchear estas palabras es la siguiente: .*foo
+. es para cualquier caracter, menos salto de línea
+* es porque puede haber muchos o ningún carcater antes de foo
+foo es el substring que estabamos buscando y que coincide para cada cadena.
+
+2.- Para el segundo nivel, todas las palabras son de la forma _ick por lo que la expresión regular que se usaría para este caso es : .ick$
+
+. es para cualquier caracter menos salto de línea
+$ es para aclara que la línea tiene que acabar con esa substrig
+
+3.- Para el tercer nivel, no se nos permite usar $. Dado que las palabras que queremos terminan en fu necesitmos usar el regex : fu\b
+
+\b marca el final de una palabra
+
+4.- Para el cuarto nivel, hay que notar que las palabras estan formadas por las primeras 6 letras del abecedario y van de un tamaño de 4 a 6 como máximo, de ambos lados, por lo que el regex sería el siguiente: [^g-z]{4,6}
+
+[^g-z] es la negación ^ del conjunt de letras de g a z.
+
+{4,6} con este rango específicamos que este patrón debe suceder en un rango de 4 a 6 caracteres.
+
+5.- Para el quinto nivel hay que notar que todas las palabras que tenemos que matchear son de la forma (abc)...(abc)..., luego el regex tiene que ser: (...).*\1
+
+(...) es el primer grupo de tres letras que se va a repetir
+.* cualquier caracter intermedio que se repita 0 o más veces
+\1 es el grupo de captura inicial.
+
+6.- Para el sexto nivel, vemos que las palabras de la derecha son de la forma 
+ __arra__ luego el regex que tenemos que utiliza es : ^(?!.*(.)(.)\2\1)
+
+^ Marca el inicio de la palabra
+() INdica el grupo de busqueda
+?! es el look ahead para negar el patrón tipo abba (en este caso)
+(.)(.) son los grupos de busqueda de cualesquiera dos caracteres
+\2 hace referencia al segundo grupo de busqueda guardado en memoria
+\1 hace referencia al primer grupo de busqueda guardado en memoria
+
+De esta forma regresa las cadenas que no cumplen el patrón abba.
+
+7.- Para el septimo nivel notemos que todas las palabras son palindormos que cumplen hasta 3 letras de cada lado, pero para estos casos podemos preocuparnos solo de las dos primeras y últimas. Luego el regex para esto es : ^(.)(.).*\2\1$
+
+^ Nos marca el inicio de la línea
+(.)(.) Marca los grupos de busqueda 1 y 2 respectivamente
+.* puede haber uno o ningun caracter intermedio tipo otvto o otto
+\2\1 que coicidan con los grupos de busqueda invertidos
+$ que sea el final de la línea
+
+otra posible solución habría sido con doble \b
+
+8.- Para el octavo nivel, todas las cadenas tienen una longitud de un número primo, de aquí que el regex debe ser el siguiente: ^(?!(xx+)\1+$)xx+$
+
+^ Marcamos el inicio de línea
+
+(?!) Falla la coinicidencia 
+
+(xx+)\1+$  En el grupo de captura (xx+) queremos ver si esta cadena se repite en bloques del mismo tamaño 1 o más veces para que pueda ser un número primo la longiutd. luego colocamos el grupo de busqueda 1 después (\1) y le agregamos el + para la condición de que haya más de un (o un ) grupo de subscadenas iguales. Finalmente le agremas el $ para inidicar el fin de la línea.
+
+xx+ es por si la cadena pasa la prueba, esto nos asegura que la cadena tenga el tamaño de almenos 2.
+
+$ es para marcar el fin de la línea.
+
+9.- Para el noveno nivel queremos buscar palabras que sean de la forma A B A C A D A , luego el regex para conseguir esto es : (.)(.\1){3}.
+
+(.) Toma el primer caracter para representar A
+
+(.\1) busca que el siguiente caractere sea de la forma B A
+
+{3} que se repita 3 veces este patrón.
+ 
+
