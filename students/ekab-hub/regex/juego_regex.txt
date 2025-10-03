@@ -1,0 +1,19 @@
+0) Warmup:
+Todas las palabras de la columna izquierda tienen 'foo'.
+REGEX: foo
+
+1) Anchors:
+Todas las palabras de la columna izquierda terminan con 'ick'.
+REGEX: ick$
+
+2) It never ends:
+Todas las palabras de la columna izquierda terminan con 'fu'.
+Intente con regex: fu[^a-z] -> No funciono
+REGEX: fu\b
+
+3) Ranges:
+Todas las palabras de la columna izquierda estan compuestas por [abcdef].
+Intente con regex: ([abcdef]+})[^g-z] -> No funciono 
+REGEX: ([abcdef]{3,6})[^g-z]
+
+
