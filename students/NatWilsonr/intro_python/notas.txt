@@ -1,0 +1,55 @@
+# Notas Intro Python — Natalia Wilson Robles
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+Es como un archivo ejecutable que me permite correr instrucciones en el lenguaje de python
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+#un mensajito
+print("Prueba de python3 de Nat")
+
+#Una variable 
+import math; x= 2*34
+print(x)
+
+#Una funcion simple
+def area_cuadrado(y):
+        return y*y
+
+print("El cuadrado de prueba tiene un area de: ",area_cuadrado(16))
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+La salida se limita a lo que se ejecuta como tal, no se ven ninguna de las instrucciones.
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: "Mostró la ayuda general y las opciones de Python"
+- -V: "Python 3.12.3"
+- -c "...": "Ejecutó código pasado como texto y mostró la salida"
+- -i hola.py: "Ejecutó el script y me dejó en REPL con variables/funciones cargadas"
+- -m this:"Imprimió la filosofía base de python, escrita por Tim Peters"
+- -m antigravity: "Abrió una nueva pestaña en mi navegador, donde se encontraba un webcomic sobre python"
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: "Aparece hasta después de que ejecutamos un archivo de python"
+- ¿Qué contiene?: "Dentro debería contener archivos .pyc"
+- -B (observación): "No se creó __pycache__/ (no se escriben .pyc)"
+- -O (observación): "Se crean .pyc optimizados; los assert no se evalúan"
+- -OO (observación):".pyc optimizados; además pueden eliminarse docstrings"
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: "python3 -c "import dis, hola; dis.dis(hola)""
+- Lo que observé (menciona 1–2 cosas que notaste):
+"Vi instrucciones de bytecode, como LOAD_FAST y BINARY_OP"
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
