@@ -1,0 +1,55 @@
+# Notas Intro Python — Elias Kably
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+REPL es una herramienta de Python que nos permite experimentar codigo de forma inmediata.
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+print("1: Hola mundo")
+
+res = 5*4*3*2
+print("2: " + str(res))
+
+def mayorDeEdad(edad):
+    if edad >= 18:
+        return True
+    else:
+        return False
+
+print("3: Soy mayor de edad? " + str(mayorDeEdad(21)))
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+python3 hola.py corrio el codigo y mostro los prints.
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python.
+- -V: Python 3.13.5
+- -c "...": Ejecutó código pasado como texto y mostró la salida.
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas.
+- -m this: Muestra el poema "The Zen of Python" de Tim Peters que es como una guia filosofica de como programar en Python.
+- -m antigravity: Abre en mi navegador un comic de xkcd sobre Python y la antigravedad.
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: Corri python3 hola.py y no aparecio el pycache. Tuve que correr python3 -c "import hola" y solo asi aparecio el __pycache__.
+- ¿Qué contiene?: hola.cpython-313.pyc
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc).
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste): COMPARE_OP compare si edad >= 18. RETURN_CONST True regresa el resultado de esa verificacion.
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal: Mas que saber Python es importante entenderlo para saber leer codigo y corregir errores.
