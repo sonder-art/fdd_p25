@@ -1,0 +1,50 @@
+# Notas Intro Python — Lourdes Gutiérrez 
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas): Un REPL (Leer-Evaluar-Imprimir-Bucle) es un ambiente que permite ejecutar código línea por línea. En este, cada entrada se lee, se evalúa (es ejecutada), se imprime el resultado y todo vuelve a empezar en un ciclo. 
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+  1. Un print("Hola desde hola.py") como saludo.
+  2. Una variable x = 6*7 con una operación aritmética y un print para mostrarla.
+  3. Una función doble(n) que devuelve 2*n y un print con su resultado.
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+  Se imprimieron tres líneas: el saludo, el valor de x (=42) y el resultado de doble(5)=10.
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python.
+- -V: Python 3.12.7
+- -c "...": Ejecutó código pasado como texto y mostró la salida.
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas.
+- -m this: Mostró “The Zen of Python” (aforismos de Python).
+- -m antigravity: Abrió un cómic de xkcd en el navegador.
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?:
+  Al importar el módulo (python3 -c "import hola") Python lo compiló a bytecode y creó la carpeta __pycache__.
+- ¿Qué contiene?:
+  Un archivo .pyc (en mi caso: hola.cpython-312.pyc) que guarda el bytecode compilado del script.
+- -B (observación):
+  No se creó __pycache__/ (no se escriben .pyc).
+- -O (observación):
+  Se crean .pyc optimizados (hola.cpython-312.opt-1.pyc); los assert no se evalúan.
+- -OO (observación):
+  Se crean .pyc optimizados (hola.cpython-312.opt-2.pyc); además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c 'import dis, hola; dis.dis(hola)'
+- Lo que observé (menciona 1–2 cosas que notaste): Se mostraron instrucciones de bytecode como LOAD_CONST y RETURN_VALUE.
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal: Aprendí que Python primero traduce el código fuente a bytecode (.pyc) para ejecutarlo más rápido.También entendí cómo usar el REPL, ejecutar scripts, y ver las optimizaciones y banderas que modifican el comportamiento de Python.
