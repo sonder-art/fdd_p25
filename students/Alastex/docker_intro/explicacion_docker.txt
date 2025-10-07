@@ -1,0 +1,104 @@
+Docker es una plataforma de software que sirve para crear, ejecutar y administrar aplicaciones dentro de contenedores.
+
+Un contenedor es una "cajita" que incluye todo lo necesario para que un programa funcione:
+
+-El código de la aplicación.
+
+-Sus librerías y dependencias.
+
+Configuraciones específicas.
+
+Un sistema base mínimo.
+
+De esta manera, la aplicación funciona igual sin importar dónde la ejecutes (tu laptop, un servidor, la nube, etc.), porque no depende del sistema operativo anfitrión ni de que las librerías estén instaladas ahí.
+
+¿Para qué sirve Docker?
+
+Portabilidad
+
+Puedes mover una aplicación de tu PC a un servidor o a la nube sin preocuparte de que "allá no funciona".
+
+Estandarización
+
+Todos los entornos son iguales. Ya no pasa eso de “en mi máquina sí corre pero en la tuya no”.
+
+Aislamiento
+
+Cada contenedor es independiente, así puedes tener varias versiones de 
+la misma aplicación o librerías sin que choquen entre sí.
+
+Ligereza
+
+A diferencia de las máquinas virtuales, los contenedores comparten el mismo kernel del sistema operativo,
+por lo que son más rápidos y consumen menos recursos.
+
+Escalabilidad
+
+Muy usado en la nube para desplegar microservicios, escalar aplicaciones automáticamente 
+y manejar miles de contenedores con herramientas como Kubernetes.
+
+Ejemplo sencillo:
+Si tienes una aplicación en Python que necesita librerías específicas y una base de datos,
+puedes crear una imagen Docker que incluya todo eso. Luego, cualquier persona podrá
+ejecutar la aplicación con un simple:
+
+
+¿Que es el Dockerfile?
+El Dockerfile es un archivo de texto que contiene instrucciones paso a paso para que Docker construya una imagen.
+ 
+Una imagen es como una plantilla: incluye el sistema base, librerías, código y configuraciones necesarias.
+A partir de una imagen puedes crear contenedores (las “cajitas” que ya corren la app).
+
+¿Cómo funciona un Dockerfile?
+
+Tú escribes un archivo llamado Dockerfile con instrucciones.
+Docker lo lee y, siguiendo esas instrucciones, construye una imagen personalizada.
+
+Ejemplo sencillo:
+
+# Usar una imagen base (sistema operativo + Python)
+FROM python:3.10
+
+# Establecer un directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copiar los archivos del proyecto al contenedor
+COPY . /app
+
+# Instalar dependencias
+RUN pip install -r requirements.txt
+
+# Comando para ejecutar la app cuando inicie el contenedor
+CMD ["python", "main.py"]
+
+
+Explicación línea por línea:
+
+FROM python:3.10
+Parte de una imagen base de Python.
+
+WORKDIR /app
+Define la carpeta de trabajo dentro del contenedor.
+
+COPY . /app
+Copia el código de tu proyecto al contenedor.
+
+RUN pip install -r requirements.txt
+Instala las dependencias.
+
+CMD ["python", "main.py"]
+Indica qué comando debe ejecutarse al iniciar el contenedor.
+
+Relación con Docker:
+
+Tú escribes el Dockerfile.
+
+Docker crea una imagen con:
+docker build -t mi-aplicacion .
+
+Luego corres esa imagen en un contenedor:
+docker run mi-aplicacion
+
+Basicamente, Dockerfile es la receta 
+la Imagen es el pastel ya preparado 
+el Contenedor es el pastel servido en la mesa
