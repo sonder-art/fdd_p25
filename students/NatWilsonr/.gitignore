@@ -19,3 +19,13 @@ __pycache__/
 # === VSCode ===
 .vscode/
 
+students/NatWilsonr/python_env/
+students/NatWilsonr/python_env/.venv
+python_env/.venv
+# relativo a students/NatWilsonr/
+python_env/
+# además ignoramos entornos donde sea
+.venv/
+venv/
+**/.venv/
+**/venv/
