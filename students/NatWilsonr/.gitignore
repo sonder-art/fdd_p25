@@ -19,5 +19,6 @@ __pycache__/
 # === VSCode ===
 .vscode/
 
+students/NatWilsonr/python_env/
 students/NatWilsonr/python_env/.venv
 python_env/.venv
