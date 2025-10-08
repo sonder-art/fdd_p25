@@ -1,0 +1,52 @@
+# Notas Intro Python — ESCRIBE_TU_NOMBRE
+Alejandro Salas Aguilar 
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido:
+python3
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+Un lugar donde puedes ejecutar codigo rapido y ver que pasa con ese codigo
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+tiene un print que dice "Hola,recuerda primero la tarea y segundo el America", la suma de 7 + 12 guardado en la variable suma y una funcion para sacar el cuadrado de un numero   
+- Qué observé al ejecutarlo (resumen corto de la salida):
+Que como tengo 3 print en diferentes sale en orden y no se confunde y pues que se puede hacer cosas de python en la terminal
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h:Me salieron todas las banderas que hay 
+- -V:me dijo la version en la que estoy de python 
+- -c "...": ejecuto el texto como codigo 
+- -i hola.py:ejecuto mi programa y me dejo en el que usamos antes el REPL
+- -m this: abrio el zen oh python 
+- -m antigravity:abrio dibujitos y decia que era el aniversario de what if 
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: aparece con ls -la y ya agregando el  __pycache__ vi que habia dentro 
+- ¿Qué contiene?: hola.cpython-313.pyc 
+- - instrucciones con dis : 11           RESUME                   0
+
+			 12           LOAD_FAST_LOAD_FAST      0 (x, x)
+             		 BINARY_OP                5 (*)
+             		 RETURN_VALUE
+
+- -B (observación): No se creo el __pycache__
+- -O (observación): remove assert and __debug__-dependent statements; add .opt-1 before
+         .pyc extension
+- -OO (observación): do -O changes and also discard docstrings; add .opt-2 before
+         .pyc extension
+
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: No entendi esta seccion 
+- Lo que observé (menciona 1–2 cosas que notaste):
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
+Estuvo bien hacer este ejercicio porque aprendimos banderas en la terminal usando python y asi podemos probar cosas rapidas en la terminal
