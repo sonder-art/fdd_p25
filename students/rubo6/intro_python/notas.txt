@@ -1,0 +1,44 @@
+# Notas Intro Python — Eduardo Rubén Bernal Puente
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas): Es un intérprete interactivo que permite a los programadores escribir, ejecutar y ver los resultados de comandos de Python al instante, sin necesidad de crear y ejecutar un archivo de código completo.
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste): 1.Función simple del cuadrado de un número. 2.Tres print: uno de un texto y los  otros de texto + un resultado.
+
+- Qué observé al ejecutarlo (resumen corto de la salida):Literalmente vi: Hola desde Python. 6*7 = 42. cuadrado(5) = 25.
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python
+- -V: Python 3.10.12
+- -c "...": Ejecutó código pasado como texto y ostró la salida
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this: Imprimió lo que parece ser un poema motivacional para desarrolladores.
+- -m antigravity: Abré el navegador en la página "xkcd.com/353/" con un cómic sobre python
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: Se crea automáticamente la primera vez que Python importa un módulo. AL correr python hola.py, se genera caché solo para los módulos que importe, no para el archivo ejecutado como __main__
+- ¿Qué contiene?: Archivos bytecode .pyc de los módulos compilados, nombrados con la versión y el nivel de optimización
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc).
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste):LOAD_FAST y BINARY_MULTIPLY
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
+En este ejercicio confirmé cómo Python ejecuta código: del REPL y los scripts pasa a bytecode y lo cachea en __pycache__, con banderas que controlan su generación y optimización.
+Probé las opciones -B/-O/-OO, usé dis para ver opcodes y verifiqué el flujo fuente→bytecode→VM.
+La entrega en Docker garantiza que el resultado sea reproducible e idéntico en cualquier máquina.
