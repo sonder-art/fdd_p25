@@ -1,0 +1,41 @@
+# Notas Intro Python — ESCRIBE_TU_NOMBRE
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido:
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h:
+- -V:
+- -c "...":
+- -i hola.py:
+- -m this:
+- -m antigravity:
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?:
+- ¿Qué contiene?:
+- -B (observación):
+- -O (observación):
+- -OO (observación):
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé:
+- Lo que observé (menciona 1–2 cosas que notaste):
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:

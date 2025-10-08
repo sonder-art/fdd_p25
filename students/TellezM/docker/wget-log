@@ -1,0 +1,16 @@
+--2025-10-01 18:10:35--  https://update.code.visualstudio.com/commit:e3a5acfb517a443235981655413d566533107e92/server-linux-x64/stable
+Resolving update.code.visualstudio.com (update.code.visualstudio.com)... 13.107.253.71, 13.107.226.71, 2620:1ec:29:1::71, ...
+Connecting to update.code.visualstudio.com (update.code.visualstudio.com)|13.107.253.71|:443... connected.
+HTTP request sent, awaiting response... Read error (Connection timed out) in headers.
+Retrying.
+
+--2025-10-01 19:46:28--  (try: 2)  https://update.code.visualstudio.com/commit:e3a5acfb517a443235981655413d566533107e92/server-linux-x64/stable
+Connecting to update.code.visualstudio.com (update.code.visualstudio.com)|13.107.253.71|:443... failed: Connection timed out.
+Connecting to update.code.visualstudio.com (update.code.visualstudio.com)|13.107.226.71|:443... failed: Connection timed out.
+Connecting to update.code.visualstudio.com (update.code.visualstudio.com)|2620:1ec:29:1::71|:443... failed: Network is unreachable.
+Connecting to update.code.visualstudio.com (update.code.visualstudio.com)|2620:1ec:48:1::71|:443... failed: Network is unreachable.
+Resolving update.code.visualstudio.com (update.code.visualstudio.com)... 13.107.213.57, 13.107.246.57, 2620:1ec:bdf::57, ...
+Connecting to update.code.visualstudio.com (update.code.visualstudio.com)|13.107.213.57|:443... failed: Connection timed out.
+Connecting to update.code.visualstudio.com (update.code.visualstudio.com)|13.107.246.57|:443... failed: Connection timed out.
+Connecting to update.code.visualstudio.com (update.code.visualstudio.com)|2620:1ec:bdf::57|:443... failed: Network is unreachable.
+Connecting to update.code.visualstudio.com (update.code.visualstudio.com)|2620:1ec:46::57|:443... failed: Network is unreachable.
