@@ -1,0 +1,7 @@
+1) Docker: plataforma para ejecutar aplicaciones en contenedores, asegurando que funcionen igual en cualquier entorno.
+
+2) Dockerfile: archivo con las instrucciones para construir una imagen (como la receta).
+
+3) Docker Image: resultado del Dockerfile, un paquete inmutable con todo lo necesario para la app.
+
+4) Docker Container: instancia en ejecución de una imagen (la app ya corriendo).
