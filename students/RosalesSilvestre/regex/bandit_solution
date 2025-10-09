@@ -1,0 +1,18 @@
+level 6->7
+answer: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+explanation: use the command find -type f -user bandit7 -group bandit6 -size 33c  and then search for the only file we have permission to cat
+
+level 7-> 8
+answer: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+explanation: use the command cat data.txt for outputing the text and the with | pass it to the grep millionth and we get the answer
+
+level 8->9
+answer: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+explanation: we use sort data.txt for getting the lines of the text ordered then we use uniq -u for getting the only line that appears only once in the text
+
+level 9->10
+answer: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+explanation: we use command strings data.txt for getting all humman readable lines, the we search for the one with serveral ======
+
+level 10->11
+answer: VkdobElIQmhjM04zYjNKa0lHbHpJR1IwVWpFM00yWmFTMkl3VWxKelJFWlRSM05uTWxKWGJuQk9WbW96Y1ZKeUNnPT0K

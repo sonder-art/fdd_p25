@@ -1,0 +1,35 @@
+level 1---
+answer: foo
+explanation: the word should contain the substring "foo"
+
+level 2---
+answer: ick\b
+explanation: the world should end in ick, the char \b indicates end of string
+
+level 3--
+answer: fu\b
+explanation: again it should end in fu
+
+level 4--
+answer: ^[a-f]+$
+explanation: it should only have the first letter of the alphabet, and such match should go for the entire word
+
+level 5---
+answer: ([a-zA-Z]{3}).*\1
+explanation: it gets any combination of three letters, then it search for any repetition of that
+
+level 6---
+answer= ^(?!.*([a-zA-Z])([a-zA-Z])\2\1)
+explanation: it gets any combination of two letters that repeats itself in reverse order and then negates it
+
+level 7---
+answer:^([a-zA-Z])([a-zA-Z]).*\2\1$
+explanation: only searchs if the first two letters are at the end of the string
+
+level 8---
+answer: ^(?!(xx+)\1+$)
+explanation: makes a type of eratostenes criba (to check if its prime)
+
+level 9---
+answer: ([a,e,i,o])(?!\1)[a-zA-Z]\1.*([a,e,i,o])(?!\2)[a-zA-Z]\2
+explanation: checks if there is two aba-like (letter-another letter-the first letter) structures but only containing the first four vowels  
