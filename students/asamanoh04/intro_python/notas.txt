@@ -1,0 +1,45 @@
+# Notas Intro Python — Andres Samano
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas): Es la consola interactiva de python donde escribes instrucciones por linea y ejecutas
+para ver su reslutado.
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+1. print hello world. 2. print de una variable, hice suma. 3. una funcion que dado un numero da su cuadrado.
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+print de hello world, print de la suma, y print del cuadrado del numero
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: “Mostró la ayuda general y las opciones de Python”.
+- -V: Python 3.8.10
+- -c "...": “Ejecutó código pasado como texto y mostró la salida”.
+- -i hola.py: “Ejecutó el script y me dejó en REPL con variables/funciones cargadas”.
+- -m this: me puso como un poema, o rimas
+- -m antigravity: abrio una pagina en internet de comic
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: no me aparecia normal tuve que compilar para que apareciera. pero aparece cuando
+ejecutas o compilas un .py. 
+- ¿Qué contiene?: Archivos .pyc (código compilado de los scripts).
+- -B (observación): No se creó __pycache__/ (no se escriben archivos .pyc).
+- -O (observación): Se crean archivos .pyc optimizados; las expresiones assert no se evalúan. (tampoco se me creo pycache)
+- -OO (observación): Se crean archivos .pyc optimizados; además pueden eliminarse los docstrings. (no se me creo pycache).
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste): Mostró las instrucciones de bytecode (por ejemplo LOAD_CONST, RETURN_VALUE).
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal: Aprendi a usar pyhton desde la terminal y tambien aprendia  usar las banderas.
+Aprendi que es el REPL y como usarlo. Tambien aprendi que es el pycache y para que sirve.

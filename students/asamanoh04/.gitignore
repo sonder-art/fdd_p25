@@ -13,3 +13,5 @@ __pycache__/
 # Archivos de datos
 *.csv
 
+# Ignorar entorno virtual de Python
+venv/
