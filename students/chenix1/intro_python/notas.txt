@@ -1,0 +1,45 @@
+# Notas Intro Python — Bernardo Perez
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas): El REPL es un modo para probar comandos rapidos y relativamente sencillos para hacer pruebas sencillas. 
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+	1.un print para un saludo.
+	2.la variable m que es el resultado de 34+33
+	3.una funcion a la cual le das tu nombre y te regresa: tu nombre es: {nombre}.
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+	observre los resultados esperados. Me lleve la sorpresa de que funciona "normal" como en algun ide. 
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h:Mostró la ayuda general y las opciones de Python
+- -V: Python 3.12.3
+- -c "...": Ejecuto el codigo pasado como texto y mostro la salida
+- -i hola.py: Ejecuto el script y me dejo en REPL con variables/funciones cargadas
+- -m this: arrojo 'The zen of python' por Tim Peters, es un texto breve, esccrito en prosa, que describbe algunos ideales por los cuales regirse.
+- -m antigravity: abrio una ventana de navegador con un comic que advierte sobre importar cosas que no estamo seguros que hacen. 
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: aparece cuando python compila un script a bytecode para guardarlo.
+- ¿Qué contiene?:main y utils 
+- -B (observación):no se creo `__pycache__/` (no se escriben `.pyc`)
+- -O (observación): Se crean `.pyc` optimizados; los `asseert` no se evaluan.
+- -OO (observación):`.pyc` optimizados; ademas pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé:python3 -c "impoert dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste): rompio por partes la funcion dentro del script. sale LOAD_CONST y LOAD_FAST. en load cosnt tiene el constante del return y en load fast el input de la funcion. 
+
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
