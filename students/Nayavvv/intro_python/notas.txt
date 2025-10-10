@@ -1,0 +1,58 @@
+# Notas Intro Python — Nayade Velasco
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido:
+python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas): Es una manera rápida de probar Python de forma en que obtengo los resultados inmediatamente 
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+# 1. Un print() con un saludo
+print("¡Hola mundo!")
+
+#2 Una variable con resultado
+suma = 2 + 10
+print ("2 + 10 es igual a:", suma)
+
+#3 Funcion simple y mostrar su uso
+def cuadrado(x):
+        return x * x
+print ("el cuadrado de 4 es:", cuadrado(4))
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+Tres lineas con los resultados que justamente pedí, fácil y sencillo 
+LA SALIDA:
+¡Hola mundo!
+2 + 10 es igual a: 12
+el cuadrado de 4 es: 16
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python
+- -V: Python 3.13.3
+- -c "...": Ejecutó código pasado como texto y mostró la salida
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this: Mostró el “Zen of Python”.
+- -m antigravity: Abrió un cómic en el navegador.
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: Al importar el módulo (p. ej., python3 -c "import hola"); ahí se guarda el bytecode.
+- ¿Qué contiene?: Contiene un archivo llamado hola.cpython-313.pyc
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc)
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé: Instrucciones de bytecode como LOAD_FAST_LOAD_FAST, BINARY_OP y RETURN_VALUE.
+
+----------------------------------------
+Sección G — Conclusión corta
+Vi que Python es un lenguaje muy fácil de usar, pero también muy completo y versátil. Combina simplicidad con gran poder.
