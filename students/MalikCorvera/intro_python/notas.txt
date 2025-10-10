@@ -1,0 +1,53 @@
+# Notas Intro Python — Malik Corvera Choi
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: Python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas): REPL es un ambiente de programación que muestra los resultados del código que implementé en forma de input y ouput que sigue un ciclo de lectrua -> evaluación -> impresión -> bucle (o reinica el proceso desde cero)
+
+
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste): Un saludo, la delcaración de una variable, una función que imprime una linea, y una instancia de la función previa 
+
+- Qué observé al ejecutarlo (resumen corto de la salida): Un saludo, y el resultado de la función
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h:Mostró la ayuda general y las opciones de Python
+- -V:Python 3.12.4
+- -c "...": Ejecutó código pasado como texto y mostró la salida: desde -c 42
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+ 
+- -m this:Mostró el poema de The Zen of Python, by Tim Peters
+- -m antigravity: Me redirigió a la página de xkcd de un webcomic que describía los beneficios de utilizar Pyhton era similar  a estar volando
+
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: Un enlistado de los documentos creados de formato .pyc, su fecha y nombre
+- ¿Qué contiene?: 
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc).
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé:  5           0 RESUME                   0
+
+  6           2 LOAD_GLOBAL              1 (NULL + print)
+             12 LOAD_CONST               1 ('El resultado de 2+2 es:')
+             14 LOAD_FAST                0 (resultado)
+             16 CALL                     2
+             24 POP_TOP
+             26 RETURN_CONST             0 (None)
+- Lo que observé (menciona 1–2 cosas que notaste): vi instrucciones de bytecode, y concluí que dis es una manera de interpretar en bytecode que hizo mi código de hola.py
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
+Seccion:A. Usaré Python3
