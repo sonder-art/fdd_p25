@@ -1,0 +1,53 @@
+# Notas Intro Python — ESCRIBE_TU_NOMBRE
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas): El REPL es una manera rapida de probar codigo de python sin tener que crear archivos.
+En otras palabras, un ejecutador de codigo de python en tiempo real temporal que no necesita de archivos.
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+1. Inclui un print que dice "Hola" ya que pedian un saludo.
+2. Inclui una variable que guardaba el resultado de 3*3.
+3. Inclui una funcion que determina si un numero es par o no.
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+1. La terminal me dijo "Hola".
+2. El print me dijo que 3 * 3 es 9
+3. Me dijo que es verdadero que 4 es un numero par.
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python.
+- -V: Python 3.12.3
+- -c "...": Ejecutó código pasado como texto y mostró la salida
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this: Me dio un poema en ingles acerca de python y sus ventajas.
+- -m antigravity: Abrio una pagina web que contiene un webcomic acerca de python.
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: __pycache__ aparece cuando el codigo de python ejecutado no es el principal y es importado desde otro lado.
+- ¿Qué contiene?: bytecode del archivo de hola.py para ejecucion mas rapida.
+- -B (observación):escribe: No se creó __pycache__/ (no se escriben .pyc).
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación): pyc optimizados; además pueden eliminarse docstrings
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé:python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste):
+Lo que no es una funcion lo corre normalmente. Sin embargo, guarda y desglosa mas cosas cuando se trata de una funcion.
+Por ejemplo, COMPARE_OP guarda que dentro de la funcion hay un == para evaluar la paridad.
+
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
+Estos ejercicios me ayudaron a familiarizarme mas a profundidad con python. Especialmente python ejecutado desde la terminal.
+Es fundamental conocer los archivos y sus funciones para poder programar o usar herramientas como git adecuadamente.
