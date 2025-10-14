@@ -588,3 +588,4 @@ uv pip install -r requirements.txt
  - Debes realizar el reto Docker + uv descrito en `professor/python_env/labs/mystery/README.md` (o tu copia en `students/{tu_carpeta}/python_env/labs/mystery/README.md`).
  - Léelo con el mismo rigor que el resto de esta guía. Es una parte central de la evaluación.
  - La entrega se hace por Pull Request desde tu carpeta de estudiante, como se indica arriba.
+ 
