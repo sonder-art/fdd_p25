@@ -1,147 +1,92 @@
-# Intro Python Interactivo — fundamentos y código «pythonic»
+# Intro Python Interactivo — Guía de Autoestudio
 
-> Módulo práctico para aprender Python desde la acción: leer un poco, escribir mucho, medir y comparar enfoques. Pensado para principiantes, con énfasis en escribir código claro y «pythonic».
-
----
-
-## ¿Qué es un Jupyter Notebook? (y cómo usarlo en VS Code)
-
-Un cuaderno (Notebook) es un archivo interactivo con celdas de texto (Markdown) y celdas de código Python. Puedes ejecutar el código por partes y ver los resultados inmediatamente debajo de cada celda. Ideal para aprender y experimentar.
-
-- Partes clave:
-  - Celdas: bloques independientes (texto o código)
-  - Kernel: el «motor» de Python que ejecuta las celdas (elige el intérprete correcto)
-  - Botones de ejecución: ▶ para ejecutar una celda; Run All/Run Above para ejecutar varias
-
-En VS Code, instala (si no los tienes):
-- Extensión «Python» (ms-python.python)
-- Extensión «Jupyter» (ms-toolsai.jupyter)
-- Opcional: «Pylance» (tipos), «Black Formatter» (formato)
-
-Flujo rápido en VS Code:
-- Abre `notebooks/Intro_Python.ipynb`
-- Selecciona kernel (arriba a la derecha): elige tu `.venv` si creaste uno
-- Ejecuta celdas (botón ▶ a la izquierda de cada celda)
-- Agrega una celda: usa el botón `+ Code` o `+ Markdown` (o el menú contextual en el borde de una celda)
-- Convierte una celda: usa la barra superior de la celda (Code ↔ Markdown)
-- Ejecuta todo: `Run All`, `Run Above`, `Run Below` (menú del cuaderno)
-- Reinicia kernel: «Restart Kernel» si algo queda en un estado extraño
-
-Sugerencia: modifica valores y re‑ejecuta. Aprenderás más experimentando.
+Aprenderás Python de manera práctica y progresiva, escribiendo y ejecutando código en cuadernos interactivos (Jupyter/VS Code Notebooks). La idea es que avances de forma autodidacta siguiendo el orden propuesto, y que el profesor esté disponible para resolver dudas cuando las tengas.
 
 ---
 
-## Objetivos
+## Qué es Python (en 30 segundos)
 
-- Entender y practicar los tipos y estructuras básicas de Python.
-- Escribir funciones pequeñas con docstrings y anotaciones de tipos.
-- Usar patrones pythonic: comprensiones, `enumerate`, `zip`, desempaquetado, `with`.
-- Medir tiempos con `timeit` para comparar enfoques (elegancia y rendimiento).
-- Aprender de forma interactiva con un cuaderno (Jupyter/VS Code Notebook).
+Python es un lenguaje de propósito general, con sintaxis legible y una curva de aprendizaje amable. Es interpretado y de tipado dinámico, ideal para aprender conceptos fundamentales de programación y para prototipar con rapidez. Aquí lo usarás para dominar las bases: tipos, colecciones, control de flujo, funciones, errores, y algunos patrones «pythonic».
 
 ---
 
-## Estructura de esta carpeta
+## Cómo estudiar este módulo
 
-```
-professor/intro_python_interactivo/
-  README.md                 ← esta guía
-  requirements.txt          ← paquetes opcionales para notebook (ver abajo)
-  notebooks/
-    Intro_Python.ipynb      ← cuaderno interactivo con teoría mínima + ejercicios
-  scripts/
-    timing_basics.py        ← script CLI para medir tiempos de enfoques comunes
-```
+1) Abre los notebooks y síguelos en el siguiente orden. Lee, ejecuta y modifica el código para comprobar tu comprensión. Tómate notas breves de lo que descubras.
+
+2) Si te atoras, formula una duda concreta y consúltala con el profesor. La dinámica es autoestudio acompañado: tú avanzas, el profesor te desbloquea.
+
+3) Repite: vuelve sobre ejercicios que cuesten hasta que te salgan de memoria sin mirar.
 
 ---
 
-## Cómo usar (flujo sugerido)
+## Preparación: trabaja en tu carpeta de estudiante
 
-1) Copia el material a tu carpeta de estudiante y trabaja SOLO ahí
+Copia este material a tu carpeta personal y trabaja SOLO ahí. No edites nada bajo `professor/`.
 
 ```bash
 mkdir -p students/{tu_usuario}/intro_python_interactivo
 cp -r professor/intro_python_interactivo/* students/{tu_usuario}/intro_python_interactivo/
-```
 
-2) (Opcional pero recomendado) Crea un entorno virtual y activa
-
-```bash
+# (Opcional) Crea y activa un entorno virtual, e instala dependencias mínimas
 cd students/{tu_usuario}/intro_python_interactivo
 python3 -m venv .venv && source .venv/bin/activate
-python -m pip install -r requirements.txt || true  # todos los ejercicios funcionan sin extras
-```
-
-3) Abre el cuaderno y trabaja de forma interactiva
-
-- En VS Code: abre `notebooks/Intro_Python.ipynb` y ejecuta celdas (íconos a la izquierda).
-- O con Jupyter: `jupyter notebook` y navega al archivo.
-
-4) Completa los TODOs en el cuaderno y corre los mini‑experimentos de tiempo
-
-- En el cuaderno hay celdas para medir y comparar enfoques (`timeit`).
-- También puedes usar el script CLI:
-
-```bash
-python scripts/timing_basics.py --help
-python scripts/timing_basics.py --benchmark all --n 100000
-```
-
-5) (Opcional) Escribe un breve resumen de hallazgos
-
-- ¿Qué enfoque fue más claro? ¿Cuál fue más rápido? ¿Cambió algo al variar `n`?
-
----
-
-## Actividades clave en el cuaderno
-
-- Variables y tipos (números, booleanos, cadenas, `None`).
-- Colecciones (`list`, `tuple`, `set`, `dict`) y operaciones frecuentes.
-- Verdad (truthiness), slicing y control de flujo.
-- Funciones, docstrings, type hints, pruebas ligeras con `assert`.
-- Patrones pythonic: comprensiones, `enumerate`, `zip`, desempacado, `with`.
-- Errores/excepciones: `try/except`, `raise` con mensajes útiles.
-- Módulos: importar y reutilizar.
-- Medición de tiempo con `timeit` y diseño de pequeños experimentos.
-
-Cada sección intercala teoría mínima con ejercicios prácticos y mini‑retos.
-
----
-
-## Entrega sugerida (si aplica en tu curso)
-
-Sube por Pull Request desde `students/{tu_usuario}/intro_python_interactivo/`:
-
-- `notebooks/Intro_Python.ipynb` con los TODOs resueltos y celdas ejecutadas.
-- (Opcional) `resultados_tiempos.txt` con 3–5 observaciones sobre rendimiento.
-
-> Importante: no modifiques nada bajo `professor/`.
-
----
-
-## Estilo y buenas prácticas
-
-- Nombra en `snake_case`; funciones pequeñas que hagan una sola cosa.
-- Prefiere claridad sobre «clever». Comenta solo lo no‑obvio.
-- Usa f-strings para formatear: `f"x={x}"`.
-- Apóyate en herramientas integradas: `sum`, `any`, `all`, `sorted`, `enumerate`.
-
-Referencias útiles: PEP 8 (estilo), `help(obj)`, `dir(obj)`, `type(x)`.
-
----
-
-## Comandos rápidos
-
-```bash
-# Abrir/activar entorno (opcional)
-python3 -m venv .venv && source .venv/bin/activate
 python -m pip install -r requirements.txt
-
-# Ejecutar mediciones
-python scripts/timing_basics.py --benchmark all --n 200000
-
-# Abrir el cuaderno en VS Code
-code notebooks/Intro_Python.ipynb
 ```
 
-¡Listo! Abre el cuaderno, ejecuta, mide y reflexiona sobre el porqué de cada enfoque.
+A partir de aquí, abre y trabaja los notebooks desde `students/{tu_usuario}/intro_python_interactivo/notebooks/`.
+
+---
+
+## Orden de notebooks (síguelos tal cual)
+
+- `notebooks/01_Bienvenida_Jupyter.ipynb`
+- `notebooks/02_Variables_y_Tipos.ipynb`
+- `notebooks/03_Colecciones_y_Slicing.ipynb`
+- `notebooks/04_Control_de_Flujo.ipynb`
+- `notebooks/05a_Funciones_y_Docstrings.ipynb`
+- `notebooks/05b_Alcance_y_Params_Avanzados.ipynb`
+- `notebooks/06_Comprehensions_Map_Filter.ipynb`
+- `notebooks/07_Errores_y_Excepciones.ipynb`
+- `notebooks/08_Generadores_y_Yield.ipynb`
+- `notebooks/09_Clases_y_Objetos_y_Proyecto.ipynb`
+
+Nota: los cuadernos están numerados para marcar el recorrido recomendado. Avanza en orden, sin saltarte pasos.
+
+---
+
+## Cómo abrir y ejecutar los notebooks
+
+- En VS Code: abre cualquier archivo `.ipynb` y ejecuta las celdas con el botón ▶ a la izquierda. Selecciona un kernel de Python válido (tu entorno actual) cuando VS Code lo solicite.
+- Con Jupyter clásico: ejecuta `jupyter notebook` en la terminal y navega hasta el archivo.
+
+Opcional (fuera de VS Code): instala las dependencias mínimas listadas en `requirements.txt`.
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+---
+
+## Qué practicarás
+
+- Tipos y operaciones básicas
+- Colecciones (`list`, `tuple`, `set`, `dict`) y slicing
+- Control de flujo (`if/elif/else`, bucles)
+- Funciones, docstrings y anotaciones de tipos
+- Comprensiones, `enumerate`, `zip` y desempaquetado
+- Manejo de errores con `try/except`
+- Generadores y `yield`
+- Clases y objetos (introducción) y un mini‑proyecto
+
+Consejo: prioriza la claridad sobre lo rebuscado. Usa nombres descriptivos y prueba tus funciones con ejemplos pequeños.
+
+---
+
+## Pedir ayuda
+
+Antes de preguntar, escribe lo que intentaste, el error observado y tu hipótesis. Con eso, el profesor podrá orientarte más rápido y mejor.
+
+---
+
+¡Listo! Abre el primer notebook y comienza. Ejecuta, explora y pregunta cuando lo necesites.
