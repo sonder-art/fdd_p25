@@ -1,0 +1,43 @@
+# Notas Intro Python — ESCRIBE_TU_NOMBRE
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3 -V 
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas): Una consola para poder probar de manera rapida pequeñas lineas de código de python.
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+Incluí un clasico saludo de Hola mundo, use una variable al hacer una suma, e hice una pequeña funcion que saluda por nombre al usuario. 
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+La ejecucción fue muy rapida y mostro los resultados esperados en la terminal. 
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python.
+- -V: Python 3.12.3
+- -c "...": Ejecutó código pasado como texto y mostró la salida.
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas.
+- -m this: Salió un poema muy simpático acerca de python. 
+- -m antigravity: Abre una tira cómica en el navegador web que tambiés estuvo simpática :).
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: No me apareció al inciio, tuve que ejecutar, python3 -c "import hola", pero normalmente aparece después de ejecutar un script por primera vez. 
+- ¿Qué contiene?: Entre otras cosas, contiene el archivo .pyc llamado hola.cpython-313.pyc
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc).
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste): Solamente se disassemblea la función, no las otras lineas del codigo, e incluye las instrucciones de bytecode del script, como LOAD_CONST o RETURN_VALUE
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal: Me gusta poder usar python desde la terminar sin ningunproblema gracias al REPL. Aprendi comandos valiosos y me gustaron los easter-eggs de python. Además, me siento mucho mas confiada en mi uso de neo vim. 

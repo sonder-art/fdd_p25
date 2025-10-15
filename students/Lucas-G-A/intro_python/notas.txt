@@ -1,0 +1,44 @@
+# Notas Intro Python — Lucas Garcia 
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido:
+python3
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+Te deja entrar a escribir y ejecutar python
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+1) imprime "hola tarea"
+2) imprime a y a=2+3
+3) imprime el resultado de un método de multiplicación con parámetros 3 y 4
+- Qué observé al ejecutarlo (resumen corto de la salida):
+Solo demuestra los resultados(prints) de tu codigo
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python
+- -V: Muestra la versión exacta de python (3.12.4 para mi)
+- -c "...": Ejecutó código pasado como texto y mostró la salida
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this: Muestra texto zen de Tim Peters
+- -m antigravity: Abre una pagina web
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: cuando python crea un .pyc para que la próxima vez se ejecute más rápido
+- ¿Qué contiene?: version compilada del script
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc)
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste): 
+Te dice que metidos de python usó para ejecutar tu codigo
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
+Python es fácil de correr en la terminal, solo necesitas python3 y hay otros comandos que puedes usar para mejorar tu experiencia 
