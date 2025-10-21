@@ -1,0 +1,4 @@
+# Este módulo no requiere paquetes externos.
+# Si deseas ejecutar el cuaderno con Jupyter fuera de VS Code, instala:
+jupyter>=1.0.0
+ipykernel>=6.0.0
