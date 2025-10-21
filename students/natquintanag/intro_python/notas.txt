@@ -1,0 +1,54 @@
+# Notas Intro Python — ESCRIBE_TU_NOMBRE
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas): Es una forma de hacer codigos y algoritmos de
+forma temporal. Te ejecuta operaciones con las instrucciones dadas.
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):Qué contiene (enumera los elementos que incluí):
+Un print() con un saludo: “Hola! Este es mi primer script en Python ”.
+Una variable llamada suma que realiza una operación aritmética (7 + 5) y un print() mostrando su resultado.
+Una función llamada cuadrado(x) que calcula el cuadrado de un número, junto con un print() que muestra el resultado al llamarla con el valor 4.
+
+Qué observé al ejecutarlo (resumen corto de la salida):
+Al correr el script, Python mostró el saludo, el resultado de la suma (12) y el cuadrado del número 4 (16) en la terminal, en ese orden.
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python
+- -V: (Python 3.9.6)
+- -c "Ejecutó código pasado como texto y mostró la salida 42":
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this: me arrojo un poema en inglés muy bonito 
+- -m antigravity: me abrió un website de un meme de python 
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: El directorio __pycache__ apareció automáticamente después de ejecutar hola.py.
+Dentro contiene el archivo, que es la versión compilada del script.
+
+- ¿Qué contiene?: Las banderas -B, -O y -OO modifican cómo Python maneja los archivos .pyc
+- -B (observación): “No se creó __pycache__/ (no se escriben .pyc).”
+- -O (observación): “Se crean .pyc optimizados; los assert no se evalúan.”
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste):
+- LOAD_CONST
+- LOAD_FAST
+- BINARY_MULTIPLY
+Estas muestran cómo Python traduce el código de hola.py a operaciones internas.
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal: El ejercicio me ayudó a entender cómo Python ejecuta los programas, 
+genera bytecode y optimiza su ejecución con distintas banderas. 
+Ahora sé cómo analizar y controlar el proceso desde la terminal.

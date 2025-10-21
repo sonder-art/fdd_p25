@@ -1,0 +1,44 @@
+# Notas Intro Python — ESCRIBE_TU_NOMBRE
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas): una forma de probar python de forma rápida, se pueden importar librerías, hacer operaciones y trabajar con el lenguaje sin crear un archivo o ejecutarlo.
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python
+- -V: Python 3.13.5
+- -c "...": Ejecutó código pasado como texto y mostró la salida
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this : Mostró un poema (?) de las funciones y particularidades de Python
+- -m antigravity: Abrió una página con un cómic de xqcd
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: nunca (?)
+- ¿Qué contiene?: No me apareció hiciese lo que hiciese
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc)
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: len
+- Lo que observé (menciona 1–2 cosas que notaste):
+LOAD_GLOBAL              1 (len + NULL)
+LOAD_GLOBAL              2 (j)
+CALL                     1
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal: Prefiero C++ ngl
