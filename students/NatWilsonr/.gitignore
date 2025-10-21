@@ -12,6 +12,7 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*$py.class
 
 # === Jupyter Notebooks ===
 .ipynb_checkpoints/
@@ -19,3 +20,21 @@ __pycache__/
 # === VSCode ===
 .vscode/
 
+# Ignorar entornos virtuales
+.venv/
+venv/
+*/.venv/
+*/venv/
+
+# Archivos de configuracion locales
+.env
+*.env
+
+# Bases de datos locales / cachés
+*.sqlite3
+*.db
+*.log
+
+# Archivos de editor/IDE
+.vscode/
+.idea/

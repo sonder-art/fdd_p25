@@ -1,0 +1,50 @@
+# Notas Intro Python — Alonso Zamanillo
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido:
+python3
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+El REPL es un entorno donde puedo escribir codigo y ejectuarlo. Su principal
+funcion es poder ejectuar en el momento, lo cual sirve para probar cosas 
+rapido.
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+Un print sencillo, Una suma y una funcion que suma 2 numeros(Para probar que 
+el requisito 2 fuera igual al 3)
+- Qué observé al ejecutarlo (resumen corto de la salida):
+El print que mande, la suma de 23+12 y la suma de 23+12
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Me da las diferentes opciones, es equivalente a --help
+- -V: Python 3.12.3
+- -c "...": Ejecuta el codigo como texto y muestra el print
+- -i hola.py: Ejecuta el script que hice en el inciso anterior y me deja en
+REPL cargado (Sales con Ctrl+D)
+- -m this: Me abre una serie de cosas a seguir en Python, sigue la ideologia
+de "Soluciones simples y entendibles"
+- -m antigravity: Me abre un comic de python, tambien se habla de la simpleza
+de este lenguaje
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: Me aparece un error, menciona que no existe el
+ archivo
+- ¿Qué contiene?: Nada que pueda observar
+- -B (observación): -
+- -O (observación): -
+- -OO (observación): -
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste): 
+LOAD_FAST, BYNARY_OP, RETURN_VALUE 
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
+Python nos permite hacer muchas cosas desde la terminal de forma muy 
+sencilla, ya sea corriendo directamente o creando archivos.py.
