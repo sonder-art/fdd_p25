@@ -1,0 +1,23 @@
+Que es Docker?
+Docker es una herramienta que permite crear un entorno adentro de una computadora para ejecutar una funcion o programa.
+Este entorno customizado permite que funcione sin importar en que computadora estes. Ya que no todos los programas funcionan en todas las computadoras.
+En otras palabras, si funciona en Docker, va a funcionar en cualquier computadora que pueda usar docker.
+
+Que es el Dockerfile?
+El Dockerfile son las instrucciones para construir una imagen de docker.
+
+Que es una Docker image?
+La Docker image es el resultado del proceso que hace el Dockerfile. Por ejemplo, instalar librerias, codigo o ejecutar archivos.
+Esta imagen no puede ser modificada de manera permanente a menos que se modifique el Dockerfile. Una de sus principales ventajas es que es muy ligera.
+
+Que es un Docker container?
+El docker container ya es el paso final en concreto. Cuando ya tienes un docker container ya existe como tal y ocupa un espacio en la memoria de la computadora.
+Al hacerle 'run' a una docker image, creas un docker container. Una de sus caracteristicas fundamentales es su nivel de aislamiento respecto a la computadora que lo esta ejecutando.
+Ademas, estos contenedores pueden ser inicializados o eliminados de manera facil.
+
+Comparacion
+Esto es un proceso lineal en el cual no puedes saltarte pasos. En otras palabras, existe una jerarquia inmovible de la siguiente manera:
+
+Docker -> Dockerfile -> Docker image -> Docker container
+
+No existe manera de romper este flujo y todo es dependiente de lo anterior.
