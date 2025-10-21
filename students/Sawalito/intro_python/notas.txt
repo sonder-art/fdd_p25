@@ -1,0 +1,48 @@
+# Notas Intro Python — Saúl Ubaldo Rojas Vázquez
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+El acrónimo describe perfectamente su funcionamiento, es un entorno interactivo que te permite escribir y ejecutar código línea por línea y ver los resultados al instante.
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+	1.-print('Hola Umami')
+	2.-a= 2 + 2 (la variable con una operación aritmpetica)
+	3.- func(a,b) regresa la suma de los números a y b
+	4.- Un print que imprime el resutlado de func
+- Qué observé al ejecutarlo (resumen corto de la salida):
+Se imprimen todos los resultados en una línea independiente, para los valores númericos, python los imprime sin necesidad de concatenación a cadenas.
+resultado:
+'Hola Umami'
+4
+5
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h:Mostró la ayuda general y las opciones de Python
+- -V: 3.12.3
+- -c "...":Ejecutó código pasado como texto y mostró la salida
+- -i hola.py:Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this: Escribe le zen de python de Tim Peters
+- -m antigravity:Abre una página de un cómic.
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?:Aparece cuando importas un módulo
+- ¿Qué contiene?:Un archivo .pyc
+- -B (observación):No se creó __pycache__(no se escriben .pyc).
+- -O (observación):Se crean .pyc optimizados;los assert no se evalúan.
+- -OO (observación):.pyc optimizados;además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: dis.dis(hola)
+- Lo que observé (menciona 1–2 cosas que notaste):Descompone el código en módulos y al parecer le agrega los procesos de bajo nivel estilo : LOAD_FAST, BINARY_OP Y RETURN_VALUE
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal: En general python tiene herramientas para mostrar las partes de bajo nivel que se van a realizar en el código, igual tiene varias operaciones en las que se puede interactuar con archivos ejecutados y sus variables.
