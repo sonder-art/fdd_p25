@@ -1,0 +1,21 @@
+Tarea docker explicación:
+
+¿Qué es Docker y para qué sirve?
+Docker es una plataforma que permite crear, ejecutar y desplegar aplicaciones dentro de contenedores. Un contenedor es como una “caja ligera” que incluye todo lo necesario para que una aplicación funcione (código, librerías y dependencias), y al mismo tiempo comparte el kernel del sistema operativo. Esto garantiza que la aplicación se ejecute de manera consistente en cualquier computadora o servidor, resolviendo el clásico problema de “funciona en mi máquina”.
+
+¿Qué es un Dockerfile?
+El Dockerfile es un archivo de texto que contiene instrucciones paso a paso para construir una imagen de Docker. Define qué sistema base usar, qué dependencias instalar, qué archivos copiar y qué comandos ejecutar. Es como una receta que describe cómo debe armarse la aplicación dentro de un contenedor.
+
+¿Qué es una Docker Image?
+Una Docker Image es el resultado de ejecutar el Dockerfile. Es una especie de “fotografía” inmutable que guarda todo lo necesario para correr una aplicación: código, dependencias, variables de entorno. No se modifica una vez creada y se puede versionar o subir a repositorios como Docker Hub.
+
+¿Qué es un Docker Container?
+Un Docker Container es una instancia en tiempo de ejecución de una imagen. Es decir, cuando ejecutas la imagen, obtienes un contenedor activo, que puede iniciarse, detenerse o eliminarse fácilmente. El contenedor está aislado, pero es más liviano y rápido que una máquina virtual porque comparte el kernel del sistema operativo anfitrión.
+
+Comparación entre todos:
+
+-Dockerfile: la receta (instrucciones para construir la imagen).
+-Docker Image: el resultado de esa receta, una plantilla lista para usarse.
+-Docker Container: la ejecución en vivo de una imagen, funcionando como un proceso independiente.
+
+En pocas palabras: Dockerfile → construye → Imagen → se ejecuta como → Contenedor.
