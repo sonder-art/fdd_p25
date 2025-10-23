@@ -1,0 +1,15 @@
+Bandit - progreso niveles 0-->11
+Usuario local: marmarquezgi
+Rama: tarea/regex
+Fecha: $(date +%Y-%m-%d)
+Comando SSH usado para conectarme al nivel 10:
+ssh bandit10@bandit.labs.overthewire.org -p 2220
+
+Comando para extraer la contraseña (nivel 10 -> 11):
+base64 -d data.txt
+
+Contraseña obtenida para bandit11:
+<dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr>  
+
+Explicación:
+El archivo 'data.txt' estaba codificado en Base64. Al decodificarlo con base64 -d recuperé la cadena original, que es la contraseña para el siguiente nivel.
