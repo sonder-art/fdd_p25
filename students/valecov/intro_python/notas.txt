@@ -1,0 +1,44 @@
+# Notas Intro Python — ESCRIBE_TU_NOMBRE
+Valentina Covarrubias Faure
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido:
+python3
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+Funciona introduciendo una linea de código a la vez, que Python va a procesar y a imprimir la solución.
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+Hice print("hola")
+Guardé la suma de 5+2 en una variable y luego imprimí el resultado
+Hice una función que se llamaba fecha_nacimiento que le das tu edad y calcula tu año de nacimiento y luego la llamé e imprimí el resultado
+- Qué observé al ejecutarlo (resumen corto de la salida):
+Hola, 7, Tu año de nacimiento es 2004.
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python 
+- -V: escribe la versión exacta, Python 3.12.7
+- -c "...": Ejecutó código pasado como texto y mostró la salida
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this:  salió como un poema que es la filosofía de Python 
+- -m antigravity: te lleva a una página de internet que tiene comics y abre en un comic de Python.
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: primero intenté abrirlo como aparece en el ejercicio, después de correrlo pero no se generaba el pycache entonces sube que entrar a python3, despues importar mi hola.py, luego salirme y ahora si ya se generó
+- ¿Qué contiene?: el archivo hola.cpython-312.pyc que es la versión compilada de hola.py
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc).
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste): vi lo que hace internamente el programa para ejecutar la función de fecha de nacimiento que hice. LOAD_CONST lo usa para cargar el año 2025 que lo usa para restar la edad y asi sacar el año de nacimiento. RETURN_VALUE para regresar el año de nacimiento después de haber realizado la operación 
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal: 
+En el ejercicio aprendí sobre el uso de Python desde la terminal, que nunca antes lo había hecho. Puse en practica muchos comandos para crear el script e incluso para ver el bytecode, y al final practiqué el docker que todavía no lo tenía muy claro.

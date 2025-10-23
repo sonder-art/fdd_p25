@@ -1,0 +1,46 @@
+# Notas Intro Python — Fernando Mejia
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido:
+Python3
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+El REPL es como un python simplificado que dada una entrada la evalua y luego da una salida 
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+1) escribir hola buenas noches
+2)Multiplicar 7*5 guardarlo en una variable e imprimirla
+3)Hacer una función de suma de números e imrpimri una suma
+- Qué observé al ejecutarlo (resumen corto de la salida):
+Se realizaron todos los comandos que realice en el archivo de hola.py
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+-  h: Mostró la ayuda general y las opciones de Python
+- -V: Escribe la version exacta de python
+- -c "Ejecuto código pasado como texto y mostró la salida":
+- -i hola.py:Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this:En m this me escribio un poema de python 
+- -m antigravity: Aquí me metió a una página web 
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?:
+Aparece cuando corro mi archipo hola.py
+- ¿Qué contiene?:
+archivos .pyc de python de la versión compilada de mis scripts
+- -B (observación):No se creó __pycache__/ (no se escriben .pyc).
+- -O (observación):Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación):.pyc optimizados; además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: import dis , hola; dis.dis(hola)
+- Lo que observé (menciona 1–2 cosas que notaste): se imprimen instrucciones de bytecode como load_fast, binay_op
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
+Como conclusión creo que entre docker y python se puede lograr correr una gran cantidad de programas, gracias a los contenedores podemos agrupar multiples programas y poder correrlos con facilidad. 
