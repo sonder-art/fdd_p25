@@ -1,0 +1,53 @@
+# Notas Intro Python — Ana Paola Carmona Méndez
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):El REPL de Python me permitió probar código de forma rapida. Aprendí que el ciclo es escribir, se evalua y luego me muestra el resultado. Es útil para hacer pruebas rápidas.
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+Un print()
+Una variable con una operación aritmética (suma = 5 + 3)
+Una función cuadrado(x)
+- Qué observé al ejecutarlo (resumen corto de la salida):
+El mensaje de saludo apareció en la terminal.
+Se mostró el resultado de la suma (8).
+La función imprimió correctamente el cuadrado de 4 (16).
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h:Mostró la ayuda general y opciones de Python.
+- -V:Python 3.x.x (mi versión exacta).
+- -c "...":Ejecutó código pasado como texto y mostró la salida.
+- -i hola.py:Ejecutó el script y me dejó en REPL
+- -m this:Mostró el Zen of Python.
+- -m antigravity:Abrió un cómic en el navegador.
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?:
+Aparece automáticamente después de ejecutar un script Python (python3 hola.py).
+Es la carpeta donde se guardan los archivos compilados .pyc para acelerar futuras ejecuciones.
+- ¿Qué contiene?:
+- -B (observación):No se creó __pycache__/ (no se escriben archivos .pyc)
+- -O (observación):Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación):Se crean .pyc optimizados; además pueden eliminarse los docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé:
+python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste):
+Se mostraron instrucciones de bytecode que corresponden a mi función:
+  - RESUME: indica el inicio de la ejecución.
+  - LOAD_FAST y BINARY_OP: cargan variables y realizan operaciones.
+  - RETURN_VALUE: devuelve el resultado de la función.
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal: Aprendí cómo funcionan los entornos virtuales y la ejecución de scripts en Python.  
+También entendí que Python genera archivos .pyc en __pycache__ para optimizar la ejecución.  
+Finalmente, con `dis` pude ver que mi código se traduce en instrucciones de bajo nivel (bytecode).
