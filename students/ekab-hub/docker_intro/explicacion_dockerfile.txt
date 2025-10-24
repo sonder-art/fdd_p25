@@ -1,0 +1,22 @@
+¿Qué es Docker y para qué sirve?
+- Es una tecnología de contenedores que empaca tu app + dependencias en “cajitas” (contenedores).
+- Sirve para que tu app corra igual en cualquier máquina.
+- Es ligero y rápido porque comparte el kernel del sistema (no es una máquina virtual completa).
+
+¿Qué es el Dockerfile?
+- Es la “receta” (archivo de texto) para construir una imagen.
+- Ahí escribes pasos como: desde qué base partes (FROM), qué copias (COPY), qué instalas (RUN) y cómo se ejecuta (CMD).
+
+¿Qué es una Docker Image (Imagen)?
+- Es el “resultado de hornear” la receta (Dockerfile). Es una plantilla inmutable.
+- Con una imagen puedes crear muchos contenedores idénticos.
+
+¿Qué es un Docker Container (Contenedor)?
+- Es una instancia en ejecución de una imagen.
+- Aislado, rápido de iniciar y fácil de destruir/crear de nuevo.
+
+Comparacion:
+- Dockerfile: receta de pastel
+- Imagen: pastel listo para hornear
+- Contenedor: pastel listo para comerse
+

@@ -1,0 +1,57 @@
+# Notas Intro Python — VALENTINA PINEDA BARRÓN
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido:
+python3
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+Es una consola interactiva que recibe instrucciones o comandos en el
+lenguaje de python, los ejecuta, los imprime y después espera instrucciones.
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+1. print("Hola fam!")
+2. suma=15*2
+   print(suma)
+3. def unomas(x)
+	print(x+1)
+   unomas(1)
+- Qué observé al ejecutarlo (resumen corto de la salida):
+Imprimio "Hola fam!", 15 y 2. 
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python
+- -V: Python 3.12.3
+- -c "...": Ejecutó código pasado como texto y mostró la salida
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones
+              cargadas
+- -m this: Imprimio un poema de python
+- -m antigravity: Abrío una pagina web con un comic acerca de python
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: Se crea automáticamente la primera vez
+que ese script e importado como un módulo por otro archivo de Python.
+- ¿Qué contiene?: Contiene la verión compilada del código fuente, conocida
+como bytecode. Estos archivos terminan en .pyc.
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc).
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings.
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste): 
+EL LOAD GLOBAL 1 (NULL + print)
+Y LOAD FAST 0 (x).
+La primera busca la función print y la pone encima de la pila, junto con el
+NULL, ya que la función no devuelve nada. Y la segunda, busca el valor de la
+variable x y lo pone en la pila.
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
+Python no interpreta el código original, sino que tiene que compilarlo a
+bytecode para que la maquina virtual de Python lo ejecute.
+El sistema puede guardarlo en __pycache__ para facilitar futuras
+importaciones.
