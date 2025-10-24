@@ -1,0 +1,12 @@
+FROM python:3.12-slim
+
+RUN pip install uv
+
+WORKDIR /app
+COPY . .
+
+RUN if [ -f requirements.txt ]; then uv pip install --system -r requirements.txt; fi
+
+
+CMD ["python", "labs/mystery/main.py"]
+

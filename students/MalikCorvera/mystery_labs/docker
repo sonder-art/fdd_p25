@@ -1,0 +1,17 @@
+# Imagen base con Python
+FROM python:3.12-slim
+
+# Instalar uv (más rápido que pip)
+RUN pip install uv
+
+# Crear y definir directorio de trabajo
+WORKDIR /app
+
+# Copiar archivos necesarios
+COPY . .
+
+# Instalar dependencias listadas (si existen)
+RUN if [ -f requirements.txt ]; then uv pip install -r requirements.txt; fi
+
+# Comando por defecto
+CMD ["python", "labs/mystery/main.py"]
