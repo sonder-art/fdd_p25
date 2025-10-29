@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Notas Intro Python — Nayade Velasco 
+=======
+# Notas Intro Python — Nayade Velasco
+>>>>>>> upstream/main
 
 ----------------------------------------
 Sección A — Comando para invocar Python en mi máquina
@@ -34,6 +38,7 @@ el cuadrado de 4 es: 16
 ----------------------------------------
 Sección D — Comandos/flags de Python ejecutados y observaciones
 - -h: Mostró la ayuda general y las opciones de Python
+<<<<<<< HEAD
 - -V:Escribe la versión exacta (ej.: “Python 3.13.3”)
 - -c "...":Ejecutó código pasado como texto y mostró la salida
 - -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
@@ -47,10 +52,26 @@ Sección E — __pycache__ y archivos .pyc
 - -B (observación):No se creó __pycache__/ (no se escriben .pyc)
 - -O (observación):Se crean .pyc optimizados; los assert no se evalúan.
 - -OO (observación):.pyc optimizados; además pueden eliminarse docstrings.
+=======
+- -V: Python 3.13.3
+- -c "...": Ejecutó código pasado como texto y mostró la salida
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this: Mostró el “Zen of Python”.
+- -m antigravity: Abrió un cómic en el navegador.
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: Al importar el módulo (p. ej., python3 -c "import hola"); ahí se guarda el bytecode.
+- ¿Qué contiene?: Contiene un archivo llamado hola.cpython-313.pyc
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc)
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings.
+>>>>>>> upstream/main
 
 ----------------------------------------
 Sección F — `dis` (inspección de bytecode)
 - Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+<<<<<<< HEAD
 - Lo que observé (menciona 1–2 cosas que notaste):
 Nos da las instrucciones de bytecode que Python genero 
 LOAD_FAST_LOAD_FAST
@@ -59,3 +80,10 @@ RETURN_VALUE
 ----------------------------------------
 Sección G — Conclusión corta
 - 1–3 líneas con tu reflexión principal: Vi que Python es un lenguaje muy fácil de usar, pero también muy completo y versátil.
+=======
+- Lo que observé: Instrucciones de bytecode como LOAD_FAST_LOAD_FAST, BINARY_OP y RETURN_VALUE.
+
+----------------------------------------
+Sección G — Conclusión corta
+Vi que Python es un lenguaje muy fácil de usar, pero también muy completo y versátil. Combina simplicidad con gran poder.
+>>>>>>> upstream/main
