@@ -1,2 +1,2 @@
-docker build -t intro-python-entrega .
-docker run --rm intro-python-entrega
+# fdd_p25
+repositorio de la clase de fuentes de datos, primavera 2025 (itam)
