@@ -1,0 +1,48 @@
+# Notas Intro Python — JORGE DANIEL LAFARGA AXOTLA
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido:
+python3
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+El REPL es un entorno interactivo donde Python lee cada línea que escribo, la evalúa inmediatamente, imprime el resultado y espera la siguiente instrucción. Es útil para probar código rápidamente sin necesidad de crear archivos.
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+1. Un print con el mensaje "¡Hola desde Python!"
+2. Una variable 'resultado' que calcula 10 * 5 + 3 y la imprimo
+3. Una función 'cuadrado' que eleva un número al cuadrado y muestro su llamada con el valor 7
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+Se imprimió el saludo, luego el resultado de la operación (53), y finalmente el cuadrado de 7 (49). Todo en líneas separadas y en el orden esperado.
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python
+- -V: Python 3.12.3 (o la versión que tengas instalada)
+- -c "...": Ejecutó código pasado como texto y mostró la salida
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this: Mostró "The Zen of Python", un poema con principios de diseño de Python por Tim Peters
+- -m antigravity: Abrió el navegador web con un cómic de xkcd sobre Python y la antigravedad
+ 
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: Aparece cuando Python importa un módulo, no cuando se ejecuta directamente un script
+- ¿Qué contiene?: Archivos .pyc con bytecode compilado del módulo Python, para acelerar futuras importaciones
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc)
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste):
+Vi instrucciones de bytecode como LOAD_CONST (carga constantes), STORE_NAME (guarda en variables), CALL_FUNCTION (llama funciones), y RETURN_VALUE. Cada línea de Python se traduce en varias instrucciones de bajo nivel.
+
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
+Python compila el código a bytecode antes de ejecutarlo, lo que permite optimizaciones y portabilidad. El REPL es una herramienta poderosa para experimentar, y las banderas de ejecución ofrecen control fino sobre el comportamiento del intérprete. Entender estos mecanismos internos ayuda a escribir mejor código.
