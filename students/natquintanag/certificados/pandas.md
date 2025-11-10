@@ -1,0 +1,14 @@
+- Nombre: Natalia Quintana Guzman
+- Usuario de GitHub: natquintanag
+- Fecha de entrega: 2025-11-10
+- [x] Udemy: https://www.udemy.com/course/learn-data-wrangling-using-python-and-pandas-free-course/
+- [ ] Udemy: https://www.udemy.com/course/applied-python-pandas/
+- [ ] Data camp: https://app.datacamp.com/learn/courses/data-manipulation-with-pandas
+- Link(s):
+  - Curso inscrito: https://www.udemy.com/course/learn-data-wrangling-using-python-and-pandas-free-course/
+  - Certificado: (no disponible en este curso gratuito)*
+- Captura(s):
+  - ./img/udemy-pandas-portada.png
+  - ./img/udemy-pandas-progreso-100.png
+  - ./img/udemy-pandas-100porciento.png
+  - ./img/udemy-pandas-final.png
