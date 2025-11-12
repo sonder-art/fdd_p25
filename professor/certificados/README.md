@@ -1,4 +1,6 @@
-Certificados 
+**Ya tenemos Data Camp gratis, pueden unirse con este link**: https://www.datacamp.com/groups/shared_links/26607a87ca0b08b82705aa90c42bfa5de4d63488914e88f4fe6f49166db0dba8  
+
+##Certificados 
 
 
 
