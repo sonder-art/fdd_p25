@@ -202,65 +202,35 @@ Un sistema es **asíncrono no concurrente** si:
 ### 3.2 Diagrama de Gantt - Asíncrono No Concurrente (CORREGIDO)
 
 **Diagrama Multi-Vista: Separación explícita entre CPU y estados de tareas**
-
 ```
-═══════════════════════════════════════════════════════════════════
-VISTA 1: ¿Qué tarea está usando la CPU en cada momento?
-═══════════════════════════════════════════════════════════════════
-Tiempo:   0    0.5  0.7          2.7 2.8          6.5 6.6  7
-          ↓     ↓    ↓             ↓   ↓            ↓   ↓   ↓
-CPU:     [τ₁]  [τ₂] [========== τ₃ ==========]  [τ₂][τ₁][τ₃]
+Escala de tiempo:  0.0   1.0   2.0   3.0   4.0   5.0   6.0   6.5 7.0
+                   |     |     |     |     |     |     |     |   |
+τ₁ (cafetera)      [█]░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[█]
+                   ↑                                           ↑
+                   0.5s                                        6.6s
 
-Interpretación: La CPU solo ejecuta UNA tarea a la vez
+τ₂ (tostadora)     [█]░░░░░░░░░░░░░░░░░░░░░░░░░░░[█]
+                   ↑                             ↑ ↑
+                   0.5s 0.7s                   2.7s 2.8s
 
-
-═══════════════════════════════════════════════════════════════════
-VISTA 2: Línea de tiempo de cada tarea (ejecución vs espera)
-═══════════════════════════════════════════════════════════════════
-Tiempo:   0    0.5  0.7          2.7 2.8          6.5 6.6  7
-          ↓     ↓    ↓             ↓   ↓            ↓   ↓   ↓
-
-τ₁ (café) [██]..................................................[██]
-          exec                      w a i t                     exec
-
-τ₂ (pan)       [██]...................[██]
-               exec      w a i t      exec
-
-τ₃ (leer)           [████████████████████████████████]
-                                e x e c
-
-
-═══════════════════════════════════════════════════════════════════
-VISTA 3: Estado de cada componente del sistema
-═══════════════════════════════════════════════════════════════════
-
-[CPU Estado]
-  0-0.5:  OCUPADA con τ₁
-  0.5-0.7: OCUPADA con τ₂  
-  0.7-2.7: OCUPADA con τ₃
-  2.7-2.8: OCUPADA con τ₂
-  2.8-6.5: OCUPADA con τ₃
-  6.5-6.6: OCUPADA con τ₁
-  6.6-7.0: OCUPADA con τ₃
-
-[Cafetera]
-  0-0.5:  Siendo configurada (por CPU)
-  0.5-6.5: Goteando SOLA (automática, sin CPU)
-  6.5-6.6: Siendo servida (por CPU)
-
-[Tostadora]
-  0.5-0.7: Siendo cargada (por CPU)
-  0.7-2.7: Tostando SOLA (automática, sin CPU)
-  2.7-2.8: Pan siendo retirado (por CPU)
-
-[Persona]
-  0.7-2.7: Leyendo
-  2.8-6.5: Leyendo (continuación)
-  6.6-7.0: Leyendo (finalización)
+τ₃ (leer)              [████████████████████]░[████████████████]
+                       ↑                    ↑ ↑                ↑
+                       0.7s               2.7s 2.8s            6.5s
 
 Leyenda:
-██ = CPU ejecutando activamente
-.. = Tarea en WAIT (esperando dispositivo)
+  █ = ejecución activa (usando CPU)
+  ░ = esperando/interrumpido (CPU ocupada por otra tarea)
+  ↑ = marca de tiempo exacta
+
+Análisis por instantes:
+  t=0.0-0.5: CPU ejecuta τ₁ (configurar cafetera)          [0.5s CPU]
+  t=0.5-0.7: CPU ejecuta τ₂ (poner pan en tostadora)      [0.2s CPU]
+  t=0.7-2.7: CPU ejecuta τ₃ (leer periódico - parte 1)    [2.0s CPU]
+  t=2.7-2.8: CPU ejecuta τ₂ (sacar pan)                   [0.1s CPU] ← τ₃ INTERRUMPIDO
+  t=2.8-6.5: CPU ejecuta τ₃ (leer periódico - parte 2)    [3.7s CPU]
+  t=6.5-6.6: CPU ejecuta τ₁ (servir café)                 [0.1s CPU]
+
+CORRECCIÓN: τ₃ se interrumpe brevemente en t=2.7-2.8 cuando τ₂ necesita la CPU
 ```
 
 **TABLA DE ANÁLISIS TEMPORAL:**
