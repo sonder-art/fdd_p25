@@ -395,9 +395,9 @@ Tres órdenes requieren atención constante (no esperan dispositivos): el chef r
 ### 4.3 Diagrama - Concurrente No Asíncrono (time-slicing, P=1)
 
 ```
-τ₁:  [██]    [██]    [██]
-τ₂:      [██]    [██]    [██]
-τ₃:          [██]    [██]    [██]
+τ₁:  [██]        [██]        [██]
+τ₂:      [██]        [██]        [██]
+τ₃:          [██]        [██]        [██]
 
 Leyenda:
   Cada bloque [██] representa un quantum de CPU dedicado a la MISMA tarea.
