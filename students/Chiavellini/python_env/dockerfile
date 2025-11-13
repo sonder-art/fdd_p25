@@ -1,0 +1,25 @@
+# Imagen base
+FROM python:3.12-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl bash build-essential python3-dev pkg-config \
+ && rm -rf /var/lib/apt/lists/*
+
+# Instalar uv
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+ENV PATH="/root/.local/bin:${PATH}"
+
+# Crear y usar venv administrado por uv
+RUN uv venv /opt/venv
+ENV VIRTUAL_ENV=/opt/venv
+ENV PATH="/opt/venv/bin:${PATH}"
+
+# App
+WORKDIR /app
+# Ajusta el COPY si tu proyecto está en otro path
+COPY . /app
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+CMD ["/entrypoint.sh"]

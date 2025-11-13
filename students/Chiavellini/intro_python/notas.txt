@@ -1,0 +1,46 @@
+# Notas Intro Python — ESCRIBE_TU_NOMBRE
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido:
+python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+Es el entorno interactivo de Python donde puedo escribir una línea de código, ejecutarla y ver el resultado al instante. Significa Read–Eval–Print Loop.
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+linea de codigo: print("Hola Mundo")
+comentario con mi nombre #
+extension.py
+- Qué observé al ejecutarlo (resumen corto de la salida):
+Se imprimió en pantalla la frase Hola mundo.
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Muestra la ayuda con todos los comandos y opciones disponibles.
+- -V: Imprime la versión instalada de Python.
+- -c "...": Permite ejecutar código directamente desde la línea de comandos sin archivo
+- -i hola.py: Ejecuta el script y luego entra al modo interactivo REPL manteniendo las variables definidas.
+- -m this: Muestra el poema “The Zen of Python”.
+- -m antigravity: Abre una página web cómica sobre la “antigravedad” en Python.
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: Después de ejecutar un módulo o script importado, para guardar bytecode compilado.
+- ¿Qué contiene?: Archivos .pyc con el bytecode optimizado de cada archivo .py.
+- -B (observación): Evita que se generen archivos .pyc en __pycache__.
+- -O (observación): Genera bytecode optimizado, omitiendo las afirmaciones (assert).
+- -OO (observación): Optimiza aún más, eliminando además las cadenas de documentación (docstrings).
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -m dis hola.py
+- Lo que observé (menciona 1–2 cosas que notaste): Vi instrucciones de bajo nivel como LOAD_CONST y CALL_FUNCTION, que son las operaciones reales que ejecuta la máquina virtual de Python.
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal: Aprendí que Python traduce todo el código a bytecode antes de ejecutarlo y que el REPL es útil para probar ideas rápidamente. Además, comprendí cómo funcionan los módulos, los flags y la caché interna de ejecución.
