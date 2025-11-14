@@ -1,0 +1,7 @@
+venta_id,cliente_id,fecha,monto,categoria_final,canal,nombre,pais
+1,101.0,2024-01-01 00:00:00+00:00,100.0,A,web,Ana,MX
+2,102.0,,200.5,B,tienda,Luis,MX
+2,102.0,,,B,tienda,Luis,MX
+3,103.0,,,DESCONOCIDO,web,,
+5,104.0,,300.0,B,web,,
+4,,,,A,web,,
