@@ -18,3 +18,4 @@ USER appuser
 
 # If you're running a web app, override as needed
 CMD ["python", "main.py"]
+ 
