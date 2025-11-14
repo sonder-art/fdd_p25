@@ -1,4 +1,8 @@
 **Ya tenemos Data Camp gratis, pueden unirse con este link**: https://www.datacamp.com/groups/shared_links/26607a87ca0b08b82705aa90c42bfa5de4d63488914e88f4fe6f49166db0dba8  
+Tienen que usar la direccion del correo del ITAM afuerza, solo me deja agregar gente con ese correo (itam.mx)  
++ Hagan log out de Datacamp (si su cuenta no es itam.mx)
++ Creen una cuenta con el correo del ITAM (itam.mx) en data camp
++ Den click al link de arriba para unirse a datacamp con el correo del ITAM
 
 ##Certificados 
 
