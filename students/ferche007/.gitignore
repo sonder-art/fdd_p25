@@ -2,3 +2,5 @@
 *.tmp
 build/
 dist/
+students/ferche007/python_env
+python_env
