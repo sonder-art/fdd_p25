@@ -1,0 +1,29 @@
+Que es Docker (para que sirve)?
+
+Docker es una herramienta que permite empaquetar una aplicación con todo lo que necesita para funcionar (librerías, dependencias, configuraciones),
+sirve para que el programa corra igual en cualquier computadora aunque tengan configuraciones diferentes.
+
+Que es el Dockerfile?
+
+Es un archivo de texto con instrucciones que le dice a Docker cómo construir el contenedor con todo lo necesario, como que liberías se usarán, 
+que comandos, etc. Básicamente, cual es la receta que deberá seguir cualquier computadora para que funcione la app.
+
+Que es Docker Image?
+
+el resultado de aplicar el Dockerfile. Una vez que estamos agusto con el dockerfile le tomamos una captura y lo congelamos en una imagen
+que está estática y no cambia, ya no agregamos más cosas que se requerián para la app.
+
+Que es un Docker Container?
+
+Es la ejecución de la iamgen, es decir este es el laboratiro en el que peudes probar la app con todo lo necesario incluido, se puede editar
+y expermientar si se quiere se peude borrar modifcar o lo que sea porque tenemos la iamgen y siempre se peude hacer otro contenedor.
+
+Comparación entre todos?
+
+Docker → la herramienta general, que permite que funcione la app en cualuqier computadora
+
+Dockerfile → la receta para que funcione con todas las cosas necesarias enlistadas
+
+Imagen → la versión oficial de el docjerfile que es congelado apra ya ser aplicado 
+
+Contenedor → es el laboratorio en el cual experimentamos con la app, este se puede manipular comos e requiera
