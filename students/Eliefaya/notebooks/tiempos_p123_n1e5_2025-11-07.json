@@ -1,0 +1,68 @@
+{
+    "metadata": {
+        "timestamp": "2025-11-08T05:41:16.867951Z",
+        "python_version": "3.11.13",
+        "numpy_version": "2.3.4",
+        "machine": "arm64",
+        "params": {
+            "n": 100000,
+            "number": 3
+        }
+    },
+    "results": {
+        "p1": {
+            "for": {
+                "s_per_call_median": 0.03777,
+                "repetitions": 3
+            },
+            "comp": {
+                "s_per_call_median": 0.02358,
+                "repetitions": 3
+            },
+            "gen": {
+                "s_per_call_median": 0.0226,
+                "repetitions": 3
+            },
+            "numpy": {
+                "s_per_call_median": 0.00018,
+                "repetitions": 3
+            }
+        },
+        "p2": {
+            "for": {
+                "s_per_call_median": 0.0704,
+                "repetitions": 3
+            },
+            "comp": {
+                "s_per_call_median": 0.0465,
+                "repetitions": 3
+            },
+            "gen": {
+                "s_per_call_median": 0.0454,
+                "repetitions": 3
+            },
+            "numpy": {
+                "s_per_call_median": 0.000445,
+                "repetitions": 3
+            }
+        },
+        "p3": {
+            "for": {
+                "s_per_call_median": 0.182,
+                "repetitions": 3
+            },
+            "comp": {
+                "s_per_call_median": 0.336,
+                "repetitions": 3
+            },
+            "gen": {
+                "s_per_call_median": 0.184,
+                "repetitions": 3
+            },
+            "numpy": {
+                "s_per_call_median": 0.00236,
+                "repetitions": 3
+            }
+        }
+    }
+}
