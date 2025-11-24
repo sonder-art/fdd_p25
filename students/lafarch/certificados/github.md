@@ -1,14 +1,14 @@
 # Github (Proyecto del Modulo de github)
 
-- Nombre:
-- Usuario de GitHub:
-- Fecha de entrega:
+- Nombre: Jorge Daniel Lafarga Axotla
+- Usuario de GitHub: lafarch
+- Fecha de entrega: 11.2025
 
 ## Curso elegido (marca uno)
-- [ ] Udemy: https://www.udemy.com/course/git-expert-4-hours/
 - [ ] Data Camp: https://app.datacamp.com/learn/skill-tracks/github-foundations
 
 ## Evidencia
+
 - Link(s):
 - Captura(s):
 
