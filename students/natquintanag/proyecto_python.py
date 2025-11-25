@@ -54,8 +54,98 @@ def time_p1(n=100_000, number=5):
         timeit.timeit(lambda: p1_np(a, c), number=number),
     )
 
+# P2 primer ejercicio
+
+
+def p2_for(a: np.ndarray, k: int = 3) -> np.ndarray:
+    """
+    Devuelve la suma de vecinos con ventana de tamaño k (impar >= 3)
+    usando un for clásico.
+
+    Política de bordes:
+    - Solo se consideran ventanas COMPLETAS.
+    - La salida tiene longitud n - k + 1.
+    """
+    if k % 2 == 0 or k < 3:
+        raise ValueError("k debe ser impar y >= 3")
+
+    n = len(a)
+    half = k // 2
+    resultado = []
+
+    for i in range(half, n - half):
+        ventana = a[i - half : i + half + 1]
+        resultado.append(float(np.sum(ventana)))
+
+    return np.array(resultado, dtype=float)
+
+
+def p2_comp(a: np.ndarray, k: int = 3) -> np.ndarray:
+    """
+    Versión con list comprehension.
+    Misma política de bordes que p2_for.
+    """
+    if k % 2 == 0 or k < 3:
+        raise ValueError("k debe ser impar y >= 3")
+
+    n = len(a)
+    half = k // 2
+
+    return np.array(
+        [
+            float(np.sum(a[i - half : i + half + 1]))
+            for i in range(half, n - half)
+        ],
+        dtype=float,
+    )
+
+
+def p2_gen(a: np.ndarray, k: int = 3):
+    """
+    Versión con generador.
+    Misma política de bordes.
+    """
+    if k % 2 == 0 or k < 3:
+        raise ValueError("k debe ser impar y >= 3")
+
+    n = len(a)
+    half = k // 2
+
+    for i in range(half, n - half):
+        yield float(np.sum(a[i - half : i + half + 1]))
+
+
+def p2_np(a: np.ndarray, k: int = 3) -> np.ndarray:
+    """
+    Versión NumPy vectorizada usando convolución simple.
+    mode='valid' asegura windows completas.
+    """
+    if k % 2 == 0 or k < 3:
+        raise ValueError("k debe ser impar y >= 3")
+
+    kernel = np.ones(k, dtype=float)
+    return np.convolve(a, kernel, mode="valid")
+
+# P2 segundo ejericio
+
+def time_p2(n=100_000, number=3):
+    """
+    Mide tiempos de las 4 estrategias para P2.
+    """
+    a = np.arange(n, dtype=float)
+    k = 3
+
+    return (
+        timeit.timeit(lambda: p2_for(a, k), number=number),
+        timeit.timeit(lambda: p2_comp(a, k), number=number),
+        timeit.timeit(lambda: list(p2_gen(a, k)), number=number),
+        timeit.timeit(lambda: p2_np(a, k), number=number),
+    )
 
 if __name__ == "__main__":
+    # ========================
+    # Pruebas P1
+    # ========================
     n = 10_000
     a = np.arange(n, dtype=float)
     c = 2.0
@@ -65,9 +155,28 @@ if __name__ == "__main__":
     res_gen = np.fromiter(p1_gen(a, c), dtype=float)
     res_np = p1_np(a, c)
 
-    print("p1_for vs p1_np:", np.allclose(res_for, res_np))
+    print("P1 — equivalencia de resultados:")
+    print("p1_for  vs p1_np:", np.allclose(res_for, res_np))
     print("p1_comp vs p1_np:", np.allclose(res_comp, res_np))
-    print("p1_gen vs p1_np:", np.allclose(res_gen, res_np))
+    print("p1_gen  vs p1_np:", np.allclose(res_gen, res_np))
 
-    print("\nTiempos P1 (for, comp, gen(list), numpy):")
+    print("\nTiempos P1:")
     print(time_p1())
+
+    # ========================
+    # Pruebas P2
+    # ========================
+    k = 3
+
+    b_for = p2_for(a, k)
+    b_comp = p2_comp(a, k)
+    b_gen = np.fromiter(p2_gen(a, k), dtype=float)
+    b_np = p2_np(a, k)
+
+    print("\nP2 — equivalencia de resultados:")
+    print("p2_for  vs p2_np:", np.allclose(b_for, b_np))
+    print("p2_comp vs p2_np:", np.allclose(b_comp, b_np))
+    print("p2_gen  vs p2_np:", np.allclose(b_gen, b_np))
+
+    print("\nTiempos P2:")
+    print(time_p2())
