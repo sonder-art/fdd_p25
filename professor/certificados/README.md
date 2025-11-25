@@ -1,5 +1,10 @@
 **Ya tenemos Data Camp gratis, pueden unirse con este link**: https://www.datacamp.com/groups/shared_links/26607a87ca0b08b82705aa90c42bfa5de4d63488914e88f4fe6f49166db0dba8  
+Tienen que usar la direccion del correo del ITAM afuerza, solo me deja agregar gente con ese correo (itam.mx)  
++ Hagan log out de Datacamp (si su cuenta no es itam.mx)
++ Creen una cuenta con el correo del ITAM (itam.mx) en data camp
++ Den click al link de arriba para unirse a datacamp con el correo del ITAM
 
+**La entrega es a mas tardar el 16 de Diciembre a las 00:00 hrs. osea la madrugada del 15 de Diciembre.**
 ##Certificados 
 
 
@@ -7,8 +12,6 @@
 Los siguientes cursos cuentan como proyectos. Les pondré 2 opciones (por lo menos) para cada uno, elijan uno por tema. Todos tienen por lo menos uno gratis para que no paguen, los de paga normalmente les dan certificado y los otros no.
 
 
-
-Data Camp estará gratis hasta el 9 de Noviembre así que les recomiendo que por lo menos hagan uno de esos de aquí al 9.
 
 
 
