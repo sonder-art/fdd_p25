@@ -76,7 +76,6 @@ Para cada tarea τᵢ ∈ Task, definimos:
 Para cada tarea τᵢ:
 
 1. **exec(τᵢ) ∩ wait(τᵢ) = ∅**
-2. **exec(τᵢ) ∪ wait(τᵢ) = [start(τᵢ), end(τᵢ)]**
 
 ### 1.5 Notación para Instantes Específicos
 
@@ -147,7 +146,7 @@ Cuando escribimos "tarea τᵢ", nos referimos a la abstracción matemática. La
 
 Un sistema es **secuencial** si y solo si:
 
-**∀ τᵢ, τⱼ ∈ Task, i ≠ j:** (end(τᵢ) ≤ start(τⱼ)) **OR** (end(τⱼ) ≤ start(τᵢ))
+**∀ τᵢ, τⱼ ∈ Task, i ≠ j:** (end(τᵢ) ≤ start(τⱼ)) **XOR** (end(τⱼ) ≤ start(τᵢ))
 
 Interpretación: Para cualquier par de tareas diferentes, una debe terminar completamente antes de que la otra comience.
 
@@ -202,9 +201,9 @@ Un solo chef atiende una lista de órdenes y completa cada una por completo ante
 ```
 τ₁ (moler)     [██████]
 τ₂ (hervir)            [████████]
-τ₃ (café)                      [██████████]
-τ₄ (tostar)                             [████]
-τ₅ (huevos)                                   [████████]
+τ₃ (café)                       [██████████]
+τ₄ (tostar)                                [████]
+τ₅ (huevos)                                     [████████]
 
 Leyenda: █ = ejecución activa
 ```
@@ -289,9 +288,9 @@ El chef inicia una cafetera y, durante el goteo (wait), decide no avanzar ningun
 ```
 CPU:   [τ₁]  IDLE...........  [τ₂]  IDLE......  [τ₂]  [τ₃....]
 
-τ₁:    [█]░░░░░░░░░░░░░░░░░░░[█]          (WAIT central no aprovechado)
-τ₂:                          [█]░░░░[█]    (WAIT central no aprovechado)
-τ₃:                                     [██████]
+τ₁:    [█░░░░░░░░░░░░░░░░░░░█]          (WAIT central no aprovechado)
+τ₂:                             [█░░░░█]    (WAIT central no aprovechado)
+τ₃:                                       [██████]
 
 Leyenda:
   █ = ejecución activa (CPU)
@@ -395,10 +394,10 @@ Tres órdenes requieren atención constante (no esperan dispositivos): el chef r
 ### 4.3 Diagrama - Concurrente No Asíncrono (time-slicing, P=1)
 
 ```
-τ₁:  [██]    [██]    [██]
-τ₂:      [██]    [██]    [██]
-τ₃:          [██]    [██]    [██]
-
+τ₁:  [██       ██       ██]
+τ₂:     [██       ██       ██]
+τ₃:        [██       ██       ██]
+Si esta vacio no hay ejecucion ni espera.
 Leyenda:
   Cada bloque [██] representa un quantum de CPU dedicado a la MISMA tarea.
   Entre bloques de una misma tarea NO hay WAIT (la tarea está pausada, lista).
@@ -527,14 +526,14 @@ El chef inicia la cafetera (espera larga) y la tostadora (espera corta). Mientra
 ```
 Vista de CPU (quién ejecuta en cada momento):
 CPU:              [τ₁][τ₂][τ₃...........][τ₂][τ₃.]   [τ₁]
-τ₁ (cafetera):    [█]░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░[█]
-τ₂ (tostadora):       [█]░░░░░░░░░░░░░░░[███]
-τ₃ (cortar fruta):        [████████████]░░░░[████]
+τ₁ (cafetera):    [█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█]
+τ₂ (tostadora):       [█░░░░░░░░░░░░░░░███]
+τ₃ (cortar fruta):        [████████████      ████]
 
 Leyenda:
   █ = ejecución activa (usando CPU)
   ░ = espera (dispositivo/temporizador) o pausada (cedió CPU)
-
+  vacio = no hay ejecución activa ni espera (como en cortar fruta)
 Lectura vertical (alineación por columnas):
 - Inicio: τ₁ ejecuta brevemente, luego entra a WAIT largo (cafetera goteando).
 - τ₂ ejecuta brevemente, entra a WAIT (pan tostándose).
