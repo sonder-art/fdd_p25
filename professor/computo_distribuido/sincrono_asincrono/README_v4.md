@@ -76,7 +76,6 @@ Para cada tarea τᵢ ∈ Task, definimos:
 Para cada tarea τᵢ:
 
 1. **exec(τᵢ) ∩ wait(τᵢ) = ∅**
-2. **exec(τᵢ) ∪ wait(τᵢ) = [start(τᵢ), end(τᵢ)]**
 
 ### 1.5 Notación para Instantes Específicos
 
@@ -147,7 +146,7 @@ Cuando escribimos "tarea τᵢ", nos referimos a la abstracción matemática. La
 
 Un sistema es **secuencial** si y solo si:
 
-**∀ τᵢ, τⱼ ∈ Task, i ≠ j:** (end(τᵢ) ≤ start(τⱼ)) **OR** (end(τⱼ) ≤ start(τᵢ))
+**∀ τᵢ, τⱼ ∈ Task, i ≠ j:** (end(τᵢ) ≤ start(τⱼ)) **XOR** (end(τⱼ) ≤ start(τᵢ))
 
 Interpretación: Para cualquier par de tareas diferentes, una debe terminar completamente antes de que la otra comience.
 
@@ -289,8 +288,8 @@ El chef inicia una cafetera y, durante el goteo (wait), decide no avanzar ningun
 ```
 CPU:   [τ₁]  IDLE...........  [τ₂]  IDLE......  [τ₂]  [τ₃....]
 
-τ₁:    [█]░░░░░░░░░░░░░░░░░░░[█]          (WAIT central no aprovechado)
-τ₂:                             [█]░░░░[█]    (WAIT central no aprovechado)
+τ₁:    [█░░░░░░░░░░░░░░░░░░░█]          (WAIT central no aprovechado)
+τ₂:                             [█░░░░█]    (WAIT central no aprovechado)
 τ₃:                                       [██████]
 
 Leyenda:
