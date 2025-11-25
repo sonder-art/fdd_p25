@@ -68,7 +68,9 @@ Data camp: https://app.datacamp.com/learn/courses/data-manipulation-with-pandas
 
 
 
+Fast-API
 
+https://app.datacamp.com/learn/courses/introduction-to-fastapi
 
 Extras
 
