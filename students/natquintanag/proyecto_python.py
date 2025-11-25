@@ -36,7 +36,7 @@ def p1_np(a: np.ndarray, c: float) -> np.ndarray:
     """
     return a * c
 
-#P1: Segundo ejericio
+#P1:Segundo ejercicio
 
 def time_p1(n=100_000, number=5):
     """
@@ -53,9 +53,7 @@ def time_p1(n=100_000, number=5):
         timeit.timeit(lambda: list(p1_gen(a, c)), number=number),
         timeit.timeit(lambda: p1_np(a, c), number=number),
     )
-
-# P2 primer ejercicio
-
+# P2 — primer ejercicio
 
 def p2_for(a: np.ndarray, k: int = 3) -> np.ndarray:
     """
@@ -126,7 +124,7 @@ def p2_np(a: np.ndarray, k: int = 3) -> np.ndarray:
     kernel = np.ones(k, dtype=float)
     return np.convolve(a, kernel, mode="valid")
 
-# P2 segundo ejericio
+# P2 segundo ejercicio
 
 def time_p2(n=100_000, number=3):
     """
@@ -142,10 +140,10 @@ def time_p2(n=100_000, number=3):
         timeit.timeit(lambda: p2_np(a, k), number=number),
     )
 
+# Main
+
 if __name__ == "__main__":
-    # ========================
     # Pruebas P1
-    # ========================
     n = 10_000
     a = np.arange(n, dtype=float)
     c = 2.0
@@ -160,12 +158,11 @@ if __name__ == "__main__":
     print("p1_comp vs p1_np:", np.allclose(res_comp, res_np))
     print("p1_gen  vs p1_np:", np.allclose(res_gen, res_np))
 
-    print("\nTiempos P1:")
+    print("\nTiempos P1 (for, comp, gen(list), numpy):")
     print(time_p1())
 
-    # ========================
     # Pruebas P2
-    # ========================
+
     k = 3
 
     b_for = p2_for(a, k)
@@ -178,5 +175,77 @@ if __name__ == "__main__":
     print("p2_comp vs p2_np:", np.allclose(b_comp, b_np))
     print("p2_gen  vs p2_np:", np.allclose(b_gen, b_np))
 
-    print("\nTiempos P2:")
+    print("\nTiempos P2 (for, comp, gen(list), numpy):")
     print(time_p2())
+
+# P3 — primer ejercicio Implementaciones
+
+def p1_for(a: np.ndarray, c: float) -> np.ndarray:
+    """
+    Devuelve a*c usando un for y append sobre una lista
+    y luego lo convierte a np.ndarray.
+    """
+    resultado = []
+    for x in a:
+        resultado.append(x * c)
+    return np.array(resultado, dtype=float)
+
+
+def p1_comp(a: np.ndarray, c: float) -> np.ndarray:
+    """
+    Devuelve a*c usando list comprehension
+    y lo convierte a np.ndarray.
+    """
+    return np.array([x * c for x in a], dtype=float)
+
+
+def p1_gen(a: np.ndarray, c: float):
+    """
+    Devuelve un generador que produce los elementos de a*c.
+    Para compararlo con las otras versiones, se debe materializar:
+        list(p1_gen(a, c))  o  np.fromiter(p1_gen(a, c), float)
+    """
+    return (x * c for x in a)
+
+
+def p1_np(a: np.ndarray, c: float) -> np.ndarray:
+    """
+    Devuelve a*c usando NumPy vectorizado.
+    """
+    return a * c
+
+# P3 — segundo ejercicio
+
+def time_p1(n=100_000, number=5):
+    """
+    Mide tiempos de las 4 estrategias para P1.
+    Regresa una tupla: (for, comp, gen, numpy)
+    con el tiempo total de 'number' repeticiones.
+    """
+    a = np.arange(n, dtype=float)
+    c = 2.0
+
+    return (
+        timeit.timeit(lambda: p1_for(a, c), number=number),
+        timeit.timeit(lambda: p1_comp(a, c), number=number),
+        timeit.timeit(lambda: list(p1_gen(a, c)), number=number),
+        timeit.timeit(lambda: p1_np(a, c), number=number),
+    )
+
+# Main
+if __name__ == "__main__":
+    n = 10_000
+    a = np.arange(n, dtype=float)
+    c = 2.0
+
+    res_for = p1_for(a, c)
+    res_comp = p1_comp(a, c)
+    res_gen = np.fromiter(p1_gen(a, c), dtype=float)
+    res_np = p1_np(a, c)
+
+    print("p1_for vs p1_np:", np.allclose(res_for, res_np))
+    print("p1_comp vs p1_np:", np.allclose(res_comp, res_np))
+    print("p1_gen vs p1_np:", np.allclose(res_gen, res_np))
+
+    print("\nTiempos P1 (for, comp, gen(list), numpy):")
+    print(time_p1())
