@@ -1,8 +1,8 @@
 # Docker (Proyecto del módulo de docker)
 
-- Nombre:
-- Usuario de GitHub:
-- Fecha de entrega:
+- Nombre: JORGE DANIEL LAFARGA AXOTLA  
+- Usuario de GitHub: lafarch
+- Fecha de entrega: 29/11/2025
 
 El curso esta en Datacamp en el grupo, revisa como entrar esta como tarea asignada del datacamp.
 ## Evidencia
