@@ -1,8 +1,8 @@
 # Python (Proyecto del modulo de python)
 
-- Nombre:
-- Usuario de GitHub:
-- Fecha de entrega:
+- Nombre: Karol Josafat Cisneros Suárez
+- Usuario de GitHub: KarolCisneros
+- Fecha de entrega: 27 de noviembre de 2025
 
 ## Curso elegido (marca uno)
 - [ ] Udacity: https://www.udacity.com/enrollment/ud1110 (gratis)
