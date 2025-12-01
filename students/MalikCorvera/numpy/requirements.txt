@@ -1,0 +1,5 @@
+# Dependencias mínimas para ejecutar los notebooks
+jupyter>=1.0.0
+ipykernel>=6.0.0
+numpy>=1.23
+matplotlib>=3.7
