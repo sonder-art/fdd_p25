@@ -1,0 +1,44 @@
+Procedimiento para avanzar del nivel 6 al 10
+
+Nivel 6 → 7 El password está en un archivo en el servidor con TODAS estas propiedades:
+* Propietario (usuario): bandit7
+* Grupo: bandit6
+* Tamaño: 33 bytes
+
+Proceso:
+1. Cuando un reto pide combinar criterios de dueño, grupo y tamaño, la herramienta indicada es find.
+2. “33 bytes exactos” en find se expresa con sufijo c (de “bytes”). Sin sufijo, find interpreta bloques de 512B en algunos sistemas.
+3. Buscar desde / produce muchos “Permission denied”; se limpian redirigiendo stderr.
+Procedimiento:
+* Búsqueda por criterios y lectura: find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null cat /ruta/encontrada
+
+Nivel 7 → 8 Enunciado: El password está en ./data.txt, junto a la palabra millionth.
+Proceso:
+1. Se conoce el archivo: no hay que “descubrirlo”, solo extraer la línea pertinente.
+2. “Junto a” implica que millionth y la contraseña aparecen en la misma línea, típicamente separados por espacio(s).
+Procedimiento mínimo:
+* Primero el dato está en ./
+* Ver línea candidata: grep millionth data.txt
+
+Nivel 8 → 9 Enunciado: En data.txt hay muchas líneas repetidas; el password es la única línea que aparece una sola vez.
+Proceso:
+1. uniq sólo detecta duplicados contiguos; por eso primero hay que ordenar.
+2. uniq -u devuelve únicamente las líneas con frecuencia 1.
+Procedimiento directo:
+* Ver la línea única: sort data.txt | uniq -u
+* (Con conteo para inspección) sort data.txt | uniq -c | grep " 1 "
+
+Nivel 9 → 10 Enunciado: data.txt es binario; el password está en una de las pocas cadenas legibles (ASCII), precedida por varios caracteres =.
+Proceso:
+1. En binarios, se extraen sólo cadenas imprimibles con strings.
+2. Se filtra por el patrón de “varios = seguidos” para reducir candidatos.
+3. Se elimina el prefijo de = para dejar únicamente la contraseña.
+Procedimiento:
+* Ver candidatos: strings data.txt | grep -E '={3,}'
+
+Nivel 10 → 11 Enunciado: data.txt contiene datos en Base64; la contraseña es el resultado de decodificar.
+Proceso:
+1. Base64 es un formato ASCII; se decodifica con base64 -d o herramientas equivalentes.
+2. La salida de la decodificación es la contraseña, generalmente en una sola línea.
+Procedimiento:
+* Decodificar a stdout y se mostrará: base64 -d data.txt

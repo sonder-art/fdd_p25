@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "timestamp": "2025-11-07T23:58:50.340714Z",
+    "python_version": "3.12.3",
+    "numpy_version": "2.3.4",
+    "machine": "x86_64",
+    "params": {
+      "n": 100000,
+      "number": 5
+    }
+  },
+  "results": {
+    "p1": {
+      "for": {
+        "s_per_call_median": 0.03621366199968179,
+        "repetitions": 5
+      },
+      "comp": {
+        "s_per_call_median": 0.03128602100059652,
+        "repetitions": 5
+      },
+      "gen": {
+        "s_per_call_median": 0.03444227900035912,
+        "repetitions": 5
+      },
+      "numpy": {
+        "s_per_call_median": 0.00033175299995491514,
+        "repetitions": 5
+      }
+    },
+    "p2": {
+      "numpy": {
+        "s_per_call_median": 0.00014533099965774454,
+        "repetitions": 5
+      }
+    },
+    "p3": {
+      "for": {
+        "s_per_call_median": 0.33980176100067183,
+        "repetitions": 5
+      },
+      "comp": {
+        "s_per_call_median": 0.6549914750003154,
+        "repetitions": 5
+      },
+      "gen": {
+        "s_per_call_median": 0.3578132729999197,
+        "repetitions": 5
+      },
+      "numpy": {
+        "s_per_call_median": 0.004647751000447897,
+        "repetitions": 5
+      }
+    }
+  }
+}
