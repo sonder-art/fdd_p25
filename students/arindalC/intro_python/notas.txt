@@ -1,0 +1,65 @@
+# Notas Intro Python — ESCRIBE_TU_NOMBRE
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido:
+python3
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+Es un entorno de programación que permite a los usuarios poner comandos y ver los resultados 
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+Qué contiene (enumera los elementos que incluiste):
+- Un print con un saludo.
+- Una variable con una operación aritmética y su print.
+- Una función que calcula el cuadrado y la imprime con un valor
+
+Qué observé al ejecutarlo (resumen corto de la salida):
+al ejecutarlo, imprimió correctamente los tres resultados.
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python.
+- -V: Python 3.12.6
+- -c "...": python3 -c "print('desde -c', 6*7)": desde -c 42
+- -i hola.py:
+    Hola, probando el script hola.py
+    El resultado de 5 * 8 es: 40
+    El cuadrado de 6 es: 36
+- -m this:
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.....
+
+- -m antigravity: abre el navegador y muestra un cómic de Python.
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?:
+Ejecutar como script (python3 hola.py) no genera .pyc para el propio archivo; 
+al importarlo (python3 -c "import hola") sí se genera.
+
+- ¿Qué contiene?:
+Se crea __pycache__/ con hola.cpython-312.pyc al hacer import hola.
+- -B (observación):No se creó __pycache__/ (no se escriben .pyc) al hacer python3 -B -c "import hola".
+- -O (observación):Se crean .pyc optimizados (hola.cpython-312.opt-1.pyc); los assert no se evalúan.
+- -OO (observación):.pyc optimizados (hola.cpython-312.opt-2.pyc); además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé:
+python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste):
+Mostró las instrucciones de bytecode generadas por Python, como LOAD_CONST, LOAD_FAST, CALL_FUNCTION y RETURN_VALUE.
+Vi cómo Python carga valores, ejecuta operaciones y devuelve el resultado de la función.
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
+Aprendí cómo Python ejecuta y compila los scripts, generando bytecode en __pycache__.  
+También comprendí cómo usar las banderas (-h, -V, -c, -i, -m) y cómo Docker puede automatizar la ejecución de un programa.
