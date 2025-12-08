@@ -1,8 +1,8 @@
 # Docker (Proyecto del módulo de docker)
 
-- Nombre:
-- Usuario de GitHub:
-- Fecha de entrega:
+- Nombre:Leonardo Villarreal
+- Usuario de GitHub: leovice2004
+- Fecha de entrega: 8 de diciembre 2025
 
 ## Curso elegido (marca uno)
 - [ ] Udemy (.1 decimas extras por este): https://www.udemy.com/course/docker-essentials/
