@@ -16,7 +16,7 @@ TAMBIEN EL EXTRA DE 3 DECIMAS
 - Captura(s): <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/71a50fd2-b56c-47a4-bec1-4af33b47f0cf" />
 
 
-## Evidencia (del opcional)
+## Evidencia (del de 3 decimas extra)
 - Link(s): https://www.datacamp.com/completed/statement-of-accomplishment/course/21c426c82bf0b9766217998f43e3d16236279bee
   https://www.datacamp.com/statement-of-accomplishment/course/21c426c82bf0b9766217998f43e3d16236279bee?raw=1
 - Captura(s):<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/4819bb55-a88d-493e-9879-6874a817ae32" />
