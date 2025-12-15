@@ -14,7 +14,7 @@
 - Captura(s):<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/a42c7d43-c27f-4dce-b0b5-f19eb241b1e5" />
   <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/29d1757b-bf41-4049-8812-fd138f203de5" />
 
-
+Como no me da certifcado por ser curso gratis, aqui esta la captura de completion + una captura que sirve como evidencia que es mi cuenta, no se me ocurrio otra manera de mandar esta evidencia. En la segunda sale completo bajo mi cuenta (franpt.0510@gmail.com) > Debe aparecer tu nombre o usuario de GitHub de forma clara. Si eliges la opción de Data Camp, sube evidencia de ambos cursos.
 > Debe aparecer tu nombre o usuario de GitHub de forma clara.
 
 
