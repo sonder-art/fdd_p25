@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "timestamp": "2025-12-16T05:29:09.871509+00:00",
+    "python_version": "3.12.3",
+    "numpy_version": "2.3.5",
+    "machine": "x86_64",
+    "params": {
+      "params": {
+        "n": 10
+      }
+    }
+  },
+  "results": {
+    "p1": {
+      "for": {
+        "s_per_call_median": 0.039305899999817484,
+        "repetitions": 1
+      },
+      "comp": {
+        "s_per_call_median": 0.032236500999715645,
+        "repetitions": 1
+      },
+      "gen": {
+        "s_per_call_median": 0.027819664000162447,
+        "repetitions": 1
+      },
+      "numpy": {
+        "s_per_call_median": 0.00021443500008899719,
+        "repetitions": 1
+      }
+    },
+    "p2": {
+      "for": {
+        "s_per_call_median": 0.19891835199996422,
+        "repetitions": 1
+      },
+      "comp": {
+        "s_per_call_median": 0.2523117330001696,
+        "repetitions": 1
+      },
+      "gen": {
+        "s_per_call_median": 0.26416279899967776,
+        "repetitions": 1
+      },
+      "numpy": {
+        "s_per_call_median": 0.00023156099996413104,
+        "repetitions": 1
+      }
+    },
+    "p3": {
+      "for": {
+        "s_per_call_median": 0.3221954789996744,
+        "repetitions": 1
+      },
+      "comp": {
+        "s_per_call_median": 0.2890826980001293,
+        "repetitions": 1
+      },
+      "gen": {
+        "s_per_call_median": 0.27713431200027117,
+        "repetitions": 1
+      },
+      "numpy": {
+        "s_per_call_median": 0.005403142000432126,
+        "repetitions": 1
+      }
+    }
+  }
+}

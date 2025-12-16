@@ -2,7 +2,7 @@
 
 - Nombre: Valentina Pineda
 - Usuario de GitHub: vpinedab
-- Fecha de entrega:
+- Fecha de entrega: 14 de diciembre de 2025
 
 ## Curso elegido (marca uno)
 - [ ] Udemy (.1 decimas extras por este): https://www.udemy.com/course/docker-essentials/
