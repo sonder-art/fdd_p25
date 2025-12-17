@@ -1,8 +1,8 @@
 # Pandas (Proyecto modulo de Pandas)
 
-- Nombre:
-- Usuario de GitHub:
-- Fecha de entrega:
+- Nombre: Lucas
+- Usuario de GitHub: Lucas-G-A
+- Fecha de entrega: noviembre
 
 ## Curso elegido (marca uno)
 - [ ] Udemy: https://www.udemy.com/course/learn-data-wrangling-using-python-and-pandas-free-course/

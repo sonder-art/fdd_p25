@@ -1,8 +1,8 @@
 # Python (Proyecto del modulo de python)
 
-- Nombre:
-- Usuario de GitHub:
-- Fecha de entrega:
+- Nombre: Lucas
+- Usuario de GitHub: Lucas-G-A
+- Fecha de entrega: 16/12/25
 
 ## Curso elegido (marca uno)
 - [ ] Udacity: https://www.udacity.com/enrollment/ud1110 (gratis)
