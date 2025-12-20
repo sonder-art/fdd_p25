@@ -1,8 +1,8 @@
 # Pandas (Proyecto modulo de Pandas)
 
-- Nombre:
-- Usuario de GitHub:
-- Fecha de entrega:
+- Nombre: Daniel Silvestre Rosales Aguilar
+- Usuario de GitHub: RosalesSilvestre
+- Fecha de entrega: 09/11/2025
 
 ## Curso elegido (marca uno)
 - [ ] Udemy: https://www.udemy.com/course/learn-data-wrangling-using-python-and-pandas-free-course/
