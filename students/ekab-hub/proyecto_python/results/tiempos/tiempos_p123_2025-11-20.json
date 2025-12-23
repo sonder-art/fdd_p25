@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "timestamp": "2025-11-20T20:18:40.998157Z",
+    "python_version": "3.13.5",
+    "numpy_version": "2.3.4",
+    "machine": "arm64",
+    "params": {
+      "p1": {
+        "n": 100000,
+        "number": 5
+      },
+      "p2": {
+        "n": 100000,
+        "number": 3
+      },
+      "p3": {
+        "n": 200000,
+        "number": 3
+      }
+    }
+  },
+  "results": {
+    "p1": {
+      "for": {
+        "s_total": 0.01922950000152923,
+        "repetitions": 5,
+        "s_per_call": 0.0038459000003058462
+      },
+      "comp": {
+        "s_total": 0.01810020799166523,
+        "repetitions": 5,
+        "s_per_call": 0.003620041598333046
+      },
+      "gen": {
+        "s_total": 1.4579854905605316e-06,
+        "repetitions": 5,
+        "s_per_call": 2.9159709811210634e-07
+      },
+      "numpy": {
+        "s_total": 7.916599861346185e-05,
+        "repetitions": 5,
+        "s_per_call": 1.583319972269237e-05
+      }
+    },
+    "p2": {
+      "for": {
+        "s_total": 0.2968807499855757,
+        "repetitions": 3,
+        "s_per_call": 0.09896024999519189
+      },
+      "comp": {
+        "s_total": 0.28512149999733083,
+        "repetitions": 3,
+        "s_per_call": 0.09504049999911028
+      },
+      "gen": {
+        "s_total": 0.27912370799458586,
+        "repetitions": 3,
+        "s_per_call": 0.09304123599819529
+      },
+      "numpy": {
+        "s_total": 0.0006824170122854412,
+        "repetitions": 3,
+        "s_per_call": 0.0002274723374284804
+      }
+    },
+    "p3": {
+      "for": {
+        "s_total": 0.05898095801239833,
+        "repetitions": 3,
+        "s_per_call": 0.01966031933746611
+      },
+      "comp": {
+        "s_total": 0.09653079201234505,
+        "repetitions": 3,
+        "s_per_call": 0.03217693067078168
+      },
+      "gen": {
+        "s_total": 0.06388662499375641,
+        "repetitions": 3,
+        "s_per_call": 0.02129554166458547
+      },
+      "numpy": {
+        "s_total": 0.00239912502001971,
+        "repetitions": 3,
+        "s_per_call": 0.00079970834000657
+      }
+    }
+  }
+}

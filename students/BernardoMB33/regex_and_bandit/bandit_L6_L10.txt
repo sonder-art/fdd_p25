@@ -1,0 +1,32 @@
+000208209 - Bernardo Marco Borgaro
+
+Nivel 6 
+Comando: find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+Explicación: Primero usé pwd para ubicarme, pero sabía que tenía que buscar en todo el sistema. 
+Utilicé el comando find desde la raíz (/) especificando el usuario (-user bandit7), el grupo (-group bandit6) y el tamaño exacto (-size 33c). 
+Al principio me salieron muchísimos errores de "Permission Denied", así que tuve que filtrar visualmente hasta encontrar la única ruta accesible: /var/lib/dpkg/info/bandit7.password. 
+Al hacer cat a ese archivo, obtuve la contraseña.
+
+Nivel 7 
+Comando: grep "millionth" data.txt
+Explicación: Al hacer un ls -la, noté que el archivo data.txt era enorme, por lo que buscar manualmente era imposible.
+ La pista indicaba que la contraseña estaba junto a la palabra "millionth". 
+Utilicé grep para filtrar esa palabra específica dentro del archivo y me regresó la línea exacta con la contraseña.
+
+Nivel 8 
+Comando: sort data.txt | uniq -u
+Explicación: Necesitaba encontrar la única línea de texto que no se repetía. Primero intenté usar uniq -u directamente, pero no funcionó. 
+Al consultar la ayuda (--help) o investigar, entendí que uniq solo funciona correctamente si la entrada está ordenada previamente. 
+Por lo tanto, hice un pipe: primero sort para ordenar el archivo alfabéticamente y luego uniq -u para filtrar y mostrar solo la línea única.
+
+Nivel 9 
+Comando: strings data.txt | grep =
+Explicación: Intenté hacer cat al archivo, pero falló porque contenía datos binarios no legibles. 
+Vi en las recomendaciones el comando strings, el cual extrae los caracteres legibles de un archivo binario. 
+Al ejecutarlo, busqué visualmente un patrón de varios signos de igual (====) seguido de la contraseña, aunque un grep hubiera sido más directo.
+
+Nivel 10 
+Comando: base64 -d data.txt
+Explicación: Hice un cat a data.txt y vi que el contenido parecía una cadena codificada, no texto plano. 
+Consulté la ayuda con base64 --help y confirmé que la bandera -d (o --decode) sirve para decodificar formato Base64. 
+Al ejecutar el comando sobre el archivo, me regresó la contraseña en texto claro.

@@ -1,0 +1,69 @@
+# Notas Intro Python — Luis Enrique Sanchez Cuellar 206682
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas):
+
+Es un entorno en la terminal similar a activar python en una IDE
+pero sin la necesidad de ello, sirve para hacer pruebas rapidas
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste):
+
+1. print() con un saludo "Hola desde hola.py"
+2. variable que da el resultado de una multiplicacion
+3. funcion llamada "cuadrado" que recibe un numero y la multiplica por si mismo
+4. print() que llama a la funcion con un valor de 5 como argumento
+
+- Qué observé al ejecutarlo (resumen corto de la salida):
+
+Se obtuvo de salida el print inicial de saludo, el resultado de 
+la multiplicacion y el print de la funcion hecha
+
+"
+Hola desde hola.py
+Resultado: 42
+cuadrado(5) = 25
+"
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: muestra la ayuda general y opciones disponibles de python
+- -V: muestra la version exacta de python
+- -c "...": ejecuta el codigo pasado como texto directamente en la linea de comandos y muestra la salida
+- -i hola.py: ejecuta el script hola.py y me deja dentro de REPL con las variables de hola.py
+- -m this: mostro "The Zen of Python"
+- -m antigravity: Abrio en el navegador la pagina del famoso comic de xkcd sobre Python y la gravedad
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?:
+Despues de ejecutar un script.py Python guarda ahi el bytecode compilado
+
+- ¿Qué contiene?:
+Archivos .pyc que son las versiones compiladas de los scripts, nombrados con el nombre del archivo y la version de python
+
+- -B (observación):
+Ejecuta el script pero no crea la carpeta __pycache__
+
+- -O (observación):
+Se crea __pycache__ pero los .pyc estan optimizados
+
+- -OO (observación):
+Tambien crea .pyc optimizados, pero ademas pueden eliminarse las docstrings de las funciones y modulos
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste):
+Muestra las instrucciones de bytecode que ejecuta Python al ejecutar hola.py, como tambien las funciones LOAD_CONST y CALL_FUNCTION y STORE_NAME
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal:
+Considero que lo que vimos en esta actividad es esencial saberlo para comprender la base de lo que es Python,
+tambien es util para poder realizar acciones mas facilmente desde la terminal en vez de terminar abriendo toda una IDE para escenarios simples donde no conviene una.
