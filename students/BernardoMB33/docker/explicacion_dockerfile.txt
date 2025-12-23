@@ -1,0 +1,15 @@
+Bernardo M. Borgaro - 208209
+
+Docker: Es una plataforma diseñada para crear, ejecutar y administrar aplicaciones dentro de contenedores. 
+Su objetivo principal es asegurar que el software se ejecute siempre de la misma manera sin importar en qué computadora o servidor esté instalado, evitando problemas de compatibilidad. 
+Se puede entender como la cocina completa que permite preparar, almacenar y usar las recetas de software.
+
+Dockerfile: Es un archivo de texto que contiene las instrucciones necesarias para construir una imagen de Docker. 
+Funciona como una "receta" donde se definen aspectos como el sistema operativo base, los programas a instalar y los comandos a ejecutar para configurar el entorno.
+
+Docker Image: Es el resultado de construir un Dockerfile; se trata de un paquete inmutable que incluye todo lo necesario para ejecutar una aplicación, como el sistema, las librerías y las dependencias. 
+Es comparable a una fotografía del entorno o a un pastel ya horneado y listo para usarse.
+
+Docker Container: Se define como una instancia en ejecución de una imagen. 
+Mientras la imagen actúa como el plano (o el pastel listo), el contenedor es la aplicación ya funcionando (o el momento en que se consume el pastel). 
+Un contenedor puede iniciarse, detenerse o eliminarse sin afectar la imagen original de la que proviene.
