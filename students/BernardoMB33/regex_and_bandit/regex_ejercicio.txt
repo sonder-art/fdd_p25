@@ -1,0 +1,51 @@
+000208209 - Bernardo Marco Borgaro
+Resolución de los primeros 10 niveles de Regex.
+Expresión: foo
+Explicación: Identifiqué que todas las palabras que debían coincidir contenían la secuencia "foo" sin importar su posición. 
+Me bastó con escribir la palabra exacta para que el motor de regex la encontrara.
+
+2. Anchors
+Expresión: ick$
+Explicación: Observé que las palabras objetivo terminaban con el sufijo "ick". 
+Determiné que el uso del ancla $ era fundamental aquí, ya que me permitió indicar que la expresión debía encontrarse específicamente al final de la cadena.
+
+3. It never ends
+Expresión: fu\b
+Explicación: En lugar de usar anclas de final de línea, decidí utilizar \b, que delimita la frontera de una palabra. 
+Esto me permitió identificar la secuencia "fu" cuando ocurría al final de un bloque de texto, evitando errores por espacios en blanco adicionales.
+
+4. Ranges
+Expresión: ^([abcdef]{4})
+Explicación: Mi objetivo fue validar palabras compuestas únicamente por letras en el rango de la 'a' a la 'f'. 
+Utilicé ^ para el inicio y un cuantificador para asegurar que la palabra cumpliera la condición en su totalidad, asegurándome de no capturar palabras con letras fuera de ese rango.
+
+5. Backrefs
+Expresión: (^.{3}).*\1
+Explicación: Detecté patrones repetidos dentro de la misma palabra. 
+Construí la expresión para capturar un bloque inicial de 3 caracteres y utilicé una referencia inversa (\1) para buscar que ese mismo bloque apareciera de nuevo más adelante en la cadena.
+
+6. Abba
+Expresión: ^(?!.*(.)(.)\2\1).*
+Explicación: Para este nivel, implementé un negative lookahead (?!...) para prohibir un patrón específico. 
+El patrón (.)(.)\2\1 busca una estructura tipo "ABBA" (dos letras seguidas de sus inversas); si el motor encuentra esta secuencia, configuré la expresión para descartar la palabra.
+
+7. A man, a plan
+Expresión: ^(.)(.).*\2\1\b
+Explicación: Este nivel requería identificar palíndromos. 
+Mi estrategia fue capturar los caracteres iniciales y obligar a que aparecieran en orden inverso al final de la palabra utilizando referencias inversas para verificar la simetría.
+
+8. Prime
+Expresión: ^.{2}$|^.{3}$... (o lógica de primos)
+Explicación: Busqué validar cadenas cuya longitud fuera un número primo. 
+Para la solución más robusta, utilicé lógica de negación para descartar la longitud 1 y cualquier longitud que fuera múltiplo de un bloque menor (números compuestos), dejando así solo los números primos.
+
+9. Four
+Expresión: (.)(.\1){3}
+Explicación: La lógica principal que seguí fue encontrar una letra que se repitiera cuatro veces con un carácter de separación entre cada repetición.
+La expresión que formulé captura una letra y luego busca tres ocurrencias de "cualquier carácter seguido de la letra original" para cumplir el patrón.
+
+10. Order
+Expresión: ^a*b*c*d*e*f*g*h*i*j*k*l*m*n*o*p*q*r*s*t*u*v*w*x*y*z*$
+Explicación: Este nivel me presentó una limitación clara de Regex: el motor no entiende el concepto de "orden alfabético" ni tiene memoria de "mayor que" para comparar letras dinámicamente. 
+La única forma lógica de resolverlo (sin usar trucos de longitud) fue construir una expresión lineal que listara explícitamente todo el abecedario. 
+Usé * para indicar que cada letra es opcional, pero forcé la estructura para que, si una letra aparece, deba estar estrictamente después de las anteriores en la secuencia.
