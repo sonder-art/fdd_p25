@@ -1,0 +1,41 @@
+# Notas Intro Python — Karol Josafat Cisneros Suárez
+
+----------------------------------------
+Sección A — Comando para invocar Python en mi máquina
+- Comando elegido: python3
+
+----------------------------------------
+Sección B — ¿Qué es el REPL? (en mis palabras)
+- Descripción breve (1–2 líneas): diría que es una herramienta que permite escribir código en python e interpretarlo de forma directa e inmediata. 
+
+----------------------------------------
+Sección C — Script mínimo `hola.py`
+- Qué contiene (enumera los elementos que incluiste): primeramente una impresión con el mensaje "Este es mi primer script usando pyhton", posteriormente imprimo el resultado de obtener la raíz de 169 y, finalmente, con una función obtengo la suma, la resta y lla multiplicación de dos números dados, imprimiendo estos resultados en orden. 
+  
+- Qué observé al ejecutarlo (resumen corto de la salida): se obtienen los resultados matemáticos esperados, así como se imprimen tal como lo indiqué.
+
+----------------------------------------
+Sección D — Comandos/flags de Python ejecutados y observaciones
+- -h: Mostró la ayuda general y las opciones de Python
+- -V: Python 3.12.3
+- -c "...": Ejecutó código pasado como texto y mostró la salida
+- -i hola.py: Ejecutó el script y me dejó en REPL con variables/funciones cargadas
+- -m this: apareció un bonito texto sobre la esencia de Python, quizá sobre su filosofía de funcionamiento.
+- -m antigravity: me abrió en el navegador una caricatura sobre Python.
+
+----------------------------------------
+Sección E — __pycache__ y archivos .pyc
+- ¿Cuándo aparece __pycache__?: la verdad no me apareció, pero a lo que investigue se debía generar una carpeta en el mismo directorio donde tengo hola.py
+- ¿Qué contiene?:
+- -B (observación): No se creó __pycache__/ (no se escriben .pyc).
+- -O (observación): Se crean .pyc optimizados; los assert no se evalúan.
+- -OO (observación): .pyc optimizados; además pueden eliminarse docstrings.
+
+----------------------------------------
+Sección F — `dis` (inspección de bytecode)
+- Comando que usé: python3 -c "import dis, hola; dis.dis(hola)"
+- Lo que observé (menciona 1–2 cosas que notaste): LOAD_FAST, BINARY_OP
+
+----------------------------------------
+Sección G — Conclusión corta
+- 1–3 líneas con tu reflexión principal: Con este ejercicio, me empiezo a dar cuenta de la esencia de python y el impacto que tiene en diversas aplicaciones. Más allá de identificar los elementos, funciones, etc. del lenguaje en sí, es importante conocer cómo se relaciona con la máquina, cuál es su papel en la comunicación humano-máquina y el valor agregado que esta herramienta trae al mundo de la programación.
