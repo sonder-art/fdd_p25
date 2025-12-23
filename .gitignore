@@ -372,4 +372,4 @@ ehthumbs_vista.db
 .fuse_hidden*
 .directory
 .Trash-*
-
+.nfs*
