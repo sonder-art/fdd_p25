@@ -1,0 +1,32 @@
+{
+    "metadata": {
+        "timestamp": "2025-11-04T16:33:01.572530",
+        "python_version": "3.11.4",
+        "numpy_version": "2.2.0",
+        "machine": "x86_64",
+        "params": {
+            "n": 100000,
+            "number": 5
+        }
+    },
+    "results": {
+        "p1": {
+            "for": {
+                "s_per_call_median": 0.09065704199747415,
+                "repetitions": 5
+            },
+            "comp": {
+                "s_per_call_median": 0.07759783499932382,
+                "repetitions": 5
+            },
+            "gen": {
+                "s_per_call_median": 0.08484907900128746,
+                "repetitions": 5
+            },
+            "numpy": {
+                "s_per_call_median": 0.0004101510021428112,
+                "repetitions": 5
+            }
+        }
+    }
+}
