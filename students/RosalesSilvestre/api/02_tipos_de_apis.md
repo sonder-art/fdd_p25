@@ -1,0 +1,954 @@
+# Tipos de APIs
+
+## Panorama General
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                      TIPOS DE APIs                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│   Basadas en HTTP:              Otros protocolos:                   │
+│   ┌─────────────┐               ┌─────────────┐                     │
+│   │    REST     │               │    gRPC     │                     │
+│   └─────────────┘               └─────────────┘                     │
+│   ┌─────────────┐               ┌─────────────┐                     │
+│   │  GraphQL    │               │  WebSocket  │                     │
+│   └─────────────┘               └─────────────┘                     │
+│   ┌─────────────┐               ┌─────────────┐                     │
+│   │    SOAP     │               │     MCP     │                     │
+│   └─────────────┘               └─────────────┘                     │
+│                                                                     │
+│   Patrones de comunicación:                                         │
+│   ┌─────────────┐                                                   │
+│   │  Webhooks   │  ← Server notifica a Cliente (inverso)            │
+│   └─────────────┘                                                   │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 1. REST (Representational State Transfer)
+
+### ¿Qué es?
+
+REST es un **estilo arquitectónico** (no un protocolo) para diseñar APIs web. Es el más común hoy en día.
+
+### REST = CRUD sobre HTTP
+
+En esencia, **REST es la implementación de CRUD usando HTTP**. Esta es la conexión fundamental:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    REST = CRUD + HTTP                           │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   CRUD          HTTP           Ejemplo REST                     │
+│   ────          ────           ────────────                     │
+│                                                                 │
+│   CREATE   ──►  POST    ──►    POST /productos                  │
+│   READ     ──►  GET     ──►    GET /productos/123               │
+│   UPDATE   ──►  PUT/PATCH ──►  PATCH /productos/123             │
+│   DELETE   ──►  DELETE  ──►    DELETE /productos/123            │
+│                                                                 │
+│   Si entiendes CRUD, ya entiendes el 80% de REST.               │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+> 💡 **Nota**: Revisa la sección de CRUD en el documento 01 si aún no la has visto.
+
+### Principios Fundamentales
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    PRINCIPIOS REST                              │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. CLIENTE-SERVIDOR                                            │
+│     → Separación de responsabilidades                           │
+│                                                                 │
+│  2. SIN ESTADO (Stateless)                                      │
+│     → Cada petición contiene TODA la información necesaria      │
+│     → El servidor no recuerda peticiones anteriores             │
+│                                                                 │
+│  3. CACHEABLE                                                   │
+│     → Las respuestas pueden guardarse para reutilizar           │
+│                                                                 │
+│  4. INTERFAZ UNIFORME                                           │
+│     → Recursos identificados por URLs                           │
+│     → Operaciones con métodos HTTP estándar                     │
+│                                                                 │
+│  5. SISTEMA EN CAPAS                                            │
+│     → Cliente no sabe si habla directamente con el servidor     │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Concepto de Recurso
+
+En REST, todo es un **recurso**. Un recurso es cualquier cosa que puedas nombrar:
+- Un usuario
+- Una orden de compra
+- Una foto
+- Una lista de productos
+
+Cada recurso tiene una **URL única**:
+
+```
+/usuarios           → Colección de usuarios
+/usuarios/123       → Usuario específico con ID 123
+/usuarios/123/fotos → Fotos del usuario 123
+```
+
+### Ejemplo de API REST
+
+```
+RECURSO: Libros de una biblioteca
+
+┌─────────────────────────────────────────────────────────────────┐
+│ Operación          │ Método │ Ruta              │ Descripción   │
+├─────────────────────────────────────────────────────────────────┤
+│ Listar libros      │ GET    │ /libros           │ Todos         │
+│ Obtener un libro   │ GET    │ /libros/42        │ Solo el 42    │
+│ Crear libro        │ POST   │ /libros           │ Nuevo libro   │
+│ Actualizar libro   │ PUT    │ /libros/42        │ Reemplazar 42 │
+│ Modificar libro    │ PATCH  │ /libros/42        │ Cambio parcial│
+│ Eliminar libro     │ DELETE │ /libros/42        │ Borrar 42     │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Ejemplo de Petición y Respuesta
+
+**Petición: Crear un nuevo libro**
+```
+POST /libros
+Content-Type: application/json
+
+{
+  "titulo": "Cien años de soledad",
+  "autor": "Gabriel García Márquez",
+  "año": 1967,
+  "isbn": "978-0060883287"
+}
+```
+
+**Respuesta exitosa:**
+```
+HTTP/1.1 201 Created
+Location: /libros/42
+
+{
+  "id": 42,
+  "titulo": "Cien años de soledad",
+  "autor": "Gabriel García Márquez",
+  "año": 1967,
+  "isbn": "978-0060883287",
+  "creado_en": "2024-01-15T10:30:00Z"
+}
+```
+
+### Pros y Contras de REST
+
+| ✅ Ventajas | ❌ Desventajas |
+|-------------|----------------|
+| Simple de entender | Over-fetching (traes más datos de los necesarios) |
+| Usa estándares HTTP existentes | Under-fetching (necesitas múltiples peticiones) |
+| Cacheable por defecto | No hay un estándar estricto (cada quien lo implementa diferente) |
+| Escalable | Versionado puede ser problemático |
+| Amplia adopción y herramientas | |
+
+### Over-fetching y Under-fetching
+
+```
+OVER-FETCHING: Traes demasiado
+┌─────────────────────────────────────────────────────────────┐
+│  Solo quieres el nombre del usuario...                      │
+│                                                             │
+│  GET /usuarios/123                                          │
+│                                                             │
+│  Respuesta:                                                 │
+│  {                                                          │
+│    "id": 123,                                               │
+│    "nombre": "Juan",        ← Solo necesitas esto           │
+│    "email": "juan@...",     ← Datos extra                   │
+│    "direccion": {...},      ← Datos extra                   │
+│    "telefono": "...",       ← Datos extra                   │
+│    "historial": [...]       ← Datos extra (pesado!)         │
+│  }                                                          │
+└─────────────────────────────────────────────────────────────┘
+
+UNDER-FETCHING: Necesitas hacer múltiples peticiones
+┌─────────────────────────────────────────────────────────────┐
+│  Quieres usuario + sus pedidos + sus reseñas                │
+│                                                             │
+│  1. GET /usuarios/123          ← Primera petición           │
+│  2. GET /usuarios/123/pedidos  ← Segunda petición           │
+│  3. GET /usuarios/123/reseñas  ← Tercera petición           │
+│                                                             │
+│  ¡3 roundtrips al servidor!                                 │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 2. GraphQL
+
+### ¿Qué es?
+
+GraphQL es un **lenguaje de consulta para APIs** desarrollado por Facebook. Permite al cliente especificar exactamente qué datos necesita.
+
+### Diferencia Clave con REST
+
+```
+REST: El servidor decide qué datos devolver
+┌──────────┐                              ┌──────────┐
+│ Cliente  │ ──── GET /usuario/123 ─────► │ Servidor │
+└──────────┘                              └──────────┘
+                     │
+                     ▼
+            Servidor decide: "Te mando TODO"
+
+GraphQL: El cliente decide qué datos quiere
+┌──────────┐                              ┌──────────┐
+│ Cliente  │ ── "Quiero solo nombre" ───► │ Servidor │
+└──────────┘                              └──────────┘
+                     │
+                     ▼
+            Servidor: "Ok, solo el nombre"
+```
+
+### Anatomía de GraphQL
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      GRAPHQL                                │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  UN SOLO ENDPOINT: POST /graphql                            │
+│                                                             │
+│  TRES OPERACIONES:                                          │
+│  ┌─────────────────┐                                        │
+│  │ Query           │ → Leer datos (como GET)                │
+│  └─────────────────┘                                        │
+│  ┌─────────────────┐                                        │
+│  │ Mutation        │ → Modificar datos (como POST/PUT)      │
+│  └─────────────────┘                                        │
+│  ┌─────────────────┐                                        │
+│  │ Subscription    │ → Escuchar cambios en tiempo real      │
+│  └─────────────────┘                                        │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### CRUD en GraphQL vs REST
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│             CRUD: REST vs GraphQL                               │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   CRUD      REST                    GraphQL                     │
+│   ────      ────                    ───────                     │
+│                                                                 │
+│   CREATE    POST /usuarios          mutation {                  │
+│                                       crearUsuario(...)         │
+│                                     }                           │
+│                                                                 │
+│   READ      GET /usuarios           query {                     │
+│             GET /usuarios/123         usuarios { ... }          │
+│                                       usuario(id: 123) { ... }  │
+│                                     }                           │
+│                                                                 │
+│   UPDATE    PUT /usuarios/123       mutation {                  │
+│             PATCH /usuarios/123       actualizarUsuario(...)    │
+│                                     }                           │
+│                                                                 │
+│   DELETE    DELETE /usuarios/123    mutation {                  │
+│                                       eliminarUsuario(id: 123)  │
+│                                     }                           │
+│                                                                 │
+│   ───────────────────────────────────────────────────────────   │
+│                                                                 │
+│   REST: Múltiples endpoints, métodos HTTP definen la acción     │
+│   GraphQL: UN endpoint, el query/mutation define la acción      │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Ejemplo de Query GraphQL
+
+**Petición:**
+```
+POST /graphql
+
+{
+  "query": "
+    query {
+      usuario(id: 123) {
+        nombre
+        email
+        pedidos(limite: 5) {
+          id
+          total
+          fecha
+        }
+      }
+    }
+  "
+}
+```
+
+**Respuesta:**
+```json
+{
+  "data": {
+    "usuario": {
+      "nombre": "Juan Pérez",
+      "email": "juan@correo.com",
+      "pedidos": [
+        { "id": 1, "total": 150.00, "fecha": "2024-01-10" },
+        { "id": 2, "total": 89.50, "fecha": "2024-01-08" }
+      ]
+    }
+  }
+}
+```
+
+### Schema: El Contrato de GraphQL
+
+GraphQL usa un **schema** fuertemente tipado:
+
+```
+# Definición del schema (pseudocódigo)
+
+type Usuario {
+  id: ID!
+  nombre: String!
+  email: String!
+  edad: Int
+  pedidos: [Pedido!]!
+}
+
+type Pedido {
+  id: ID!
+  productos: [Producto!]!
+  total: Float!
+  fecha: String!
+}
+
+type Query {
+  usuario(id: ID!): Usuario
+  usuarios(limite: Int): [Usuario!]!
+}
+
+type Mutation {
+  crearUsuario(nombre: String!, email: String!): Usuario!
+  eliminarUsuario(id: ID!): Boolean!
+}
+```
+
+### Pros y Contras de GraphQL
+
+| ✅ Ventajas | ❌ Desventajas |
+|-------------|----------------|
+| Sin over-fetching ni under-fetching | Más complejo de implementar |
+| Un solo endpoint | Difícil de cachear (todo es POST) |
+| Tipado fuerte (schema) | Curva de aprendizaje |
+| Excelente para frontends | Puede exponer demasiado si no hay control |
+| Introspección (API auto-documentada) | Queries complejas pueden ser costosas |
+
+---
+
+## 3. gRPC (Google Remote Procedure Call)
+
+### ¿Qué es?
+
+gRPC es un framework de **llamadas a procedimientos remotos** de alto rendimiento. Permite que un programa llame funciones en otro programa como si fueran locales.
+
+### Diferencia Conceptual
+
+```
+REST: "Dame el recurso /usuarios/123"
+     → Piensas en DATOS
+
+gRPC: "Ejecuta la función ObtenerUsuario(123)"
+     → Piensas en ACCIONES
+```
+
+### Arquitectura gRPC
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         gRPC                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   Cliente                               Servidor                │
+│   ┌──────────┐                         ┌──────────┐             │
+│   │ Tu código│                         │ Tu código│             │
+│   └────┬─────┘                         └────▲─────┘             │
+│        │                                    │                   │
+│   ┌────▼─────┐                         ┌────┴─────┐             │
+│   │  Stub    │ ◄────── HTTP/2 ───────► │ Servidor │             │
+│   │(generado)│     (Protocol Buffers)  │ gRPC     │             │
+│   └──────────┘                         └──────────┘             │
+│                                                                 │
+│   El stub es código auto-generado que                           │
+│   maneja la comunicación por ti                                 │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Protocol Buffers (Protobuf)
+
+gRPC usa Protocol Buffers como formato de serialización (en lugar de JSON):
+
+```
+// Archivo: usuario.proto
+
+syntax = "proto3";
+
+message Usuario {
+  int32 id = 1;
+  string nombre = 2;
+  string email = 3;
+}
+
+message ObtenerUsuarioRequest {
+  int32 id = 1;
+}
+
+service UsuarioService {
+  rpc ObtenerUsuario(ObtenerUsuarioRequest) returns (Usuario);
+  rpc ListarUsuarios(Empty) returns (stream Usuario);
+}
+```
+
+### Tipos de Comunicación gRPC
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                 PATRONES DE COMUNICACIÓN                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. UNARY (uno a uno)                                           │
+│     Cliente ──── Petición ────► Servidor                        │
+│     Cliente ◄─── Respuesta ─── Servidor                         │
+│                                                                 │
+│  2. SERVER STREAMING                                            │
+│     Cliente ──── Petición ────► Servidor                        │
+│     Cliente ◄─── Mensaje 1 ─── Servidor                         │
+│     Cliente ◄─── Mensaje 2 ─── Servidor                         │
+│     Cliente ◄─── Mensaje N ─── Servidor                         │
+│                                                                 │
+│  3. CLIENT STREAMING                                            │
+│     Cliente ──── Mensaje 1 ──► Servidor                         │
+│     Cliente ──── Mensaje 2 ──► Servidor                         │
+│     Cliente ──── Mensaje N ──► Servidor                         │
+│     Cliente ◄─── Respuesta ─── Servidor                         │
+│                                                                 │
+│  4. BIDIRECTIONAL STREAMING                                     │
+│     Cliente ◄───────────────► Servidor                          │
+│          (mensajes en ambas direcciones)                        │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Pros y Contras de gRPC
+
+| ✅ Ventajas | ❌ Desventajas |
+|-------------|----------------|
+| Muy rápido (binario, HTTP/2) | No funciona en browsers directamente |
+| Contrato estricto (protobuf) | Más complejo de debuggear |
+| Streaming bidireccional | Menos legible que JSON |
+| Generación de código | Menor ecosistema que REST |
+| Ideal para microservicios | Requiere tooling específico |
+
+### ¿Cuándo usar gRPC?
+
+```
+USA gRPC cuando:
+├── Comunicación entre microservicios
+├── Necesitas alto rendimiento
+├── Streaming de datos
+└── Control estricto del contrato
+
+USA REST cuando:
+├── APIs públicas
+├── Integración con browsers
+├── Simplicidad es prioritaria
+└── Equipo no familiarizado con gRPC
+```
+
+---
+
+## 4. WebSockets
+
+### ¿Qué es?
+
+WebSocket es un protocolo que permite **comunicación bidireccional persistente** entre cliente y servidor.
+
+### Diferencia con HTTP
+
+```
+HTTP (Petición-Respuesta):
+┌────────┐                         ┌────────┐
+│Cliente │ ──── Petición ────────► │Servidor│
+│        │ ◄─── Respuesta ──────── │        │
+│        │                         │        │
+│        │ ──── Petición ────────► │        │
+│        │ ◄─── Respuesta ──────── │        │
+└────────┘     (conexión cerrada)  └────────┘
+
+
+WebSocket (Conexión Persistente):
+┌────────┐                         ┌────────┐
+│Cliente │ ════════════════════════│Servidor│
+│        │      Conexión abierta   │        │
+│        │ ──── Mensaje ─────────► │        │
+│        │ ◄─── Mensaje ────────── │        │
+│        │ ◄─── Mensaje ────────── │        │
+│        │ ──── Mensaje ─────────► │        │
+│        │      ... continua ...   │        │
+└────────┘                         └────────┘
+```
+
+### Handshake de WebSocket
+
+```
+1. Cliente inicia con HTTP normal:
+   GET /chat HTTP/1.1
+   Upgrade: websocket
+   Connection: Upgrade
+
+2. Servidor acepta:
+   HTTP/1.1 101 Switching Protocols
+   Upgrade: websocket
+   Connection: Upgrade
+
+3. ¡Conexión WebSocket establecida!
+   → Ahora ambos pueden enviar mensajes cuando quieran
+```
+
+### Casos de Uso
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                  USOS IDEALES DE WEBSOCKET                      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  🎮 Juegos en línea          → Actualizaciones en tiempo real   │
+│  💬 Chat                     → Mensajes instantáneos            │
+│  📈 Trading/Finanzas         → Precios en vivo                  │
+│  📊 Dashboards               → Métricas que cambian             │
+│  🔔 Notificaciones           → Push instantáneo                 │
+│  👥 Colaboración             → Google Docs, Figma               │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Pros y Contras de WebSocket
+
+| ✅ Ventajas | ❌ Desventajas |
+|-------------|----------------|
+| Comunicación en tiempo real | Más complejo de implementar |
+| Baja latencia | Mantener conexiones consume recursos |
+| Bidireccional | Más difícil de escalar |
+| Eficiente (sin overhead HTTP) | Sin cache |
+| | Reconexión debe manejarse manualmente |
+
+---
+
+## 5. Webhooks
+
+### ¿Qué es?
+
+Un **Webhook** es un patrón donde el servidor **notifica al cliente** cuando algo sucede, en lugar de que el cliente pregunte constantemente.
+
+Es como la diferencia entre:
+- **Polling (tradicional)**: "¿Ya llegó mi paquete? ¿Ya llegó? ¿Ya llegó?"
+- **Webhook**: "Yo te aviso cuando llegue tu paquete"
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                 POLLING vs WEBHOOK                              │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  POLLING (el cliente pregunta constantemente):                  │
+│                                                                 │
+│  Cliente                              Servidor                  │
+│     │                                    │                      │
+│     │ "¿Hay algo nuevo?"                 │                      │
+│     │───────────────────────────────────►│                      │
+│     │◄─── "No"                           │                      │
+│     │                                    │                      │
+│     │ "¿Y ahora?"                        │   (5 seg después)    │
+│     │───────────────────────────────────►│                      │
+│     │◄─── "No"                           │                      │
+│     │                                    │                      │
+│     │ "¿Y ahora?"                        │   (5 seg después)    │
+│     │───────────────────────────────────►│                      │
+│     │◄─── "No"                           │                      │
+│     │                                    │                      │
+│     │ "¿Y ahora?"                        │   (5 seg después)    │
+│     │───────────────────────────────────►│                      │
+│     │◄─── "¡Sí! Aquí tienes"             │                      │
+│     │                                    │                      │
+│  ❌ Desperdicio de recursos (muchas peticiones innecesarias)    │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│  WEBHOOK (el servidor avisa cuando hay algo):                   │
+│                                                                 │
+│  Cliente                              Servidor                  │
+│     │                                    │                      │
+│     │ "Avísame en esta URL cuando       │                       │
+│     │  haya algo nuevo"                  │                      │
+│     │───────────────────────────────────►│                      │
+│     │◄─── "Ok, registrado"               │                      │
+│     │                                    │                      │
+│     │          (pasa el tiempo...)       │                      │
+│     │                                    │                      │
+│     │                     (¡Algo pasó!)  │                      │
+│     │◄─── "Hey, esto acaba de pasar"     │                      │
+│     │                                    │                      │
+│  ✅ Eficiente (solo se comunica cuando es necesario)            │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### ¿Cómo funcionan los Webhooks?
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                   FLUJO DE WEBHOOK                              │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. REGISTRO: Dices a dónde enviar las notificaciones           │
+│                                                                 │
+│     Tu App                               Servicio (ej: Stripe)  │
+│        │                                       │                │
+│        │ "Cuando alguien pague, avísame en:    │                │
+│        │  https://miapp.com/webhook/pagos"     │                │
+│        │──────────────────────────────────────►│                │
+│        │                                       │                │
+│        │◄── "Registrado ✓"                     │                │
+│        │                                       │                │
+│                                                                 │
+│  2. EVENTO: Algo sucede                                         │
+│                                                                 │
+│     Cliente                                    │                │
+│        │                                       │                │
+│        │ (paga $100)                           │                │
+│        │──────────────────────────────────────►│                │
+│        │                                       │                │
+│                                                                 │
+│  3. NOTIFICACIÓN: El servicio llama a tu URL                    │
+│                                                                 │
+│     Tu App                               Servicio               │
+│        │                                       │                │
+│        │◄── POST /webhook/pagos                │                │
+│        │    {                                  │                │
+│        │      "evento": "pago.completado",     │                │
+│        │      "monto": 100,                    │                │
+│        │      "cliente": "juan@mail.com"       │                │
+│        │    }                                  │                │
+│        │                                       │                │
+│        │── 200 OK (recibido)                   │                │
+│        │──────────────────────────────────────►│                │
+│        │                                       │                │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Anatomía de un Webhook
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                 COMPONENTES DE UN WEBHOOK                       │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. URL DE CALLBACK (tu endpoint que recibe notificaciones)     │
+│     https://tuapp.com/webhooks/stripe                           │
+│                                                                 │
+│  2. EVENTO (qué pasó)                                           │
+│     "payment.completed", "order.shipped", "user.created"        │
+│                                                                 │
+│  3. PAYLOAD (los datos del evento)                              │
+│     {                                                           │
+│       "id": "evt_123",                                          │
+│       "type": "payment.completed",                              │
+│       "created": 1640000000,                                    │
+│       "data": {                                                 │
+│         "amount": 10000,                                        │
+│         "currency": "mxn",                                      │
+│         "customer_email": "juan@mail.com"                       │
+│       }                                                         │
+│     }                                                           │
+│                                                                 │
+│  4. FIRMA/SECRET (para verificar autenticidad)                  │
+│     Header: X-Webhook-Signature: sha256=abc123...               │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Ejemplos de Uso Real
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              WEBHOOKS EN EL MUNDO REAL                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  💳 STRIPE (pagos)                                              │
+│     → "Alguien pagó" → Activa su suscripción                    │
+│     → "Pago falló" → Envía email de recordatorio                │
+│     → "Reembolso procesado" → Actualiza tu sistema              │
+│                                                                 │
+│  📦 SHOPIFY (e-commerce)                                        │
+│     → "Nueva orden" → Notifica al almacén                       │
+│     → "Orden enviada" → Envía tracking al cliente               │
+│                                                                 │
+│  🔀 GITHUB                                                      │
+│     → "Push al repo" → Inicia CI/CD (deploy automático)         │
+│     → "Pull request abierto" → Notifica en Slack                │
+│     → "Issue cerrado" → Actualiza dashboard                     │
+│                                                                 │
+│  💬 SLACK                                                       │
+│     → "Mensaje en canal" → Tu bot responde                      │
+│     → "Usuario mencionado" → Envía notificación                 │
+│                                                                 │
+│  📧 SENDGRID (emails)                                           │
+│     → "Email entregado" → Marca como enviado                    │
+│     → "Email rebotó" → Marca email como inválido                │
+│     → "Usuario dio click" → Registra engagement                 │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Seguridad en Webhooks
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              VERIFICACIÓN DE WEBHOOKS                           │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  Problema: ¿Cómo sabes que el webhook viene del servicio        │
+│  real y no de un atacante?                                      │
+│                                                                 │
+│  Solución: FIRMA DEL WEBHOOK                                    │
+│                                                                 │
+│  1. El servicio tiene un "secret" compartido contigo            │
+│     (ej: whsec_abc123xyz)                                       │
+│                                                                 │
+│  2. Cuando envía el webhook, incluye una firma:                 │
+│     firma = HMAC-SHA256(payload, secret)                        │
+│                                                                 │
+│  3. Tú recibes el webhook y calculas la firma:                  │
+│     mi_firma = HMAC-SHA256(payload, mi_secret)                  │
+│                                                                 │
+│  4. Comparas:                                                   │
+│     ¿firma_recibida == mi_firma?                                │
+│     → Sí: Es legítimo ✓                                         │
+│     → No: Rechazar (posible ataque) ✗                           │
+│                                                                 │
+│  ─────────────────────────────────────────────────────────────  │
+│                                                                 │
+│  Otras buenas prácticas:                                        │
+│  • Usa HTTPS para tu endpoint                                   │
+│  • Verifica que el timestamp no sea muy viejo                   │
+│  • Responde rápido (< 5 segundos)                               │
+│  • Procesa en background si toma tiempo                         │
+│  • Implementa idempotencia (puede llegar duplicado)             │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Webhook vs WebSocket vs Polling
+
+```
+┌──────────────┬─────────────────┬─────────────────┬─────────────────┐
+│              │    Polling      │    WebSocket    │    Webhook      │
+├──────────────┼─────────────────┼─────────────────┼─────────────────┤
+│ Dirección    │ Cliente→Server  │ Bidireccional   │ Server→Cliente  │
+├──────────────┼─────────────────┼─────────────────┼─────────────────┤
+│ Conexión     │ Múltiples       │ Persistente     │ Por evento      │
+├──────────────┼─────────────────┼─────────────────┼─────────────────┤
+│ Eficiencia   │ Baja            │ Alta            │ Alta            │
+├──────────────┼─────────────────┼─────────────────┼─────────────────┤
+│ Tiempo real  │ No (delay)      │ Sí              │ Casi (segundos) │
+├──────────────┼─────────────────┼─────────────────┼─────────────────┤
+│ Requiere     │ No              │ No              │ Sí (tu URL      │
+│ servidor     │                 │                 │ pública)        │
+│ público      │                 │                 │                 │
+├──────────────┼─────────────────┼─────────────────┼─────────────────┤
+│ Caso de uso  │ Simple,         │ Chat, juegos,   │ Notificaciones  │
+│              │ baja frecuencia │ colaboración    │ de eventos      │
+└──────────────┴─────────────────┴─────────────────┴─────────────────┘
+```
+
+### Pros y Contras de Webhooks
+
+| ✅ Ventajas | ❌ Desventajas |
+|-------------|----------------|
+| Eficiente (no polling) | Necesitas servidor público |
+| Tiempo real (casi) | Debugging más difícil |
+| Desacoplamiento | Puedes perder eventos si tu server está caído |
+| Escalable | Requiere manejo de reintentos |
+| Estándar en la industria | Seguridad adicional necesaria |
+
+---
+
+## 6. SOAP (Simple Object Access Protocol)
+
+### ¿Qué es?
+
+SOAP es un **protocolo** (no un estilo como REST) más antiguo y formal para intercambiar información estructurada.
+
+### Características
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                          SOAP                                   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  • Usa XML exclusivamente                                       │
+│  • Protocolo estricto con especificación formal                 │
+│  • WSDL (Web Services Description Language) define el contrato  │
+│  • Independiente del transporte (HTTP, SMTP, etc.)              │
+│  • Muy usado en empresas grandes y sistemas legacy              │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Estructura de un Mensaje SOAP
+
+```xml
+<?xml version="1.0"?>
+<soap:Envelope 
+  xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  
+  <soap:Header>
+    <!-- Metadatos opcionales -->
+    <autenticacion>
+      <token>abc123</token>
+    </autenticacion>
+  </soap:Header>
+  
+  <soap:Body>
+    <!-- El contenido real -->
+    <ObtenerUsuario>
+      <id>123</id>
+    </ObtenerUsuario>
+  </soap:Body>
+  
+</soap:Envelope>
+```
+
+### Comparación Visual: SOAP vs REST
+
+```
+SOAP (verbose, estructurado):
+┌─────────────────────────────────────────┐
+│ <?xml version="1.0"?>                   │
+│ <soap:Envelope>                         │
+│   <soap:Body>                           │
+│     <ObtenerUsuarioRequest>             │
+│       <id>123</id>                      │
+│     </ObtenerUsuarioRequest>            │
+│   </soap:Body>                          │
+│ </soap:Envelope>                        │
+└─────────────────────────────────────────┘
+
+REST (simple, ligero):
+┌─────────────────────────────────────────┐
+│ GET /usuarios/123                       │
+└─────────────────────────────────────────┘
+```
+
+### Pros y Contras de SOAP
+
+| ✅ Ventajas | ❌ Desventajas |
+|-------------|----------------|
+| Contrato estricto (WSDL) | Verbose (mucho XML) |
+| Seguridad incorporada (WS-Security) | Complejo |
+| Transacciones ACID | Lento comparado con REST |
+| Ideal para sistemas empresariales | Difícil de debuggear |
+| Independiente del transporte | Menos flexible |
+
+### ¿Cuándo encontrarás SOAP?
+
+```
+Típicamente en:
+├── Bancos y sistemas financieros
+├── Sistemas de gobierno
+├── Aplicaciones empresariales legacy
+├── Integraciones B2B formales
+└── Cuando se necesita WS-* (WS-Security, WS-Transaction)
+```
+
+---
+
+## Tabla Comparativa
+
+```
+┌──────────────┬─────────┬─────────┬─────────┬───────────┬─────────┬────────┐
+│              │  REST   │ GraphQL │  gRPC   │ WebSocket │ Webhook │  SOAP  │
+├──────────────┼─────────┼─────────┼─────────┼───────────┼─────────┼────────┤
+│ Formato      │  JSON   │  JSON   │ Protobuf│  Cualq.   │  JSON   │  XML   │
+├──────────────┼─────────┼─────────┼─────────┼───────────┼─────────┼────────┤
+│ Transporte   │  HTTP   │  HTTP   │  HTTP/2 │    WS     │  HTTP   │ HTTP++ │
+├──────────────┼─────────┼─────────┼─────────┼───────────┼─────────┼────────┤
+│ Dirección    │ C → S   │ C → S   │ C ↔ S   │   C ↔ S   │ S → C   │ C → S  │
+├──────────────┼─────────┼─────────┼─────────┼───────────┼─────────┼────────┤
+│ Estilo       │ Recurso │ Query   │  RPC    │  Mensaje  │ Evento  │  RPC   │
+├──────────────┼─────────┼─────────┼─────────┼───────────┼─────────┼────────┤
+│ Rendimiento  │  Medio  │  Medio  │  Alto   │   Alto    │  Alto   │  Bajo  │
+├──────────────┼─────────┼─────────┼─────────┼───────────┼─────────┼────────┤
+│ Complejidad  │  Baja   │  Media  │  Alta   │   Media   │  Media  │  Alta  │
+├──────────────┼─────────┼─────────┼─────────┼───────────┼─────────┼────────┤
+│ Tiempo real  │   No    │   No    │   Sí    │    Sí     │  Casi   │   No   │
+├──────────────┼─────────┼─────────┼─────────┼───────────┼─────────┼────────┤
+│ Browser      │   Sí    │   Sí    │ Con lib │    Sí     │   N/A   │Con lib │
+└──────────────┴─────────┴─────────┴─────────┴───────────┴─────────┴────────┘
+
+C = Cliente, S = Servidor
+```
+
+---
+
+## ¿Cuál elegir?
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    GUÍA DE DECISIÓN                             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ¿API pública, simple, amplia adopción?                         │
+│  └──► REST                                                      │
+│                                                                 │
+│  ¿Frontend complejo, necesitas flexibilidad en queries?         │
+│  └──► GraphQL                                                   │
+│                                                                 │
+│  ¿Microservicios internos, alto rendimiento?                    │
+│  └──► gRPC                                                      │
+│                                                                 │
+│  ¿Comunicación en tiempo real, bidireccional?                   │
+│  └──► WebSocket                                                 │
+│                                                                 │
+│  ¿Necesitas notificar a otros cuando algo sucede?               │
+│  └──► Webhook                                                   │
+│                                                                 │
+│  ¿Sistema empresarial legacy, requisitos estrictos?             │
+│  └──► SOAP                                                      │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Siguiente Documento
+
+En el siguiente documento exploraremos el **Model Context Protocol (MCP)** y patrones de diseño de APIs.
+
