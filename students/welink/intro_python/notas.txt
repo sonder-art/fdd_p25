@@ -1,0 +1,26 @@
+Sección A: Comando usado
+python3
+
+Sección B: Definición de REPL
+REPL (Read-Eval-Print Loop) es un entorno interactivo donde Python lee tu código, lo evalúa inmediatamente, imprime el resultado y espera la siguiente instrucción. Es útil para pruebas rápidas.
+
+Sección C: Contenido de hola.py y ejecución
+Mi script hola.py contiene un print de saludo, una operación matemática guardada en variable e impresa, y una función simple llamada e impresa. Al ejecutarlo, vi los mensajes y resultados esperados en la terminal.
+
+Sección D: Banderas
+-h: Mostró la ayuda general y las opciones de Python.
+-V: Python 3.9.2 (Simulado)
+-c: Ejecutó código pasado como texto y mostró la salida.
+-i: Ejecutó el script y me dejó en REPL con variables/funciones cargadas.
+-m this: Imprimió el Zen de Python.
+-m antigravity: Abrió una tira cómica de XKCD en el navegador (o intentó hacerlo).
+
+Sección E: __pycache__ y .pyc
+Aparece después de importar un módulo o ejecutar un script (dependiendo de la implementación). Dentro hay archivos .pyc que son bytecode compilado.
+-B: No se creó __pycache__/ (no se escriben .pyc).
+-O: Se crean .pyc optimizados; los assert no se evalúan.
+-OO: .pyc optimizados; además pueden eliminarse docstrings.
+
+Sección F: dis
+Comando: python3 -c "import dis, hola; dis.dis(hola)"
+Vi instrucciones de bytecode como LOAD_CONST, LOAD_NAME, CALL_FUNCTION, POP_TOP.
